@@ -64,7 +64,7 @@ const App = () => {
   const initalText = 'Click me!'
   const [ active, setActive ] = useState(false)
 
-  const handleClick = () => {
+  const handleOk = () => {
     setActive(!active) 
   }
 
@@ -152,6 +152,9 @@ const App = () => {
       dataIndex: 'Permisos',
       width: '40%',
       editable: true,
+      render: () => <Input type='checkbox'>1</Input>
+      
+
     },
     
     {
