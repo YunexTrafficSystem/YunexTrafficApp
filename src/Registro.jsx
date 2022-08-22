@@ -1,56 +1,140 @@
 import {
+  Avatar,
   Button,
-  Paper,
-  Grid as a,
+  FormControlLabel,
+  Checkbox,
+  Box,
+  Grid,
   TextField,
+  Typography,
   Select,
-  MenuItem,
   FormControl,
+  MenuItem,
   InputLabel,
-  Stack,
-  Grid, 
-  Link
+  Container,
+  Link,
 } from "@mui/material";
 
-function Registro() {
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
+import CssBaseline from '@mui/material/CssBaseline'
+import { createTheme, ThemeProvider } from '@mui/material/styles'
+
+function Copyright(props) {
   return (
-    <Grid 
-      container
-      direction="row"
-      justifyContent="center"
-      alignItems="center"
-      md={12}
-    >
-        <Paper >
-            <Stack spacing={2} sx={{ minWidth: 350, maxHeight: "80vh", padding: 2}}>
-              <TextField label="Nombre Completo" variant="filled" required />
-              <TextField label="Usuario" variant="filled" required />
-              <TextField label="Correo" variant="filled" required />
-              <TextField
-                label="Contraseña"
-                type="password"
-                variant="filled"
-                autoComplete="current-password"
-                required
-              />
-              <FormControl variant="filled" sx={{ m: 1 }}>
-                <InputLabel>Rol</InputLabel>
-                <Select>
-                  <MenuItem value="1">Operadores</MenuItem>
-                  <MenuItem value="2">Usuarios</MenuItem>
-                  <MenuItem value="1">Invitados</MenuItem>
-                  <MenuItem value="2">Externos</MenuItem>
-                </Select>
-                <Link href="https://www.facebook.com/" underline="none">
-                    {'Ya tengo cuenta'}
-                </Link>
-              </FormControl>
-              <Button variant="contained">Registrar</Button>
-            </Stack>
-        </Paper>
-    </Grid>
-  )
+    <Typography variant="body2" color="text.secondary" align="center" {...props}>
+      {'Copyright © '}
+      <Link color="inherit" href="https://mui.com/">
+        Yunex Traffic
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
 }
 
-export default Registro
- 
+const theme = createTheme();
+
+export default function SignUp() {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    console.log({
+      email: data.get('email'),
+      password: data.get('password'),
+    });
+  };
+
+  return (
+    <ThemeProvider theme={theme}>
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <Box
+          sx={{
+            marginTop: 8,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Registro
+          </Typography>
+          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  autoComplete="given-name"
+                  name="firstName"
+                  required
+                  fullWidth
+                  id="firstName"
+                  label="Nombre Completo"
+                  autoFocus
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+              <FormControl sx={{ minWidth: '100%' }} required>
+                <InputLabel id="demo-simple-select-helper-label">Rol</InputLabel>
+                <Select
+                  label="Rol"
+                >
+                  <MenuItem value={10}>Operadores</MenuItem>
+                  <MenuItem value={20}>Usuarios</MenuItem>
+                  <MenuItem value={30}>Externos</MenuItem>
+                  <MenuItem value={40}>Invitados</MenuItem>
+                </Select>
+              </FormControl > 
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  id="email"
+                  label="Correo Electronico"
+                  name="email"
+                  autoComplete="email"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="password"
+                  label="Contraseña"
+                  type="password"
+                  id="password"
+                  autoComplete="new-password"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <FormControlLabel
+                  control={<Checkbox value="allowExtraEmails" color="primary" />}
+                  label="Acepta terminos y condiciones."
+                />
+              </Grid>
+            </Grid>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Sign Up
+            </Button>
+            <Grid container justifyContent="flex-end">
+              <Grid item>
+                <Link href="InicioSesion.jsx" variant="body2">
+                  Ya tengo cuenta
+                </Link>
+              </Grid>
+            </Grid>
+          </Box>
+        </Box>
+        <Copyright sx={{ mt: 5 }} />
+      </Container>
+    </ThemeProvider>
+  );
+}

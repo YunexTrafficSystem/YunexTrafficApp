@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 
 
-const pages = [ "Newsroom", "Portafolio", "Worldwide", "Company"];
+const pages = [ "Noticias", "Portafolio", "Resto del Mundo", "Compañia"];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -40,12 +40,12 @@ const ResponsiveAppBar = () => {
               display: { xs: "none", md: "flex" },
               fontFamily: "monospace",
               fontWeight: 700,
-              letterSpacing: ".3rem",
+              letterSpacing: ".0rem",
               color: "inherit",
               textDecoration: "none"
             }}
           >
-            Yunex Traffic
+            TYTS
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: "none" } }}>
@@ -95,12 +95,12 @@ const ResponsiveAppBar = () => {
               flexGrow: 1,
               fontFamily: "monospace",
               fontWeight: 700,
-              letterSpacing: ".3rem",
+              letterSpacing: 0,
               color: "inherit",
               textDecoration: "none"
             }}
           >
-            Yunex Traffic
+            TYTS
           </Typography>
           <Box sx={{ flexGrow: 1, display: { md: 'flex', flexDirection:'row-reverse', xs: 'none'} }}>
             {pages.map((page) => (
