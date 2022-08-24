@@ -27,3 +27,4 @@ dist-ssr
 .yarnrc.yml
 package-lock.json
 .yarn*
+.yarn

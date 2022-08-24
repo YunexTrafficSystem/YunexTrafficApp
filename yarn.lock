@@ -3409,6 +3409,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-hook-form-mui@npm:^5.5.1":
+  version: 5.5.1
+  resolution: "react-hook-form-mui@npm:5.5.1"
+  peerDependencies:
+    "@mui/icons-material": ">= 5.x <6"
+    "@mui/material": ">= 5.x <6"
+    "@mui/x-date-pickers": ">=5.0.0-alpha.6 <6"
+    react: ">=17 <19"
+    react-hook-form: ">=7.33.1"
+  peerDependenciesMeta:
+    "@mui/icons-material":
+      optional: true
+    "@mui/x-date-pickers":
+      optional: true
+  checksum: f1bd9d403cae455c1a354fb9a890109728daf693c82081f27f7cb46fda6e9db84644bcb065c12f6a84fa4d0492d99b6dbbdc8611726cd142f93413855ddc45d5
+  languageName: node
+  linkType: hard
+
 "react-hook-form@npm:^7.34.2":
   version: 7.34.2
   resolution: "react-hook-form@npm:7.34.2"
@@ -4159,6 +4177,7 @@ __metadata:
     react: ^18.2.0
     react-dom: ^18.2.0
     react-hook-form: ^7.34.2
+    react-hook-form-mui: ^5.5.1
     styled-components: ^5.3.5
     vite: ^3.0.7
   languageName: unknown
