@@ -1243,6 +1243,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"capitalize@npm:^2.0.4":
+  version: 2.0.4
+  resolution: "capitalize@npm:2.0.4"
+  checksum: c9b54de8959b29d92fa21beb026924e1779dcecb4827736722c88b18320186567479ba9ddc8bee9d56b78e0b4849ebb3272c318dbc08d8242231e49bdbe2463e
+  languageName: node
+  linkType: hard
+
 "chalk@npm:^2.0.0":
   version: 2.4.2
   resolution: "chalk@npm:2.4.2"
@@ -4141,12 +4148,14 @@ __metadata:
     "@types/react": ^18.0.17
     "@types/react-dom": ^18.0.6
     "@vitejs/plugin-react": ^2.0.1
+    capitalize: ^2.0.4
     eslint: ^8.0.1
     eslint-config-standard: latest
     eslint-plugin-import: ^2.25.2
     eslint-plugin-n: ^15.0.0
     eslint-plugin-promise: ^6.0.0
     eslint-plugin-react: latest
+    prop-types: ^15.8.1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-hook-form: ^7.34.2

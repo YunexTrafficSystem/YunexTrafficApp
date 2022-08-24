@@ -1,6 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Registro from './Registro'
+import Registro from './SignUp'
+import Login from './Login'
+import Table from './Table'
+import Forgot from './Forgot'
 import Nav from './Nav'
 import Footer from './Footer'
 import {ThemeProvider,  createTheme } from '@mui/material/styles'
@@ -26,7 +29,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
    <ThemeProvider theme={theme}>
       <Nav />
-      <Registro />
+      <Table />
     </ThemeProvider> 
   </React.StrictMode>
 )
