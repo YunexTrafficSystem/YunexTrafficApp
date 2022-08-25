@@ -28,18 +28,18 @@ const theme = createTheme({
     }
   }
 })
-function Layout(){
-  return(
-    <Router>
-      <Route></Route>
-    </Router>
-  )
-}
+
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
    <ThemeProvider theme={theme}>
-      <Nav />
-      <Login />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="Forgot" element={<Forgot />} />
+          <Route path="SignUp" element={<SignUp />} />
+        </Routes>
+      </Router>      
     </ThemeProvider> 
   </React.StrictMode>
 )

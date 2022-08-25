@@ -86,33 +86,21 @@ export default function SignIn() {
           >
             Ingresar
           </Button>
-          <Router>
-            <Grid container>
-              <Grid item xs>
-                <Link variant="body2"  to="/forgot" underline="none" component={RouterLink}>
-                  Olvide mi contraseña
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link variant="body2" to="/forgot" underline="none" component={RouterLink} >
-                  No tengo cuenta
-                </Link>
-              </Grid>
+          <Grid container>
+            <Grid item xs>
+              <Link variant="body2"  to="forgot" underline="none" component={RouterLink}>
+                Olvide mi contraseña
+              </Link>
             </Grid>
-          </Router>
+            <Grid item>
+              <Link variant="body2" to="singup" underline="none" component={RouterLink} >
+                No tengo cuenta
+              </Link>
+            </Grid>
+          </Grid>
         </Box>
       </Box>
       <Copyright sx={{ mt: 8, mb: 4 }} />
     </Container>
-  )
-}
-
-// Función encargada de renderizar las rutas
-function Layout() {
-  return (
-    <Routes>
-      <Route path="/" element={< SignIn />}>
-      </Route>
-    </Routes>
   )
 }

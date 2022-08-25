@@ -15,6 +15,7 @@ import {
   Link,
 } from "@mui/material";
 
+import { Link as RouterLink } from 'react-router-dom'
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
 import CssBaseline from '@mui/material/CssBaseline'
 import { useState } from 'react'
@@ -134,7 +135,7 @@ export default function SignUp() {
           </Button>
           <Grid container justifyContent="flex-end">
             <Grid item>
-              <Link href="InicioSesion.jsx" variant="body2">
+              <Link variant="body2" underline="none" component={RouterLink}>
                 Ya tengo cuenta
               </Link>
             </Grid>
