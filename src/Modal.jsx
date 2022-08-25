@@ -1,19 +1,25 @@
 import { useState } from 'react';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
+import {
+  Button,
+  FormLabel,
+  TextField,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  IconButton,
+  Switch,
+  FormControlLabel
+} from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit'
 import DeleteIcon from '@mui/icons-material/Delete'
-import IconButton from '@mui/material/IconButton'
-import {FormControl, InputLabel, Select, MenuItem} from '@mui/material'
-import Checkbox from '@mui/material/Checkbox'
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Switch from '@mui/material/Switch'
+import {
+  FormContainer,
+  TextFieldElement,
+  SelectElement,
+  CheckboxButtonGroup,
+} from 'react-hook-form-mui'
 
 const label = { inputProps: { 'aria-label': 'Switch demo' } };
 export default function FormDialog() {
@@ -35,47 +41,71 @@ export default function FormDialog() {
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Editar Usuario</DialogTitle>
         <DialogContent>
-          <DialogContentText>   
-            Edite, active permisos y habilite usuario 
-          </DialogContentText>
-            <TextField
-                autoFocus
-                margin="dense"
-                id="name"
-                label="Nombre completo"
-                type="email"
-                fullWidth
-                variant="standard"
+          <FormContainer
+            defaultValues={{name: ''}}
+            onSuccess={data => console.log(data)}
+          >
+            <FormLabel component="legend">Datos básicos</FormLabel>
+            <TextFieldElement
+              name="name"
+              label="Nombre Completo"
+              margin={'dense'} 
+              sx={{ display: 'grid' }}
+              required
             />
-            <FormControl sx={{ minWidth: '100%' }} variant="standard" required>
-              <InputLabel>Rol</InputLabel>
-              <Select
-                label="Rol"
-                name="rol"
-              >
-                <MenuItem value="operador">Operador</MenuItem>
-                <MenuItem value="usuario">Usuario</MenuItem>
-                <MenuItem value="externo">Externo</MenuItem>
-                <MenuItem value="invitado">Invitado</MenuItem>
-              </Select>
-            </FormControl > 
+            <SelectElement
+              name="preselect"
+              label="Rol"
+              margin={'dense'}
+              sx={{ display: 'grid' }}
+              options={[
+                  {
+                      id: 1,
+                      label: 'Operador'
+                    },
+                {
+                  id: 2,
+                  label: 'Usuario'
+                },
+                {
+                  id: 3,
+                  label: 'Externo'
+                },
+                {
+                    id: 4,
+                    label: 'Invitado'
+                }
+              ]}
+              required
+            />
+            <TextFieldElement name='email' label='Correo Electronico' sx={{ minWidth: '100%' }} margin={'dense'} required type="email"/>
+            <CheckboxButtonGroup
+                label="Permisos"
+                name="permissions"
+                options={[
+                  {
+                    id: 'create',
+                        label: 'Crear'
+                  },
+                  {
+                    id: 'read',
+                    label: 'Leer'
+                  },
+                  {
+                    id: 'edit',
+                    label: 'Editar'
+                  },
+                  {
+                    id: 'delete',
+                    label: 'Eliminar'
+                  }
 
-            <TextField
-                autoFocus
-                margin="dense"
-                id="name"
-                label="Correo Electronico"
-                type="email"
-                fullWidth
-                variant="standard"
-            />
-            <FormGroup>
-                <FormControlLabel control={<Checkbox />} label="Crear" />
-                <FormControlLabel control={<Checkbox />} label="Leer" />
-                <FormControlLabel control={<Checkbox />} label="Editar" />
-                <FormControlLabel control={<Checkbox />} label="Eliminar" />
-            </FormGroup>
+                ]}
+                row
+              />
+            <FormLabel component="legend">Estado</FormLabel>
             <FormControlLabel control={<Switch />} label="Habilitar" />
+          </FormContainer>
         </DialogContent>
         <DialogActions>
             <Button onClick={handleClose}>Guardar</Button>

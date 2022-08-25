@@ -1,13 +1,16 @@
 import React from 'react'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import {ThemeProvider,  createTheme } from '@mui/material/styles'
 import ReactDOM from 'react-dom/client'
-import Registro from './SignUp'
-import Login from './Login'
-import Table from './Table'
+
+// Importación de las páginas
 import Forgot from './Forgot'
+import Login from './Login'
 import Modal from './Modal'
 import Nav from './Nav'
-import Footer from './Footer'
-import {ThemeProvider,  createTheme } from '@mui/material/styles'
+import Registro from './SignUp'
+import SignUp from './SignUp'
+import Table from './Table'
 
 const theme = createTheme({
   palette: {
@@ -25,13 +28,18 @@ const theme = createTheme({
     }
   }
 })
-
+function Layout(){
+  return(
+    <Router>
+      <Route></Route>
+    </Router>
+  )
+}
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
    <ThemeProvider theme={theme}>
       <Nav />
-      <Table />
-      <Modal/>
+      <Login />
     </ThemeProvider> 
   </React.StrictMode>
 )
