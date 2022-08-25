@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 
 
-const pages = [ "Noticias", "Portafolio", "Resto del Mundo", "Compañia"];
+const pages = [ "Dashboard", "Login", "Inicio"];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);

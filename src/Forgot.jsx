@@ -11,6 +11,7 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import { Link as RouteLink } from 'react-router-dom';
 
 function Copyright(props) {
   return (
@@ -74,12 +75,12 @@ export default function SignIn() {
         </Button>
         <Grid container>
             <Grid item xs>
-            <Link href="#" variant="body2">
+            <Link to="/" variant="body2" component={RouteLink}>
                Regresar
             </Link>
             </Grid>
             <Grid item>
-            <Link href="#" variant="body2">
+            <Link to="/signup" variant="body2" component={RouteLink}>
                 No tengo cuenta
             </Link>
             </Grid>
