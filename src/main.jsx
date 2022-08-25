@@ -36,8 +36,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Router>
         <Routes>
           <Route path="/" element={<Login />} />
-          <Route path="Forgot" element={<Forgot />} />
-          <Route path="SignUp" element={<SignUp />} />
+          <Route path="forgot" element={<Forgot />} />
+          <Route path="signup" element={<SignUp />} />
         </Routes>
       </Router>      
     </ThemeProvider> 

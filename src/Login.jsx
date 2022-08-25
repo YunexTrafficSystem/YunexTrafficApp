@@ -93,7 +93,7 @@ export default function SignIn() {
               </Link>
             </Grid>
             <Grid item>
-              <Link variant="body2" to="singup" underline="none" component={RouterLink} >
+              <Link variant="body2" to="signup" underline="none" component={RouterLink} >
                 No tengo cuenta
               </Link>
             </Grid>

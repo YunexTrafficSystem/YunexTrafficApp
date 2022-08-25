@@ -135,7 +135,7 @@ export default function SignUp() {
           </Button>
           <Grid container justifyContent="flex-end">
             <Grid item>
-              <Link variant="body2" underline="none" component={RouterLink}>
+              <Link to="/" variant="body2" underline="none" component={RouterLink}>
                 Ya tengo cuenta
               </Link>
             </Grid>
