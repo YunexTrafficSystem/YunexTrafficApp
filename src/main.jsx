@@ -13,6 +13,7 @@ import SignUp from './SignUp'
 import Table from './Table'
 import Home from './Home'
 import Electrico from './Electrico'
+import Electronico from './Electronico'
 
 const theme = createTheme({
   palette: {
@@ -38,7 +39,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Nav />
       <Router>
         <Routes>
-          <Route path="/" element={<Electrico />} />
+          <Route path="/" element={<Electronico />} />
           <Route path="forgot" element={<Forgot />} />
           <Route path="signup" element={<SignUp />} />
         </Routes>

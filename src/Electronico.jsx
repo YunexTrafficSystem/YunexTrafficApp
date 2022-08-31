@@ -52,7 +52,7 @@ import { number } from "prop-types";
       });
     };
   
-    const [{tipo, color, proyecto}, setRole] = useState('')
+    const [{tipo, contenedor, proyecto}, setRole] = useState('')
     
   
     const handleChange = (event) => {
@@ -74,7 +74,7 @@ import { number } from "prop-types";
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Electrico
+            Electronico
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
@@ -90,12 +90,12 @@ import { number } from "prop-types";
               </Grid>
               <Grid item xs={12} sm={15}>
               <FormControl sx={{ minWidth: '100%' }} required>
-                <InputLabel id="demo-simple-select-helper-label">Tipo de Modulo</InputLabel>
+                <InputLabel id="demo-simple-select-helper-label">Nombre Modulo</InputLabel>
                 <Select
                   value={tipo}
-                  label="Tipo de Modulo"
+                  label="Nombre de Modulo"
                   onChange={handleChange}
-                  name="tipo"
+                  name="nombre"
                 >
                   <MenuItem value="Modulo 1">Modulo 1</MenuItem>
                   <MenuItem value="Modulo 2">Modulo 2</MenuItem>
@@ -107,16 +107,16 @@ import { number } from "prop-types";
               </Grid>
               <Grid item xs={12} sm={15}>
               <FormControl sx={{ minWidth: '100%' }} required>
-                <InputLabel id="demo-simple-select-helper-label">Color</InputLabel>
+                <InputLabel id="demo-simple-select-helper-label">Tipo de Contenedor</InputLabel>
                 <Select
-                  value={color}
-                  label="Color"
+                  value={contenedor}
+                  label="Tipo de contenedor"
                   onChange={handleChange}
-                  name="color"
+                  name="tipo"
                 >
-                  <MenuItem value="Verde">Verde</MenuItem>
-                  <MenuItem value="Amarillo">Amarillo</MenuItem>
-                  <MenuItem value="Rojo">Rojo</MenuItem>
+                  <MenuItem value="Contenedor 1">Contenedor 1</MenuItem>
+                  <MenuItem value="Contenedor 2">Contenedor 2</MenuItem>
+                  <MenuItem value="Contenedor 3">Contenedor 3</MenuItem>
                 </Select>
               </FormControl > 
               </Grid>
@@ -147,11 +147,21 @@ import { number } from "prop-types";
                 variant="outlined"
                 />
               </Grid>
+              <Grid item xs={12} sm={15}>
+                <TextField
+                  autoComplete="given-name"
+                  name="componentes"
+                  required
+                  fullWidth
+                  label="Componentes"
+                  autoFocus
+                />
+              </Grid>
               <Grid item xs={50} sm={20}>
                 <TextField
                 id="outlined-number"
-                label="Voltaje"
-                name="voltaje"
+                label="Cantidad"
+                name="cantidad"
                 type="number"
                 sx={{ minWidth:'100%' }}
                 InputLabelProps={{ shrink: true }}
@@ -160,34 +170,11 @@ import { number } from "prop-types";
               </Grid>
               <Grid item xs={50} sm={20}>
                 <TextField
-                id="outlined-number"
-                label="Corriente"
-                name="corriente"
-                type="number"
+                name="descripcion"
+                label="Descripcion"
+                multiline
+                rows={4}
                 sx={{ minWidth:'100%' }}
-                InputLabelProps={{ shrink: true }}
-                variant="outlined"
-                />
-              </Grid>
-              <Grid item xs={50} sm={20}>
-                <TextField
-                id="outlined-number"
-                label="Potencia"
-                name="potencia"
-                type="number"
-                sx={{ minWidth:'100%' }}
-                InputLabelProps={{ shrink: true }}
-                variant="outlined"
-                />
-              </Grid>
-              <Grid item xs={50} sm={20}>
-                <TextField
-                id="outlined-number"
-                label="Desplazamiento"
-                name="desplazamiento"
-                type="number"
-                sx={{ minWidth:'100%' }}
-                InputLabelProps={{ shrink: true }}
                 variant="outlined"
                 />
               </Grid>
