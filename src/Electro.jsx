@@ -14,27 +14,21 @@ import {
   GridActionsCellItem,
 } from '@mui/x-data-grid';
 import {
-  randomCreatedDate,
   randomTraderName,
-  randomUpdatedDate,
   randomId,
 } from '@mui/x-data-grid-generator';
 
 const initialRows = [
   {
     id: randomId(),
-    name: randomTraderName(),
-    age: 25,
-    dateCreated: randomCreatedDate(),
-    lastLogin: randomUpdatedDate(),
+    componentes: randomTraderName(),
+    cantidad: 25,
   },
   {
     id: randomId(),
-    name: randomTraderName(),
-    age: 36,
-    dateCreated: randomCreatedDate(),
-    lastLogin: randomUpdatedDate(),
-  },
+    componentes: randomTraderName(),
+    cantidad: 36,
+  }
 ];
 
 function EditToolbar(props) {
@@ -42,10 +36,10 @@ function EditToolbar(props) {
 
   const handleClick = () => {
     const id = randomId();
-    setRows((oldRows) => [...oldRows, { id, name: '', age: '', isNew: true }]);
+    setRows((oldRows) => [...oldRows, { id, componentes: '', cantidad: '', isNew: true }]);
     setRowModesModel((oldModel) => ({
       ...oldModel,
-      [id]: { mode: GridRowModes.Edit, fieldToFocus: 'name' },
+      [id]: { mode: GridRowModes.Edit, fieldToFocus: 'componentes' },
     }));
   };
 
@@ -106,27 +100,40 @@ export default function FullFeaturedCrudGrid() {
   };
 
   const columns = [
-    { field: 'name', headerName: 'Name', width: 180, editable: true },
-    { field: 'age', headerName: 'Age', type: 'number', editable: true },
-    {
-      field: 'dateCreated',
-      headerName: 'Date Created',
-      type: 'date',
-      width: 180,
-      editable: true,
+    { 
+      field: 'componentes', 
+      headerName: 'Componentes', 
+      width: 500, 
+      editable: true 
     },
     {
-      field: 'lastLogin',
-      headerName: 'Last Login',
-      type: 'dateTime',
-      width: 220,
+      field: "comps",
+      headerName:'Componentes',
       editable: true,
+      type: "singleSelect",
+      width: 200,
+      valueOptions: [
+        'Michael Jackson',
+        'Shakira',
+        'Harry Styles',
+        'Louis Tomlinson',
+        'Niall Horan',
+        'Liam Payne',
+        'Zayn Malik',
+      ]
+      
+    },
+    { 
+      field: 'cantidad', 
+      headerName: 'Cantidad', 
+      type: 'number',
+      editable: true 
     },
     {
-      field: 'actions',
+      field: 'acciones',
       type: 'actions',
-      headerName: 'Actions',
-      width: 100,
+      headerName: 'Acciones',
+      width: 400,
       cellClassName: 'actions',
       getActions: ({ id }) => {
         const isInEditMode = rowModesModel[id]?.mode === GridRowModes.Edit;
@@ -147,7 +154,6 @@ export default function FullFeaturedCrudGrid() {
             />,
           ];
         }
-
         return [
           <GridActionsCellItem
             icon={<EditIcon />}
@@ -166,6 +172,8 @@ export default function FullFeaturedCrudGrid() {
       },
     },
   ];
+  
+  columns[1].valueOptions = ['']
 
   return (
     <Box
@@ -188,11 +196,11 @@ export default function FullFeaturedCrudGrid() {
         onRowEditStart={handleRowEditStart}
         onRowEditStop={handleRowEditStop}
         processRowUpdate={processRowUpdate}
-        components={{
-          Toolbar: EditToolbar,
-        }}
         componentsProps={{
-          toolbar: { setRows, setRowModesModel },
+          footer: { setRows, setRowModesModel },
+        }}
+        components={{
+          Footer: EditToolbar
         }}
         experimentalFeatures={{ newEditingApi: true }}
       />
