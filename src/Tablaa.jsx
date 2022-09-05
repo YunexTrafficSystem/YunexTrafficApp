@@ -23,10 +23,8 @@ import {
 const initialRows = [
   {
     id: randomId(),
-    name: randomTraderName(),
-    age: 25,
-    dateCreated: randomCreatedDate(),
-    lastLogin: randomUpdatedDate(),
+    nombre: randomTraderName(),
+    rol: 'Usuario',
   },
   {
     id: randomId(),
@@ -39,20 +37,6 @@ const initialRows = [
     id: randomId(),
     name: randomTraderName(),
     age: 19,
-    dateCreated: randomCreatedDate(),
-    lastLogin: randomUpdatedDate(),
-  },
-  {
-    id: randomId(),
-    name: randomTraderName(),
-    age: 28,
-    dateCreated: randomCreatedDate(),
-    lastLogin: randomUpdatedDate(),
-  },
-  {
-    id: randomId(),
-    name: randomTraderName(),
-    age: 23,
     dateCreated: randomCreatedDate(),
     lastLogin: randomUpdatedDate(),
   },
@@ -127,20 +111,32 @@ export default function FullFeaturedCrudGrid() {
   };
 
   const columns = [
-    { field: 'name', headerName: 'Name', width: 180, editable: true },
-    { field: 'age', headerName: 'Age', type: 'number', editable: true },
-    {
-      field: 'dateCreated',
-      headerName: 'Date Created',
-      type: 'date',
-      width: 180,
-      editable: true,
+    { 
+      field: 'nombre', 
+      headerName: 'Nombre Completo', 
+      type:'text',
+      width: 180, 
+      editable: true 
     },
     {
-      field: 'lastLogin',
-      headerName: 'Last Login',
-      type: 'dateTime',
-      width: 220,
+      field: "rol",
+      headerName:'Rol',
+      editable: true,
+      type: "singleSelect",
+      placeholder:"asd",
+      width: 200,
+      valueOptions: [
+        'Operador',
+        'Usuario',
+        'Externo',
+        'Invitado',
+      ]
+    },
+    {
+      field: 'correo',
+      headerName: 'Correo Electronico',
+      type: 'email',
+      width: 180,
       editable: true,
     },
     {
@@ -209,12 +205,6 @@ export default function FullFeaturedCrudGrid() {
         onRowEditStart={handleRowEditStart}
         onRowEditStop={handleRowEditStop}
         processRowUpdate={processRowUpdate}
-        components={{
-          Toolbar: EditToolbar,
-        }}
-        componentsProps={{
-          toolbar: { setRows, setRowModesModel },
-        }}
         experimentalFeatures={{ newEditingApi: true }}
       />
     </Box>

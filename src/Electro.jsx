@@ -21,14 +21,29 @@ import {
 const initialRows = [
   {
     id: randomId(),
-    componentes: randomTraderName(),
-    cantidad: 25,
+    comps:'Louis Tomlinson',
+    cantidad: 1,
   },
   {
     id: randomId(),
-    componentes: randomTraderName(),
-    cantidad: 36,
-  }
+    comps:'Harry Styles',
+    cantidad: 1,
+  },
+  {
+    id: randomId(),
+    comps:'Niall Horan',
+    cantidad: 1,
+  },
+  {
+    id: randomId(),
+    comps:'Liam Payne',
+    cantidad: 1,
+  },
+  {
+    id: randomId(),
+    comps:'Zayn Malik',
+    cantidad: 1,
+  },
 ];
 
 function EditToolbar(props) {
@@ -39,14 +54,14 @@ function EditToolbar(props) {
     setRows((oldRows) => [...oldRows, { id, componentes: '', cantidad: '', isNew: true }]);
     setRowModesModel((oldModel) => ({
       ...oldModel,
-      [id]: { mode: GridRowModes.Edit, fieldToFocus: 'componentes' },
+      [id]: { mode: GridRowModes.Edit, fieldToFocus: 'comps' },
     }));
   };
 
   return (
     <GridToolbarContainer>
       <Button color="primary" startIcon={<AddIcon />} onClick={handleClick}>
-        Add record
+        Agregar
       </Button>
     </GridToolbarContainer>
   );
@@ -100,12 +115,6 @@ export default function FullFeaturedCrudGrid() {
   };
 
   const columns = [
-    { 
-      field: 'componentes', 
-      headerName: 'Componentes', 
-      width: 500, 
-      editable: true 
-    },
     {
       field: "comps",
       headerName:'Componentes',
@@ -120,14 +129,17 @@ export default function FullFeaturedCrudGrid() {
         'Niall Horan',
         'Liam Payne',
         'Zayn Malik',
-      ]
-      
+      ],
+      sortable: false,
     },
     { 
       field: 'cantidad', 
+      width: 200,
       headerName: 'Cantidad', 
       type: 'number',
-      editable: true 
+      editable: true ,
+      sortable: false,
+      inputProps:{inputProps: {min:'1', max: '10'}},
     },
     {
       field: 'acciones',
@@ -171,10 +183,7 @@ export default function FullFeaturedCrudGrid() {
         ];
       },
     },
-  ];
-  
-  columns[1].valueOptions = ['']
-
+  ];    
   return (
     <Box
       sx={{
@@ -194,13 +203,12 @@ export default function FullFeaturedCrudGrid() {
         editMode="row"
         rowModesModel={rowModesModel}
         onRowEditStart={handleRowEditStart}
-        onRowEditStop={handleRowEditStop}
         processRowUpdate={processRowUpdate}
+        components={{
+          Footer: EditToolbar,
+        }}
         componentsProps={{
           footer: { setRows, setRowModesModel },
-        }}
-        components={{
-          Footer: EditToolbar
         }}
         experimentalFeatures={{ newEditingApi: true }}
       />
