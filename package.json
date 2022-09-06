@@ -25,6 +25,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.34.2",
     "react-hook-form-mui": "^5.5.1",
+    "react-input-number": "^5.0.19",
     "react-router-dom": "^6.3.0",
     "styled-components": "^5.3.5"
   },

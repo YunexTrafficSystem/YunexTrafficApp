@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -7,6 +8,8 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/DeleteOutlined';
 import SaveIcon from '@mui/icons-material/Save';
 import CancelIcon from '@mui/icons-material/Close';
+import InputNumber from 'react-input-number';
+
 import {
   GridRowModes,
   DataGrid,
@@ -14,7 +17,6 @@ import {
   GridActionsCellItem,
 } from '@mui/x-data-grid';
 import {
-  randomTraderName,
   randomId,
 } from '@mui/x-data-grid-generator';
 
@@ -135,11 +137,11 @@ export default function FullFeaturedCrudGrid() {
     { 
       field: 'cantidad', 
       width: 200,
+      inputprops: { min: 1 },
       headerName: 'Cantidad', 
       type: 'number',
       editable: true ,
       sortable: false,
-      inputProps:{inputProps: {min:'1', max: '10'}},
     },
     {
       field: 'acciones',
@@ -209,6 +211,7 @@ export default function FullFeaturedCrudGrid() {
         }}
         componentsProps={{
           footer: { setRows, setRowModesModel },
+
         }}
         experimentalFeatures={{ newEditingApi: true }}
       />
