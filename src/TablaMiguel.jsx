@@ -46,19 +46,27 @@ function Row() {
 
 function Form() {
 
-    const [rows, setRows] = useState(1)
+    const [rows, setRows] = useState([
+        { quant: 1, role: 3 }
+    ])
 
-    const handleRow = () => {
-        setRows( rows + 1 )
+    const onAddRow = () => {
+        const newRow = { quant: 1, role: '' }
+        setRows([...rows,  newRow ])
     }
 
     return (
         <FormContainer
-            defaultValues={{quant: 1}}
-            onSuccess={data => console.log({...data, })}
+            // defaultValues={{quant: 1}}
+            onSuccess={data => console.log({...data})}
         >
-        <h1>{rows}</h1>
-        <Button variant="contained" type="submit" onClick={handleRow} >Añadir</Button>
+        {rows.map((row, index) => {
+            console.log(row)
+            return(
+                <Row key={index} />
+            )
+        })}
+        <Button variant="contained" type="submit" onClick={onAddRow}>Añadir</Button>
         </FormContainer>
     )
 }
