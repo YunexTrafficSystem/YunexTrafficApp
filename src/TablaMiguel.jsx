@@ -1,5 +1,11 @@
 import { useState } from 'react'
-import { Button } from '@mui/material'
+import {
+    Button,
+    TextField,
+    Select,
+    MenuItem
+} from '@mui/material'
+
 import {
     FormContainer,
     TextFieldElement,
@@ -7,66 +13,57 @@ import {
 } from 'react-hook-form-mui'
 
 
-function Row() {
-    return (
-        <>
-            <TextFieldElement
-                name="quant"
-                label="Cantidad"
-                type={'number'}
-                required
-                InputProps={{ inputProps: { min: 1, max: 100 } }}
-            />
-            <SelectElement
-                sx={{ width: 150 }}
-                label="Seleccione Rol"
-                name="role"
-                options={[
-                {
-                    id: '1',
-                    label: 'Comp1'
-                },
-                {
-                    id: '2',
-                    label: 'Comp2'
-                },
-                {
-                    id: '3',
-                    label: 'Comp3'
-                },
-                {
-                    id: '4t',
-                    label: 'Comp4'
-                }]}
-            />
-        </>
-    )
-}
-
-
 function Form() {
 
-    const [rows, setRows] = useState([
-        { quant: 1, role: 3 }
+    const [inputFields, SetInputFields] = useState([
+        { quant: 1, comp: 2 },
     ])
 
-    const onAddRow = () => {
-        const newRow = { quant: 1, role: '' }
-        setRows([...rows,  newRow ])
+    const handdleInputChange = (e, i) => {
+        const values = [...inputFields]
+        values[i][e.target.name] = e.target.value
+        SetInputFields(values)
+
+    }
+
+    const newInputField = () => {
+        SetInputFields([...inputFields, { quant: 1, comp: 1 }])
+        console.log({...data})
     }
 
     return (
         <FormContainer
-            // defaultValues={{quant: 1}}
+            defaultValues={{quant: 1}}
             onSuccess={data => console.log({...data})}
         >
-        {rows.map((row, index) => {
-            console.log(row)
+        {inputFields.map((inputField, index) => {
             return(
-                <Row key={index} />
+                <div key={index}>
+                    <TextField
+                        name="quant"
+                        label="Cantidad"
+                        value={inputField.quant}
+                        variant="filled"
+                        type="number"
+                        inputProps={{ min: 1, max: 100 }}
+                        onChange={(e) => handdleInputChange(e, index)}
+                        required
+                    />
+                    <Select
+                        name="comp"
+                        required
+                        sx={{ minWidth: 100}}
+                        value={inputField.comp}
+                        onChange={(e) => handdleInputChange(e, index)}
+                    >
+                        <MenuItem value={1}>Componente 1</MenuItem>
+                        <MenuItem value={2}>Componente 2</MenuItem>
+                        <MenuItem value={3}>Componente 3</MenuItem>
+                    </Select>
+                </div>
             )
         })}
-        <Button variant="contained" type="submit" onClick={onAddRow}>Añadir</Button>
+        <Button variant="contained" type="submit" onClick={newInputField}>Añadir</Button>
         </FormContainer>
     )
 }
