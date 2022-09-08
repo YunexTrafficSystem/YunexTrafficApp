@@ -29,8 +29,9 @@ function Form() {
 
     const handdleInputChange = (e, i) => {
         const values = [...inputFields]
-        values[i][e.target.name] = e.target.value
+        values[i][e.target.name] = e.target.value > 100 ? 100 : e.target.value 
         SetInputFields(values)
+
 
     }
 
@@ -41,29 +42,21 @@ function Form() {
 
     return (
         <FormContainer
-            onSuccess={data => console.log({...data})}
+            onSuccess={data => console.log({...data, ...inputFields})}
         >
         {inputFields.map((inputField, index) => {
             return(
                 <div key={index}>
-                    <Controller 
+                    <TextField
                         name="quant"
-                        control={control}
-                        rules={{ required: true }}
-                        render={({ field }) => (
-                            <TextField
-                                name="quant"
-                                label="Cantidad"
-                                value={inputField.quant}
-                                variant="filled"
-                                type="number"
-                                inputProps={{ min: 1, max: 100 }}
-                                onChange={(e) => handdleInputChange(e, index)}
-                                required
-                            />
-                        )}
-                    /> 
-                    
+                        label="Cantidad"
+                        value={inputField.quant}
+                        variant="filled"
+                        type="number"
+                        inputProps={{ min: 1, max: 100, maxLength: 10,}}
+                        onChange={(e) => handdleInputChange(e, index)}
+                        required
+                    />
                     <Select
                         name="comp"
                         required
