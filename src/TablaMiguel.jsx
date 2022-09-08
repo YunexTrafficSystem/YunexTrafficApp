@@ -13,11 +13,19 @@ import {
 } from 'react-hook-form-mui'
 
 
+import { useForm, Controller } from 'react-hook-form'
+
 function Form() {
 
     const [inputFields, SetInputFields] = useState([
         { quant: 1, comp: 2 },
     ])
+
+    const { handleSubmit, control, reset } = useForm({
+        defaultValues: {
+            quant: 1,
+        }
+    })
 
     const handdleInputChange = (e, i) => {
         const values = [...inputFields]
@@ -28,27 +36,34 @@ function Form() {
 
     const newInputField = () => {
         SetInputFields([...inputFields, { quant: 1, comp: 1 }])
-        console.log({...data})
     }
+
 
     return (
         <FormContainer
-            defaultValues={{quant: 1}}
             onSuccess={data => console.log({...data})}
         >
         {inputFields.map((inputField, index) => {
             return(
                 <div key={index}>
-                    <TextField
+                    <Controller 
                         name="quant"
-                        label="Cantidad"
-                        value={inputField.quant}
-                        variant="filled"
-                        type="number"
-                        inputProps={{ min: 1, max: 100 }}
-                        onChange={(e) => handdleInputChange(e, index)}
-                        required
-                    />
+                        control={control}
+                        rules={{ required: true }}
+                        render={({ field }) => (
+                            <TextField
+                                name="quant"
+                                label="Cantidad"
+                                value={inputField.quant}
+                                variant="filled"
+                                type="number"
+                                inputProps={{ min: 1, max: 100 }}
+                                onChange={(e) => handdleInputChange(e, index)}
+                                required
+                            />
+                        )}
+                    /> 
+                    
                     <Select
                         name="comp"
                         required
@@ -61,9 +76,11 @@ function Form() {
                         <MenuItem value={3}>Componente 3</MenuItem>
                     </Select>
                 </div>
+
             )
         })}
-        <Button variant="contained" type="submit" onClick={newInputField}>Añadir</Button>
+        <Button variant="contained" onClick={newInputField}>Añadir</Button>
+        <Button variant="contained" type="submit">Enviar</Button>
         </FormContainer>
     )
 }
