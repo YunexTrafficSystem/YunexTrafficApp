@@ -21,7 +21,7 @@ function Form() {
         { quant: 1, comp: 2 },
     ])
 
-    const { handleSubmit, control, reset } = useForm({
+    const { handleSubmit, control, reset, setValue } = useForm({
         defaultValues: {
             quant: 1,
         }
@@ -29,7 +29,7 @@ function Form() {
 
     const handdleInputChange = (e, i) => {
         const values = [...inputFields]
-        values[i][e.target.name] = e.target.value > 100 ? 100 : e.target.value 
+     values[i][e.target.name] = /^[1-9]$|^[1-9][0-9]$|^(100)$/.test(e.target.value) ? e.target.value : '' 
         SetInputFields(values)
 
 
@@ -39,10 +39,9 @@ function Form() {
         SetInputFields([...inputFields, { quant: 1, comp: 1 }])
     }
 
-
     return (
         <FormContainer
-            onSuccess={data => console.log({...data, ...inputFields})}
+            onSuccess={data => console.log({...data})}
         >
         {inputFields.map((inputField, index) => {
             return(
@@ -73,7 +72,7 @@ function Form() {
             )
         })}
         <Button variant="contained" onClick={newInputField}>Añadir</Button>
-        <Button variant="contained" type="submit">Enviar</Button>
+        <Button variant="contained" type="submit" >Enviar</Button>
         </FormContainer>
     )
 }

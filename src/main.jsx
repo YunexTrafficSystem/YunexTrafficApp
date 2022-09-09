@@ -17,7 +17,7 @@ import Electronico from './Electronico'
 import Electro from './Electro'
 import Tablaa from './Tablaa'
 import Miguel from './TablaMiguel'
-import StepE from './StepE'
+import StepE from './MyStepper'
 
 const theme = createTheme({
   palette: {
