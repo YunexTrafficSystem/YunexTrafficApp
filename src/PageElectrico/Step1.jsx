@@ -1,8 +1,4 @@
 import {
-    Avatar,
-    Button,
-    FormControlLabel,
-    Checkbox,
     Box,
     Grid,
     TextField,
@@ -11,13 +7,12 @@ import {
     FormControl,
     MenuItem,
     InputLabel,
-    Container,
     Link,
- 
+    Container
   } from "@mui/material";
-
-  import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
+  
   import CssBaseline from '@mui/material/CssBaseline'
+  import { useState } from 'react'
   
   function Copyright(props) {
     return (
@@ -31,7 +26,8 @@ import {
       </Typography>
     );
   } 
-  
+
+  //Guarda y retorna datos del formulario (Submit)
   export default function SignUp() {
     const handleSubmit = (event) => {
       event.preventDefault();
@@ -49,12 +45,22 @@ import {
       });
     };
   
-    const [{tipo, contenedor, proyecto}, setRole] = useState('')
     
+    const [color, setColor] = useState('')
+    const [proyecto, setProyecto] = useState('')
+    const [tipo, setTipo] = useState('')
   
-    const handleChange = (event) => {
-      setRole(event.target.value)
+    const handleColor = (event) => {
+      setColor(event.target.value)
     };
+    const handleProyecto = (event) => {
+      setProyecto(event.target.value)
+    };
+    const handleTipo = (event) => {
+      setTipo(event.target.value)
+    };
+
+    
   
     return (
       <Container component="main" maxWidth="xs">
@@ -67,13 +73,10 @@ import {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
-          </Avatar>
           <Typography component="h1" variant="h5">
-            Electronico
+            Información general
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }} >
             <Grid container spacing={2}>
               <Grid item xs={12} sm={15}>
                 <TextField
@@ -87,12 +90,12 @@ import {
               </Grid>
               <Grid item xs={12} sm={15}>
               <FormControl sx={{ minWidth: '100%' }} required>
-                <InputLabel id="demo-simple-select-helper-label">Nombre Modulo</InputLabel>
+                <InputLabel id="demo-simple-select-helper-label">Tipo de Modulo</InputLabel>
                 <Select
                   value={tipo}
-                  label="Nombre de Modulo"
-                  onChange={handleChange}
-                  name="nombre"
+                  label="Tipo de Modulo"
+                  onChange={handleTipo}
+                  name="tipo"
                 >
                   <MenuItem value="Modulo 1">Modulo 1</MenuItem>
                   <MenuItem value="Modulo 2">Modulo 2</MenuItem>
@@ -104,16 +107,16 @@ import {
               </Grid>
               <Grid item xs={12} sm={15}>
               <FormControl sx={{ minWidth: '100%' }} required>
-                <InputLabel id="demo-simple-select-helper-label">Tipo de Contenedor</InputLabel>
+                <InputLabel id="demo-simple-select-helper-label">Color</InputLabel>
                 <Select
-                  value={contenedor}
-                  label="Tipo de contenedor"
-                  onChange={handleChange}
-                  name="tipo"
+                  value={color}
+                  label="Color"
+                  onChange={handleColor}
+                  name="color"
                 >
-                  <MenuItem value="Contenedor 1">Contenedor 1</MenuItem>
-                  <MenuItem value="Contenedor 2">Contenedor 2</MenuItem>
-                  <MenuItem value="Contenedor 3">Contenedor 3</MenuItem>
+                  <MenuItem value="Verde">Verde</MenuItem>
+                  <MenuItem value="Amarillo">Amarillo</MenuItem>
+                  <MenuItem value="Rojo">Rojo</MenuItem>
                 </Select>
               </FormControl > 
               </Grid>
@@ -123,7 +126,7 @@ import {
                 <Select
                   value={proyecto}
                   label="Proyecto"
-                  onChange={handleChange}
+                  onChange={handleProyecto}
                   name="proyecto"
                 >
                   <MenuItem value="Proyecto 1">Proyecto 1</MenuItem>
@@ -134,68 +137,7 @@ import {
                 </Select>
               </FormControl > 
               </Grid>
-              <Grid item xs={50} sm={20}>
-                <TextField
-                name="descripcion"
-                label="Descripcion"
-                multiline
-                rows={4}
-                sx={{ minWidth:'100%' }}
-                variant="outlined"
-                />
-              </Grid>
-              <Grid item xs={12} sm={15}>
-                <TextField
-                  autoComplete="given-name"
-                  name="componentes"
-                  required
-                  fullWidth
-                  label="Componentes"
-                  autoFocus
-                />
-              </Grid>
-              <Grid item xs={50} sm={20}>
-                <TextField
-                id="outlined-number"
-                label="Cantidad"
-                name="cantidad"
-                type="number"
-                sx={{ minWidth:'100%' }}
-                InputLabelProps={{ shrink: true }}
-                variant="outlined"
-                />
-              </Grid>
-              <Grid item xs={50} sm={20}>
-                <TextField
-                name="descripcion"
-                label="Descripcion"
-                multiline
-                rows={4}
-                sx={{ minWidth:'100%' }}
-                variant="outlined"
-                />
-              </Grid>
-              <Grid item xs={6} sm={7}>
-                <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="En prueba"
-                />
-              </Grid>
-              <Grid item xs={6} sm={5}>
-                <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Fin Prueba"
-                />
-              </Grid>
             </Grid>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Guardar
-            </Button>
           </Box>
         </Box>
         <Copyright sx={{ mt: 5 }} />

@@ -14,10 +14,10 @@ import Table from './Table'
 import Home from './Home'
 import Electrico from './Electrico'
 import Electronico from './Electronico'
-import Electro from './Electro'
 import Tablaa from './Tablaa'
-import Miguel from './TablaMiguel'
-import StepE from './MyStepper'
+import TablaMiguel from './TablaMiguel'
+import Electrico1 from './Electrico1'
+import Electronico1 from './Electronico1'
 
 const theme = createTheme({
   palette: {
@@ -41,10 +41,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
    <ThemeProvider theme={theme}>
     <Nav />
+    <br />
       <Router>
         <Routes>
-          <Route path="/" element={<StepE />} />
-          <Route path="forgot" element={<Miguel />} />
+          <Route path="/" element={<Electrico />} />
+          <Route path="forgot" element={<TablaMiguel />} />
           <Route path="signup" element={<SignUp />} />
         </Routes>
       </Router>      

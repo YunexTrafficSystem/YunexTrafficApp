@@ -5,21 +5,19 @@ import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import Step1 from "./Page/Step1"
-import {Grid, FormControl, InputLabel, Select, MenuItem} from "@mui/material"
+import Step1 from "./PageElectrico/Step1"
+import Step2 from "./PageElectrico/Step2"
 
 const steps = [
-  "Select campaign settings",
-  "Create an ad group",
-  "Create an ad"
+  "Paso 1",
+  "Paso 2",
 ];
 const handleChange = (event) => {
   setRole(event.target.value)
 };
 const pages = [
   <Step1 />,
-  <Typography>BUENA</Typography>,
-  <Typography>PERRITO</Typography>,
+  <Step2/>,
 ]
 
 export default function HorizontalLinearStepper() {
@@ -74,11 +72,7 @@ export default function HorizontalLinearStepper() {
         {steps.map((label, index) => {
           const stepProps = {};
           const labelProps = {};
-          if (isStepOptional(index)) {
-            labelProps.optional = (
-              <Typography variant="caption">Optional</Typography>
-            );
-          }
+  
           if (isStepSkipped(index)) {
             stepProps.completed = false;
           }
@@ -109,17 +103,11 @@ export default function HorizontalLinearStepper() {
               onClick={handleBack}
               sx={{ mr: 1 }}
             >
-              Back
+              Volver
             </Button>
             <Box sx={{ flex: "1 1 auto" }} />
-            {isStepOptional(activeStep) && (
-              <Button color="inherit" onClick={handleSkip} sx={{ mr: 1 }}>
-                Skip
-              </Button>
-            )}
-
             <Button onClick={handleNext}>
-              {activeStep === steps.length - 1 ? "Finish" : "Next"}
+              {activeStep === steps.length - 1 ? "Finish" : "Siguiente"}
             </Button>
           </Box>
         </React.Fragment>

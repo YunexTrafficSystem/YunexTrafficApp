@@ -1,8 +1,4 @@
 import {
-    Avatar,
-    Button,
-    FormControlLabel,
-    Checkbox,
     Box,
     Grid,
     TextField,
@@ -11,13 +7,12 @@ import {
     FormControl,
     MenuItem,
     InputLabel,
-    Container,
     Link,
- 
+    Container
   } from "@mui/material";
-
-  import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
+  
   import CssBaseline from '@mui/material/CssBaseline'
+  import { useState } from 'react'
   
   function Copyright(props) {
     return (
@@ -38,23 +33,27 @@ import {
       const data = new FormData(event.currentTarget);
       console.log({
         serial: data.get('serial'),
-        tipo: data.get('tipo'),
-        color:data.get('color'),
+        nombre: data.get('nombre'),
+        contenedor:data.get('contenedor'),
         proyecto:data.get('proyecto'),
         diagnostico:data.get('descripcion'),
-        volteje:data.get('voltaje'),
-        corriente:data.get('corriente'),
-        potencia:data.get('potencia'),
-        desplazamiento:data.get('desplazamiento')
       });
     };
   
-    const [{tipo, contenedor, proyecto}, setRole] = useState('')
+    const [nombre, setNombre] = useState('')
+    const [contenedor, setContenedor] = useState('')
+    const [proyecto, setProyecto] = useState('')
     
   
-    const handleChange = (event) => {
-      setRole(event.target.value)
+    const handleNombre = (event) => {
+      setNombre(event.target.value)
     };
+    const handleContenedor = (event) => {
+        setContenedor(event.target.value)
+      };
+      const handleProyecto = (event) => {
+        setProyecto(event.target.value)
+      };
   
     return (
       <Container component="main" maxWidth="xs">
@@ -67,13 +66,10 @@ import {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
-          </Avatar>
           <Typography component="h1" variant="h5">
-            Electronico
+            Información general
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+          <Box component="form" noValidate onSubmit={handleSubmit} >
             <Grid container spacing={2}>
               <Grid item xs={12} sm={15}>
                 <TextField
@@ -86,12 +82,12 @@ import {
                 />
               </Grid>
               <Grid item xs={12} sm={15}>
-              <FormControl sx={{ minWidth: '100%' }} required>
+              <FormControl sx={{ minWidth: '100%' }}  required>
                 <InputLabel id="demo-simple-select-helper-label">Nombre Modulo</InputLabel>
                 <Select
-                  value={tipo}
+                  value={nombre}
                   label="Nombre de Modulo"
-                  onChange={handleChange}
+                  onChange={handleNombre}
                   name="nombre"
                 >
                   <MenuItem value="Modulo 1">Modulo 1</MenuItem>
@@ -108,8 +104,8 @@ import {
                 <Select
                   value={contenedor}
                   label="Tipo de contenedor"
-                  onChange={handleChange}
-                  name="tipo"
+                  onChange={handleContenedor}
+                  name="contenedor"
                 >
                   <MenuItem value="Contenedor 1">Contenedor 1</MenuItem>
                   <MenuItem value="Contenedor 2">Contenedor 2</MenuItem>
@@ -123,7 +119,7 @@ import {
                 <Select
                   value={proyecto}
                   label="Proyecto"
-                  onChange={handleChange}
+                  onChange={handleProyecto}
                   name="proyecto"
                 >
                   <MenuItem value="Proyecto 1">Proyecto 1</MenuItem>
@@ -144,58 +140,7 @@ import {
                 variant="outlined"
                 />
               </Grid>
-              <Grid item xs={12} sm={15}>
-                <TextField
-                  autoComplete="given-name"
-                  name="componentes"
-                  required
-                  fullWidth
-                  label="Componentes"
-                  autoFocus
-                />
-              </Grid>
-              <Grid item xs={50} sm={20}>
-                <TextField
-                id="outlined-number"
-                label="Cantidad"
-                name="cantidad"
-                type="number"
-                sx={{ minWidth:'100%' }}
-                InputLabelProps={{ shrink: true }}
-                variant="outlined"
-                />
-              </Grid>
-              <Grid item xs={50} sm={20}>
-                <TextField
-                name="descripcion"
-                label="Descripcion"
-                multiline
-                rows={4}
-                sx={{ minWidth:'100%' }}
-                variant="outlined"
-                />
-              </Grid>
-              <Grid item xs={6} sm={7}>
-                <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="En prueba"
-                />
-              </Grid>
-              <Grid item xs={6} sm={5}>
-                <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Fin Prueba"
-                />
-              </Grid>
             </Grid>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Guardar
-            </Button>
           </Box>
         </Box>
         <Copyright sx={{ mt: 5 }} />
