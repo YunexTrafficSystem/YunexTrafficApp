@@ -1,17 +1,16 @@
 import {
-    FormControlLabel,
-    Checkbox,
     Box,
     Grid,
-    TextField,
     Typography,
     Container,
     Link,
   } from "@mui/material";
-  
+
+  import { DatePicker } from "../DatePicker";
   import CssBaseline from '@mui/material/CssBaseline'
-  import TablaMiguel from '../TablaMiguel'
-  import Add from '../Add'
+  import { useState } from 'react'
+  import Tabla1 from '../TablasTerreno/Tabla1'
+  // import Tabla2 from '../TablasTerreno/Tabla2'
   
   function Copyright(props) {
     return (
@@ -31,13 +30,18 @@ import {
       event.preventDefault();
       const data = new FormData(event.currentTarget);
       console.log({
-        componentes: data.get('componentes'),
-        cantidad: data.get('cantidad'),
-        descripcion:data.get('descripcion'),
+        sitio: data.get('sitio'),
+        diagnostico: data.get('diagnostico'),
+        descripcion: data.get('descripcion'),
+        realimentacion: data.get('realimentacion'),
       });
     };
   
-
+    const [diagnostico, setDiagnostico] = useState('')
+    
+    const handleDiagnostico = (event) => {
+      setDiagnostico(event.target.value)
+    };
   
     return (
       <Container component="main" maxWidth="xs">
@@ -50,35 +54,23 @@ import {
             alignItems: 'center',
           }}
         >
-          <Typography component="h1" variant="h5">
-            Información especifica
-          </Typography>
+         
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
+            <Grid item xs={12} sm={15}>
+            <Tabla1 text = "Actividad" texto = "Entidad"/> 
+            </Grid>
+            <Grid item xs={12} sm={15}>
+            <Typography sx={{ mt: 2, mb: 2 }}>
+            Lista de cuadrillas asignadas desde el panel getion servicios
+            </Typography>
+            <Tabla1 text = "Entidad" /> 
+            </Grid>
+            <Grid item xs={12} sm={15}>
+            <DatePicker text="Fecha Inicio"/>
+              </Grid>
               <Grid item xs={12} sm={15}>
-                <TablaMiguel/>
-              </Grid>
-              <Grid item xs={50} sm={20}>
-                <TextField
-                name="descripcion"
-                label="Descripcion"
-                multiline
-                rows={4}
-                sx={{ minWidth:'100%' }}
-                variant="outlined"
-                />
-              </Grid>
-              <Grid item xs={6} sm={7}>
-                <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="En prueba"
-                />
-              </Grid>
-              <Grid item xs={6} sm={5}>
-                <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Fin Prueba"
-                />
+            <DatePicker text="Fecha Fin" />
               </Grid>
             </Grid>
           </Box>

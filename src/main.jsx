@@ -18,6 +18,10 @@ import Tablaa from './Tablaa'
 import TablaMiguel from './TablaMiguel'
 import Electrico1 from './Electrico1'
 import Electronico1 from './Electronico1'
+import Add from './Add'
+import Terreno1 from './Terreno1'
+import Tabla1 from './TablasTerreno/Tabla1'
+import { DatePicker } from './DatePicker'
 
 const theme = createTheme({
   palette: {
@@ -44,7 +48,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <br />
       <Router>
         <Routes>
-          <Route path="/" element={<Electrico />} />
+          <Route path="/" element={<Terreno1 />} />
           <Route path="forgot" element={<TablaMiguel />} />
           <Route path="signup" element={<SignUp />} />
         </Routes>

@@ -8,8 +8,6 @@ import {
 
 import {
     FormContainer,
-    TextFieldElement,
-    SelectElement
 } from 'react-hook-form-mui'
 
 
@@ -28,11 +26,20 @@ function Form() {
     })
 
     const handdleInputChange = (e, i) => {
+        // Obteniedo valores del input 
         const values = [...inputFields]
-     values[i][e.target.name] = /^[1-9]$|^[1-9][0-9]$|^(100)$/.test(e.target.value) ? e.target.value : '' 
+        // Validación de la expresión regular
+        const regex = new RegExp('^[1-9]?[0-9]{1}$|^100$') // 1 - 100
+            .test(e.target.value)
+        // Definición de caracteres no aceptados
+        const isValid = ![100].includes(e.target.value) 
+        console.log(`isValid: ${isValid}`)
+        if (regex && isValid) {
+            values[i][e.target.name] = e.target.value
+        } else {
+            values[i][e.target.name] = ''
+        }
         SetInputFields(values)
-
-
     }
 
     const newInputField = () => {
@@ -50,7 +57,6 @@ function Form() {
                         name="quant"
                         label="Cantidad"
                         value={inputField.quant}
-                        variant="filled"
                         type="number"
                         inputProps={{ min: 1, max: 100, maxLength: 10,}}
                         onChange={(e) => handdleInputChange(e, index)}

@@ -1,17 +1,13 @@
 import {
-    FormControlLabel,
-    Checkbox,
     Box,
     Grid,
     TextField,
     Typography,
-    Container,
     Link,
+    Container
   } from "@mui/material";
   
   import CssBaseline from '@mui/material/CssBaseline'
-  import TablaMiguel from '../TablaMiguel'
-  import Add from '../Add'
   
   function Copyright(props) {
     return (
@@ -31,13 +27,11 @@ import {
       event.preventDefault();
       const data = new FormData(event.currentTarget);
       console.log({
-        componentes: data.get('componentes'),
-        cantidad: data.get('cantidad'),
-        descripcion:data.get('descripcion'),
+        numero: data.get('numero'),
+        prioridad: data.get('prioridad'),
+        estado:data.get('estado'),
       });
     };
-  
-
   
     return (
       <Container component="main" maxWidth="xs">
@@ -50,34 +44,36 @@ import {
             alignItems: 'center',
           }}
         >
-          <Typography component="h1" variant="h5">
-            Información especifica
-          </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={15}>
-                <TablaMiguel/>
-              </Grid>
-              <Grid item xs={50} sm={20}>
                 <TextField
-                name="descripcion"
-                label="Descripcion"
-                multiline
-                rows={4}
-                sx={{ minWidth:'100%' }}
-                variant="outlined"
+                  autoComplete="given-name"
+                  name="numero"
+                  required
+                  fullWidth
+                  label="O.T Numero"
+                  autoFocus
                 />
               </Grid>
-              <Grid item xs={6} sm={7}>
-                <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="En prueba"
+              <Grid item xs={12} sm={15}>
+                <TextField
+                  autoComplete="given-name"
+                  name="prioridad"
+                  required
+                  fullWidth
+                  label="Prioridad"
+                  autoFocus
                 />
               </Grid>
-              <Grid item xs={6} sm={5}>
-                <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Fin Prueba"
+              <Grid item xs={12} sm={15}>
+                <TextField
+                  autoComplete="given-name"
+                  name="estado"
+                  required
+                  fullWidth
+                  label="Estado Actual"
+                  autoFocus
                 />
               </Grid>
             </Grid>

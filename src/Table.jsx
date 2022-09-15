@@ -17,8 +17,6 @@ import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight'
 import LastPageIcon from '@mui/icons-material/LastPage'
 import TableHead from '@mui/material/TableHead'
 import capitalize from 'capitalize'
-import Button from '@mui/material/Button'
-import EditIcon from '@mui/icons-material/Edit'
 import DeleteIcon from '@mui/icons-material/Delete'
 import Dialog from './Modal'
 
