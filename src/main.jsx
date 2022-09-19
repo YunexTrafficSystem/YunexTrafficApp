@@ -22,10 +22,12 @@ import Add from './Add'
 import Terreno1 from './Terreno1'
 import Tabla1 from './TablasTerreno/Tabla1'
 import { DatePicker } from './DatePicker'
+import TablaK from './TablasTerreno/TablaK'
+
 
 const theme = createTheme({
   palette: {
-    primary: {
+      primary: {
       main: '#00ff9d',
       light: '#6cffcf',
       dark: '#00ca6e',
@@ -39,7 +41,6 @@ const theme = createTheme({
     }
   }
 })
-
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

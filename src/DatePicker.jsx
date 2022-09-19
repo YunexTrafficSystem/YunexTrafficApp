@@ -4,6 +4,7 @@ import { TextField } from '@mui/material'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker'
+import {Grid} from '@mui/material'
 
     
 function DatePicker({ text }) {
@@ -11,6 +12,7 @@ function DatePicker({ text }) {
 
     return (
         <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <Grid>
             <DateTimePicker 
                 renderInput={(props) => <TextField{...props} />}
                 label = {text}
@@ -19,6 +21,7 @@ function DatePicker({ text }) {
                     setValue(newValue)
                 }}
             />
+            </Grid>
         </LocalizationProvider>
     )
 }

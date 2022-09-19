@@ -25,21 +25,28 @@ function Form() {
         }
     })
 
+    // TODO:
+    // [-] Añadir control para el borrado completo
+    // [x] Añadir control para los decimales
+    // [-] Integrar regEx con .replace
+
     const handdleInputChange = (e, i) => {
         // Obteniedo valores del input 
         const values = [...inputFields]
-        // Validación de la expresión regular
-        const regex = new RegExp('^[1-9]?[0-9]{1}$|^100$') // 1 - 100
-            .test(e.target.value)
-        // Definición de caracteres no aceptados
-        const isValid = ![100].includes(e.target.value) 
-        console.log(`isValid: ${isValid}`)
-        if (regex && isValid) {
+        // Expresion regular para manejo de numeros
+        const isValid = !(new RegExp('^[a-zA-Z]*$', 'g').test(e.target.value))
+        const hasMax = e.target.value > 100
+        // Remplazando caracteres
+        if (isValid && !hasMax) {
             values[i][e.target.name] = e.target.value
-        } else {
-            values[i][e.target.name] = ''
+            SetInputFields(values)
         }
-        SetInputFields(values)
+    }
+
+    const handlePress = (e) => {
+        if(e.key === '.') {
+            e.preventDefault()
+        }
     }
 
     const newInputField = () => {
@@ -58,8 +65,9 @@ function Form() {
                         label="Cantidad"
                         value={inputField.quant}
                         type="number"
-                        inputProps={{ min: 1, max: 100, maxLength: 10,}}
+                        inputProps={{ min: 1, max: 100, maxLength: 10 }}
                         onChange={(e) => handdleInputChange(e, index)}
+                        onKeyPress={handlePress}
                         required
                     />
                     <Select

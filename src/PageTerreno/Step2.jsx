@@ -11,7 +11,6 @@ import {
     MenuItem
   } from "@mui/material";
   
-  import CssBaseline from '@mui/material/CssBaseline'
   import { useState } from 'react'
   
   function Copyright(props) {
@@ -47,7 +46,7 @@ import {
   
     return (
       <Container component="main" maxWidth="xs">
-        <CssBaseline />
+        
         <Box
           sx={{
             marginTop: 8,

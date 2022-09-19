@@ -11,7 +11,6 @@ import {
   
   import CssBaseline from '@mui/material/CssBaseline'
   import TablaMiguel from '../TablaMiguel'
-  import Add from '../Add'
   
   function Copyright(props) {
     return (

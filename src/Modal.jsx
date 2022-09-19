@@ -2,18 +2,14 @@ import { useState } from 'react';
 import {
   Button,
   FormLabel,
-  TextField,
   Dialog,
   DialogActions,
   DialogContent,
-  DialogContentText,
   DialogTitle,
-  IconButton,
   Switch,
   FormControlLabel
 } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit'
-import DeleteIcon from '@mui/icons-material/Delete'
 import {
   FormContainer,
   TextFieldElement,

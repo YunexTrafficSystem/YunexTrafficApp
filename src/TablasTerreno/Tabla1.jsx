@@ -1,14 +1,14 @@
 import { useState } from 'react'
 import {
     TextField,
+    Container
 } from '@mui/material'
 
 import {
     FormContainer,
 } from 'react-hook-form-mui'
 
-
-import { useForm, Controller } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 
 function Form ({ text, texto}) {
 
@@ -27,7 +27,6 @@ function Form ({ text, texto}) {
      values[i][e.target.name] = /^[1-9]$|^[1-9][0-9]$|^(100)$/.test(e.target.value) ? e.target.value : '' 
         SetInputFields(values)
 
-
     }
 
     const newInputField = () => {
@@ -35,12 +34,10 @@ function Form ({ text, texto}) {
     }
 
     return (
-      <FormContainer
-        onSuccess={data => console.log({...data})} 
-      >
+      <FormContainer onSuccess={data => console.log({...data})}>
         {inputFields.map((inputField, index) => {
           return(
-            <div key={index}>
+            <div key={index} >
               <TextField
                 name="quant"
                 label={text}

@@ -9,8 +9,9 @@ import {
   import { DatePicker } from "../DatePicker";
   import CssBaseline from '@mui/material/CssBaseline'
   import { useState } from 'react'
-  import Tabla1 from '../TablasTerreno/Tabla1'
+  // import Tabla1 from '../TablasTerreno/Tabla1'
   // import Tabla2 from '../TablasTerreno/Tabla2'
+  import TablaK from '../TablasTerreno/TablaK'
   
   function Copyright(props) {
     return (
@@ -54,26 +55,28 @@ import {
             alignItems: 'center',
           }}
         >
-         
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
-            <Grid item xs={12} sm={15}>
-            <Tabla1 text = "Actividad" texto = "Entidad"/> 
-            </Grid>
-            <Grid item xs={12} sm={15}>
-            <Typography sx={{ mt: 2, mb: 2 }}>
-            Lista de cuadrillas asignadas desde el panel getion servicios
-            </Typography>
-            <Tabla1 text = "Entidad" /> 
-            </Grid>
-            <Grid item xs={12} sm={15}>
-            <DatePicker text="Fecha Inicio"/>
+              <Grid item xs={12} sm={15}>
+                <Typography sx={{ mt: 2, mb: 2 }}>
+                  Actividades de mantenimiento (A.M) asignadas a la O.T 
+                </Typography>
+                <TablaK text = "Actividad" texto = "Entidad"/> 
               </Grid>
               <Grid item xs={12} sm={15}>
-            <DatePicker text="Fecha Fin" />
+                <Typography sx={{ mt: 2, mb: 2 }}>
+                  Lista de cuadrillas asignadas desde el panel getion servicios
+                </Typography>
+                <TablaK text = "Nombre" texto="Personal" /> 
               </Grid>
-            </Grid>
-          </Box>
+              <Grid item xs={12} sm={15}>
+                <DatePicker text="Fecha Inicio"/>
+              </Grid>
+              <Grid item xs={12} sm={15}>
+                <DatePicker text="Fecha Fin" />
+              </Grid>
+              </Grid>
+            </Box>
         </Box>
         <Copyright sx={{ mt: 5 }} />
       </Container>
