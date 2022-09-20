@@ -65,14 +65,17 @@ import {
               </Grid>
               <Grid item xs={12} sm={15}>
                 <Typography sx={{ mt: 2, mb: 2 }}>
-                  Lista de cuadrillas asignadas desde el panel getion servicios
+                  Lista de cuadrillas asignadas desde el panel gestion servicios
                 </Typography>
                 <TablaK text = "Nombre" texto="Personal" /> 
               </Grid>
+              {/* <Grid item xs={12} sm={15} > */}
+                {/* <DatePicker text="Fecha Inicio"/> */}
+              {/* </Grid> */}
               <Grid item xs={12} sm={15}>
-                <DatePicker text="Fecha Inicio"/>
-              </Grid>
-              <Grid item xs={12} sm={15}>
+              <Typography sx={{ mt: 2, mb: 2 }}>
+                Tiempos de mantenimiento
+                </Typography>
                 <DatePicker text="Fecha Fin" />
               </Grid>
               </Grid>

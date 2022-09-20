@@ -15,7 +15,7 @@ import Home from './Home'
 import Electrico from './Electrico'
 import Electronico from './Electronico'
 import Tablaa from './Tablaa'
-import TablaMiguel from './TablaMiguel'
+import { TableForm } from './TableComponents'
 import Electrico1 from './Electrico1'
 import Electronico1 from './Electronico1'
 import Add from './Add'
@@ -23,7 +23,6 @@ import Terreno1 from './Terreno1'
 import Tabla1 from './TablasTerreno/Tabla1'
 import { DatePicker } from './DatePicker'
 import TablaK from './TablasTerreno/TablaK'
-
 
 const theme = createTheme({
   palette: {
@@ -50,7 +49,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Router>
         <Routes>
           <Route path="/" element={<Terreno1 />} />
-          <Route path="forgot" element={<TablaMiguel />} />
+          <Route path="forgot" element={<TableForm />} />
           <Route path="signup" element={<SignUp />} />
         </Routes>
       </Router>      

@@ -10,39 +10,37 @@ import {
     FormContainer,
 } from 'react-hook-form-mui'
 
-
-import { useForm, Controller } from 'react-hook-form'
-
-function Form() {
+function TableForm() {
 
     const [inputFields, SetInputFields] = useState([
-        { quant: 1, comp: 2 },
+        { quant: 1, comp: 1 },
     ])
-
-    const { handleSubmit, control, reset, setValue } = useForm({
-        defaultValues: {
-            quant: 1,
-        }
-    })
 
     // TODO:
     // [-] Añadir control para el borrado completo
     // [x] Añadir control para los decimales
-    // [-] Integrar regEx con .replace
+    // [-] Pasar de forma implicta el evento
+    // [-] Integrar RegEx con .replace
+    // [-] Pasar estado al objeto
 
     const handdleInputChange = (e, i) => {
         // Obteniedo valores del input 
-        const values = [...inputFields]
+        const values = [...inputFields]        
         // Expresion regular para manejo de numeros
-        const isValid = !(new RegExp('^[a-zA-Z]*$', 'g').test(e.target.value))
-        const hasMax = e.target.value > 100
-        // Remplazando caracteres
-        if (isValid && !hasMax) {
+        const isValid = (input) => {
+            const hasLetters = /^[a-zA-Z]*$/g.test(input)
+            const hasMax = input > 100
+            return !hasLetters && !hasMax
+        }
+
+        // Comprobación de input
+        if (isValid(e.target.value)) {
             values[i][e.target.name] = e.target.value
             SetInputFields(values)
         }
     }
 
+    // Parche para evitar la escritura de puntos
     const handlePress = (e) => {
         if(e.key === '.') {
             e.preventDefault()
@@ -91,4 +89,4 @@ function Form() {
     )
 }
 
-export default Form
+export { TableForm }

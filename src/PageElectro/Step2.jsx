@@ -10,7 +10,7 @@ import {
   } from "@mui/material";
   
   import CssBaseline from '@mui/material/CssBaseline'
-  import TablaMiguel from '../TablaMiguel'
+  import { TableForm } from '../TableComponents'
   
   function Copyright(props) {
     return (
