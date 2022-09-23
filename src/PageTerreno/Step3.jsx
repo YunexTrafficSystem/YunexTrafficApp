@@ -76,7 +76,7 @@ import {
               <Typography sx={{ mt: 2, mb: 2 }}>
                 Tiempos de mantenimiento
                 </Typography>
-                <DatePicker text="Fecha Fin" />
+                <DatePicker /*text="Fecha Fin"*/ />
               </Grid>
               </Grid>
             </Box>

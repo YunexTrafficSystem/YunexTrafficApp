@@ -7,7 +7,7 @@ import {
 function Terreno({text, texto}){
     return(
     <Box component="form" spacing={2} >
-        <Grid spacing={2}>
+        <Grid >
             <TextField
             name="quant"
             sx={{width:190, height:60}}
@@ -16,7 +16,7 @@ function Terreno({text, texto}){
             />
             <TextField
             name="quant"
-            sx={{width:190, height:60, position:'auto'}}
+            sx={{width:190, height:60}}
             label={texto}
             required
             />
