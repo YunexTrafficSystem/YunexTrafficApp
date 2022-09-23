@@ -47,41 +47,41 @@ import {
     return (
       <Container component="main" maxWidth="xs">
         <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
+          <Box
+            sx={{
+              marginTop: 8,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={15}>
-                <Typography sx={{ mt: 2, mb: 2 }}>
-                  Actividades de mantenimiento (A.M) asignadas a la O.T 
-                </Typography>
-                <TablaK text = "Actividad" texto = "Entidad"/> 
-              </Grid>
-              <Grid item xs={12} sm={15}>
-                <Typography sx={{ mt: 2, mb: 2 }}>
-                  Lista de cuadrillas asignadas desde el panel gestion servicios
-                </Typography>
-                <TablaK text = "Nombre" texto="Personal" /> 
-              </Grid>
-              {/* <Grid item xs={12} sm={15} > */}
-                {/* <DatePicker text="Fecha Inicio"/> */}
-              {/* </Grid> */}
-              <Grid item xs={12} sm={15}>
+            <Grid item xs={12} sm={15}>
+              <Typography sx={{ mt: 2, mb: 2 }}>
+                Actividades de mantenimiento (A.M) asignadas a la O.T 
+              </Typography>
+              <TablaK text = "Actividad" texto = "Entidad"/> 
+            </Grid>
+            <Grid item xs={12} sm={15}>
+              <Typography sx={{ mt: 2, mb: 2 }}>
+                Lista de cuadrillas asignadas desde el panel gestion servicios
+              </Typography>
+              <TablaK text = "Nombre" texto="Personal" /> 
+            </Grid>
+            {/* <Grid item xs={12} sm={15} > */}
+              {/* <DatePicker text="Fecha Inicio"/> */}
+            {/* </Grid> */}
+            <Grid item xs={12} sm={15}>
               <Typography sx={{ mt: 2, mb: 2 }}>
                 Tiempos de mantenimiento
-                </Typography>
-                <DatePicker /*text="Fecha Fin"*/ />
-              </Grid>
-              </Grid>
-            </Box>
-        </Box>
-        <Copyright sx={{ mt: 5 }} />
+              </Typography>
+              <DatePicker /*text="Fecha Fin"*/ />
+            </Grid>
+            </Grid>
+          </Box>
+          </Box>
+          <Copyright sx={{ mt: 5 }} />
       </Container>
     );
   }

@@ -10,6 +10,9 @@ import {
     FormContainer,
 } from 'react-hook-form-mui'
 
+import { useForm } from 'react-hook-form'
+const { register, handleSubmit } = useForm()
+
 function TableForm() {
     const initialFields = { quant: 1, comp: 1 }
     const [inputFields, SetInputFields] = useState([initialFields])
@@ -27,28 +30,18 @@ function TableForm() {
     // [x] Integrar RegEx con .replace
     // [x] Controlar valores de componente y cantidad
     // [x] Control de caracteres que no sean numeros
-    // [-] Añadir control para el borrado completo
-    // [-] Añadir control para valor máximo y mínimo
-    // [-] Añadir control exclusivo para numeros
+    // [x] Añadir control exclusivo para numeros
+    // [-] Añadir control para valor mínimo
 
     const onInputChange = (e, i) => {
-        const INVALID_PATTERN = /([aA-zZ]|[ñÑ'´+-]|^0|[\s])/
-        const itsNumber = /^[1-9]*$/g.test(e.target.value)
+        const LETTERS_PATTERN = /[\D]/
         const values = [...inputFields]
         if (e.target.name === 'quant') {
-            values[i][e.target.name] = e.target.value.replace(INVALID_PATTERN, '')
-            // values[i][e.target.name] = e.target.value
+            values[i][e.target.name] = e.target.value.replace(LETTERS_PATTERN, '')
         } else {
             values[i][e.target.name] = e.target.value
         }
         SetInputFields(values)
-    }
-
-    // Parche para evitar la escritura de puntos
-    const handlePress = (e) => {
-        if (e.key === '.' || e.key === ',') {
-            e.preventDefault()
-        }
     }
 
     const resetInputField = () => {
@@ -82,9 +75,8 @@ function TableForm() {
                         name="quant"
                         label="Cantidad"
                         value={inputField.quant} 
-                        inputProps={{ min: 1, max: 100, maxLength: 3, inputMode: 'numeric', pattern: '[0-9]*' }}
+                        inputProps={{ min: 1, max: 100, maxLength: 3, inputMode: 'numeric' }}
                         onChange={(e) => onInputChange(e, index)}
-                        onKeyPress={handlePress}
                         required
                     />
                     <Select
