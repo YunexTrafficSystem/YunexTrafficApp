@@ -4,12 +4,9 @@ import {
     TextField,
     Select,
     MenuItem,
-    Container
+    Container,
+    Grid
 } from '@mui/material'
-
-import {
-    FormContainer,
-} from 'react-hook-form-mui'
 
 import { useForm, Controller } from 'react-hook-form'
 
@@ -62,6 +59,7 @@ function TablaForm() {
         >
         {inputFields.map((inputField, index) => {
             return(
+                <Grid>
                 <div key={index} >
                     <Select
                         name="comp"
@@ -91,6 +89,7 @@ function TablaForm() {
                         />}
                     />
                 </div>
+                </Grid>
 
             )
         })}

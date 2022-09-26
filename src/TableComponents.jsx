@@ -1,102 +1,92 @@
-import { useState } from 'react'
+import React from "react";
+import { useForm, useFieldArray, Controller } from "react-hook-form";
 import {
-    Button,
-    TextField,
-    Select,
-    MenuItem
+  TextField,
+  Select,
+  MenuItem,
+  FormControl,
+  InputLabel,
+  Button,
+  Grid
 } from '@mui/material'
 
-import {
-    FormContainer,
-} from 'react-hook-form-mui'
-
-import { useForm, Controller } from 'react-hook-form'
 
 function TableForm() {
-    const { register, handleSubmit, control } = useForm()
-    /*const { fields, append, prepend, remove, swap, move, insert } = useFieldArray({
-        control,
-        name: 'components'
-    }) */
-    const initialFields = { quant: 1, comp: 1 }
-    const [inputFields, SetInputFields] = useState([initialFields])
-
-
-    // TODO:
-    // [-] Añadir control para valor mínimo
-    const onSubmit = data => {
-        alert(JSON.stringify(data))
-    }
-
-    const onChange = (e, i) => {
-        // Controlar el onChange para el field dinámico
-        const LETTERS_PATTERN = /[\D]/
-        const values = [...inputFields]
-        if (e.target.name === 'quant') {
-            values[i][e.target.name] = e.target.value.replace(LETTERS_PATTERN, '')
-        } else {
-            values[i][e.target.name] = e.target.value
-        }
-        SetInputFields(values)
-    }
-
-    const resetInputField = () => {
-        const values = {...initialFields}
-        SetInputFields([values])
-    }
-
-    const addInputField = () => {
-        if (inputFields.length < 5) {
-            const newInputField = {...initialFields}
-            SetInputFields([...inputFields, {...initialFields}])
-        }
-    }
-
-    const removeInputField = () => {
-        const values = [...inputFields]
-        if (inputFields.length > 1) {
-            values.pop()
-            SetInputFields(values)
-        }
-    }
-
-    return (
-        <form
-            onSubmit={handleSubmit(onSubmit)}
-        >
-        {inputFields.map((inputField, index) => {
-            return(
-                <div key={index}>
-                    <TextField 
-                        name="quant"
-                        label="Cantidad"
-                        value={inputField.quant} 
-                        inputProps={{ min: 1, max: 100, maxLength: 3, inputMode: 'numeric' }}
-                        onChange={(e) => onChange(e, index)}
-                        required 
-                    />
+  const { register, control, handleSubmit, reset, trigger, setError } = useForm({
+    defaultValues: {
+      componentes: [{ quiantity: 1, component: 1 }]
+    } 
+  });
+  const { fields, append, remove } = useFieldArray({
+    control,
+    name: "componentes",
+  })
+  
+  return (
+    <form onSubmit={handleSubmit(data => console.log(data))}>
+      <ul>
+        {fields.map((item, index) => (
+          <li key={item.id}>
+            <Controller
+              render={({ field }) => (
+                <TextField
+                  {...field}
+                  label="Cantidad"
+                  variant="outlined"
+                  type="number"
+                />
+              )}
+              name={`componentes.${index}.quiantity`}
+              control={control}
+            />
+            <FormControl>
+              <InputLabel>Componente</InputLabel>
+              <Controller
+                  render={({ field }) => (
                     <Select
-                        name="comp"
-                        required
-                        sx={{ minWidth: 100}}
-                        value={inputField.comp}
-                        onChange={(e) => onChange(e, index, 'select')}
-                        type="select"
+                      {...field}
+                      label="Componente"
+                      autoWidth
+                      sx={{ width:100 }}
                     >
-                        <MenuItem value={1}>Componente 1</MenuItem>
-                        <MenuItem value={2}>Componente 2</MenuItem>
-                        <MenuItem value={3}>Componente 3</MenuItem>
+                      <MenuItem value={1}>Uno</MenuItem>
+                      <MenuItem value={2}>Dos</MenuItem>
+                      <MenuItem value={3}>Tres</MenuItem>
                     </Select>
-                </div>
-
-            )
-        })}
-            <Button variant="contained" onClick={addInputField}>Añadir</Button>
-            <Button variant="contained" type="submit">Enviar</Button>
-            <Button variant="contained" onClick={resetInputField}>Reset</Button>
-            <Button variant="contained" onClick={removeInputField}>Eliminar</Button>
-        </form>
-    )
+                )}
+                name={`componentes.${index}.component`}
+                control={control}
+              />
+            </FormControl>
+            <Button type="Button" onClick={() => remove(index)}>Eliminar</Button>
+          </li>
+        ))}
+      </ul>
+      <Button
+        type="Button"
+        onClick={() => append({ quiantity: 1, component: 2 })}
+      >
+        Añadir
+      </Button> 
+      <Button type="submit">Test</Button>
+      
+    </form>
+  );
 }
+
+/* 
+
+<Controller 
+        name="quantity"
+        controll={control}
+        render={({ field }) => (
+          <TextField 
+            label="Cantidad"
+            variant="outlined"
+          />
+        )}
+      />
+
+*/
 
 export { TableForm }

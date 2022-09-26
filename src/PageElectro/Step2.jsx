@@ -6,13 +6,12 @@ import {
     TextField,
     Typography,
     Container,
-    Link
+    Link  
   } from "@mui/material";
   
   import CssBaseline from '@mui/material/CssBaseline'
-  // import { TableForm } from '../TableComponents'
-  import { TablaForm } from '../TableComp2'
-  
+  import { TableForm } from '../TableComponents'
+  // import { TablaForm } from '../TableComp2'  
   function Copyright(props) {
     return (
       <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -56,8 +55,9 @@ import {
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
             <Grid>
-                {/* <TableForm/> */}
-                <TablaForm/>
+                <TableForm/>
+                {/* <TablaForm/> */}
+                {/* <TablaCom /> */}
                 </Grid>
               <Grid item xs={50} sm={20}>
                 <TextField
