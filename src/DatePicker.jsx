@@ -13,9 +13,7 @@ function DatePicker() {
 
     return (
         <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <Box component="form" spacing={2}>
-                <Grid>
-                <Grid sx={{width:190, height:60}}>
+                <Grid sx={{width:190, height:60}} item xs={12} sm={15}>
                     <DateTimePicker
                         renderInput={(props) => <TextField{...props} />}
                         label = "Fecha y hora inicio"
@@ -25,7 +23,7 @@ function DatePicker() {
                         }}
                     />
                 </Grid> 
-                <Grid sx={{width:190, top:-60, left:190, position:'relative'}}>
+                <Grid sx={{width:190, top:-60, left:190, position:'relative'}} item xs={12} sm={15}>
                     <DateTimePicker  
                         renderInput={(props) => <TextField{...props} />}
                         label = "Fecha y hora fin"
@@ -35,8 +33,6 @@ function DatePicker() {
                         }}
                     />
                 </Grid>
-                </Grid>
-            </Box>
         </LocalizationProvider>
     )
 }

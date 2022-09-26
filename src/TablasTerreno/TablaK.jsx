@@ -6,7 +6,6 @@ import {
 
 function Terreno({text, texto}){
     return(
-    <Box component="form" spacing={2} >
         <Grid >
             <TextField
             name="quant"
@@ -21,7 +20,6 @@ function Terreno({text, texto}){
             required
             />
         </Grid>
-    </Box>
     )
 }
 export default Terreno

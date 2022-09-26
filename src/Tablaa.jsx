@@ -26,20 +26,7 @@ const initialRows = [
     nombre: randomTraderName(),
     rol: 'Usuario',
   },
-  {
-    id: randomId(),
-    name: randomTraderName(),
-    age: 36,
-    dateCreated: randomCreatedDate(),
-    lastLogin: randomUpdatedDate(),
-  },
-  {
-    id: randomId(),
-    name: randomTraderName(),
-    age: 19,
-    dateCreated: randomCreatedDate(),
-    lastLogin: randomUpdatedDate(),
-  },
+  
 ];
 
 function EditToolbar(props) {

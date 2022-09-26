@@ -54,7 +54,7 @@ import {
               flexDirection: 'column',
               alignItems: 'center',
             }}
-          >
+          />
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
             <Grid item xs={12} sm={15}>
@@ -72,14 +72,11 @@ import {
             {/* <Grid item xs={12} sm={15} > */}
               {/* <DatePicker text="Fecha Inicio"/> */}
             {/* </Grid> */}
-            <Grid item xs={12} sm={15}>
+            </Grid>
               <Typography sx={{ mt: 2, mb: 2 }}>
                 Tiempos de mantenimiento
               </Typography>
               <DatePicker /*text="Fecha Fin"*/ />
-            </Grid>
-            </Grid>
-          </Box>
           </Box>
           <Copyright sx={{ mt: 5 }} />
       </Container>

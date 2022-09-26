@@ -3,7 +3,8 @@ import {
     Button,
     TextField,
     Select,
-    MenuItem
+    MenuItem,
+    Container
 } from '@mui/material'
 
 import {
@@ -12,12 +13,8 @@ import {
 
 import { useForm, Controller } from 'react-hook-form'
 
-function TableForm() {
+function TablaForm() {
     const { register, handleSubmit, control } = useForm()
-    /*const { fields, append, prepend, remove, swap, move, insert } = useFieldArray({
-        control,
-        name: 'components'
-    }) */
     const initialFields = { quant: 1, comp: 1 }
     const [inputFields, SetInputFields] = useState([initialFields])
 
@@ -28,8 +25,7 @@ function TableForm() {
         alert(JSON.stringify(data))
     }
 
-    const onChange = (e, i) => {
-        // Controlar el onChange para el field dinámico
+    const onInputChange = (e, i) => {
         const LETTERS_PATTERN = /[\D]/
         const values = [...inputFields]
         if (e.target.name === 'quant') {
@@ -61,42 +57,49 @@ function TableForm() {
     }
 
     return (
-        <form
+        <Container
             onSubmit={handleSubmit(onSubmit)}
         >
         {inputFields.map((inputField, index) => {
             return(
-                <div key={index}>
-                    <TextField 
-                        name="quant"
-                        label="Cantidad"
-                        value={inputField.quant} 
-                        inputProps={{ min: 1, max: 100, maxLength: 3, inputMode: 'numeric' }}
-                        onChange={(e) => onChange(e, index)}
-                        required 
-                    />
+                <div key={index} >
                     <Select
                         name="comp"
                         required
-                        sx={{ minWidth: 100}}
+                        sx={{width:255}}
                         value={inputField.comp}
-                        onChange={(e) => onChange(e, index, 'select')}
+                        onChange={(e) => onInputChange(e, index, 'select')}
                         type="select"
                     >
                         <MenuItem value={1}>Componente 1</MenuItem>
                         <MenuItem value={2}>Componente 2</MenuItem>
                         <MenuItem value={3}>Componente 3</MenuItem>
                     </Select>
+                    <Controller 
+                        name="quant"
+                        control={control}
+                        render={({field}) => 
+                        <TextField 
+                        sx={{width:100}}
+                            {...field } 
+                            label="Cantidad"
+                            type="number"
+                            value={inputField.quant} 
+                            inputProps={{ min: 1, max: 100, maxLength: 3, inputMode: 'numeric' }}
+                            onChange={(e) => onInputChange(e, index)}
+                            required 
+                        />}
+                    />
                 </div>
 
             )
         })}
-            <Button variant="contained" onClick={addInputField}>Añadir</Button>
+            <Button variant="contained" onClick={addInputField} >Añadir</Button>
             <Button variant="contained" type="submit">Enviar</Button>
             <Button variant="contained" onClick={resetInputField}>Reset</Button>
             <Button variant="contained" onClick={removeInputField}>Eliminar</Button>
-        </form>
+        </Container>
     )
 }
 
-export { TableForm }
+export { TablaForm }

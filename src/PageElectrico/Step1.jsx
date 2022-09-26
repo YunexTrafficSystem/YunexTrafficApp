@@ -78,66 +78,66 @@ import {
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }} >
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={15}>
-                <TextField
-                  autoComplete="given-name"
-                  name="serial"
-                  required
-                  fullWidth
-                  label="Serial"
-                  autoFocus
-                />
-              </Grid>
-              <Grid item xs={12} sm={15}>
-              <FormControl sx={{ minWidth: '100%' }} required>
-                <InputLabel id="demo-simple-select-helper-label">Tipo de Modulo</InputLabel>
-                <Select
-                  value={tipo}
-                  label="Tipo de Modulo"
-                  onChange={handleTipo}
-                  name="tipo"
-                >
-                  <MenuItem value="Modulo 1">Modulo 1</MenuItem>
-                  <MenuItem value="Modulo 2">Modulo 2</MenuItem>
-                  <MenuItem value="Modulo 3">Modulo 3</MenuItem>
-                  <MenuItem value="Modulo 4">Modulo 4</MenuItem>
-                  <MenuItem value="Modulo 5">Modulo 5</MenuItem>
-                </Select>
-              </FormControl > 
-              </Grid>
-              <Grid item xs={12} sm={15}>
-              <FormControl sx={{ minWidth: '100%' }} required>
-                <InputLabel id="demo-simple-select-helper-label">Color</InputLabel>
-                <Select
-                  value={color}
-                  label="Color"
-                  onChange={handleColor}
-                  name="color"
-                >
-                  <MenuItem value="Verde">Verde</MenuItem>
-                  <MenuItem value="Amarillo">Amarillo</MenuItem>
-                  <MenuItem value="Rojo">Rojo</MenuItem>
-                </Select>
-              </FormControl > 
-              </Grid>
-              <Grid item xs={12} sm={15}>
-              <FormControl sx={{ minWidth: '100%' }} required>
-                <InputLabel id="demo-simple-select-helper-label">Proyecto</InputLabel>
-                <Select
-                  value={proyecto}
-                  label="Proyecto"
-                  onChange={handleProyecto}
-                  name="proyecto"
-                >
-                  <MenuItem value="Proyecto 1">Proyecto 1</MenuItem>
-                  <MenuItem value="Proyecto 2">Proyecto 2</MenuItem>
-                  <MenuItem value="Proyecto 3">Proyecto 3</MenuItem>
-                  <MenuItem value="Proyecto 4">Proyecto 4</MenuItem>
-                  <MenuItem value="Proyecto 5">Proyecto 5</MenuItem>
-                </Select>
-              </FormControl > 
-              </Grid>
+            <Grid item xs={12} sm={15}>
+              <TextField
+                autoComplete="given-name"
+                name="serial"
+                required
+                fullWidth
+                label="Serial"
+                autoFocus
+              />
             </Grid>
+            <Grid item xs={12} sm={15}>
+            <FormControl sx={{ minWidth: '100%' }} required>
+              <InputLabel id="demo-simple-select-helper-label">Tipo de Modulo</InputLabel>
+              <Select
+                value={tipo}
+                label="Tipo de Modulo"
+                onChange={handleTipo}
+                name="tipo"
+              >
+                <MenuItem value="Modulo 1">Modulo 1</MenuItem>
+                <MenuItem value="Modulo 2">Modulo 2</MenuItem>
+                <MenuItem value="Modulo 3">Modulo 3</MenuItem>
+                <MenuItem value="Modulo 4">Modulo 4</MenuItem>
+                <MenuItem value="Modulo 5">Modulo 5</MenuItem>
+              </Select>
+            </FormControl > 
+            </Grid>
+            <Grid item xs={12} sm={15}>
+            <FormControl sx={{ minWidth: '100%' }} required>
+              <InputLabel id="demo-simple-select-helper-label">Color</InputLabel>
+              <Select
+                value={color}
+                label="Color"
+                onChange={handleColor}
+                name="color"
+              >
+                <MenuItem value="Verde">Verde</MenuItem>
+                <MenuItem value="Amarillo">Amarillo</MenuItem>
+                <MenuItem value="Rojo">Rojo</MenuItem>
+              </Select>
+            </FormControl > 
+            </Grid>
+            <Grid item xs={12} sm={15}>
+            <FormControl sx={{ minWidth: '100%' }} required>
+              <InputLabel id="demo-simple-select-helper-label">Proyecto</InputLabel>
+              <Select
+                value={proyecto}
+                label="Proyecto"
+                onChange={handleProyecto}
+                name="proyecto"
+              >
+                <MenuItem value="Proyecto 1">Proyecto 1</MenuItem>
+                <MenuItem value="Proyecto 2">Proyecto 2</MenuItem>
+                <MenuItem value="Proyecto 3">Proyecto 3</MenuItem>
+                <MenuItem value="Proyecto 4">Proyecto 4</MenuItem>
+                <MenuItem value="Proyecto 5">Proyecto 5</MenuItem>
+              </Select>
+            </FormControl > 
+            </Grid>
+          </Grid>
           </Box>
         </Box>
         <Copyright sx={{ mt: 5 }} />

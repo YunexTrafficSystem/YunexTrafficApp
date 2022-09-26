@@ -23,6 +23,7 @@ import Terreno1 from './Terreno1'
 import Tabla1 from './TablasTerreno/Tabla1'
 import { DatePicker } from './DatePicker'
 import TablaK from './TablasTerreno/TablaK'
+import { TablaForm } from './TableComp2'
 
 const theme = createTheme({
   palette: {
@@ -48,7 +49,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <br />
       <Router>
         <Routes>
-          <Route path="/" element={<Terreno1 />} />
+          <Route path="/" element={<Electronico1 />} />
           <Route path="forgot" element={<TableForm />} />
           <Route path="signup" element={<SignUp />} />
         </Routes>
