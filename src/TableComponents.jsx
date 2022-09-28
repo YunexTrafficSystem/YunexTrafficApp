@@ -30,7 +30,7 @@ function TableForm() {
   })
 
   return (
-    <form onSubmit={handleSubmit(data => console.log(data))}>
+    <>
       <ul>
         {fields.map((item, index) => (
           <li key={item.id}>
@@ -86,7 +86,7 @@ function TableForm() {
             <Button 
               type="Button"
               onClick={() => remove(index)}
-              variant="outlined"
+              variant="contained"
             >
               Eliminar
             </Button>
@@ -101,7 +101,7 @@ function TableForm() {
       </Button>
       <Button type="submit">Test</Button>
       
-    </form>
+    </>
   );
 }
 

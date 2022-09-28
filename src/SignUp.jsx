@@ -33,23 +33,10 @@ function Copyright(props) {
   );
 }
 
+// Apartir de aquí es la inicialización del componente Sing Up (Registro)
 export default function SignUp() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-      nombre:data.get('nombre'),
-      rol:data.get('rol')
-    });
-  };
-
+  
   const [role, setRole] = useState('')
-
-  const handleChange = (event) => {
-    setRole(event.target.value)
-  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -68,7 +55,7 @@ export default function SignUp() {
         <Typography component="h1" variant="h5">
           Registro
         </Typography>
-        <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+       
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
@@ -141,7 +128,7 @@ export default function SignUp() {
             </Grid>
           </Grid>
         </Box>
-      </Box>
+
       <Copyright sx={{ mt: 5 }} />
     </Container>
   );

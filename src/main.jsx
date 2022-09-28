@@ -12,24 +12,19 @@ import Registro from './SignUp'
 import SignUp from './SignUp'
 import Table from './Table'
 import Home from './Home'
-import Electrico from './Electrico'
-import Electronico from './Electronico'
-import Tablaa from './Tablaa'
 import { TableForm } from './TableComponents'
 import Electrico1 from './Electrico1'
 import Electronico1 from './Electronico1'
-import Add from './Add'
 import Terreno1 from './Terreno1'
 import Tabla1 from './TablasTerreno/Tabla1'
 import { DatePicker } from './DatePicker'
 import TablaK from './TablasTerreno/TablaK'
-import { TablaForm } from './TableComp2'
 
 const theme = createTheme({
   palette: {
       primary: {
-      main: '#62FC81',
-      light: '#6cffcf',
+      main: '#00E676',
+      light: '#00E676',
       dark: '#00ca6e',
       contrastText: '#000',
     },
@@ -52,8 +47,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <br />
       <Router>
         <Routes>
-          <Route path="/" element={<Electronico1 />} />
-          <Route path="forgot" element={<TableForm />} />
+          <Route path="/" element={<Home />} />
+          <Route path="forgot" element={<Table />} />
           <Route path="signup" element={<SignUp />} />
         </Routes>
       </Router>      

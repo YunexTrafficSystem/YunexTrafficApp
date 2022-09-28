@@ -1,47 +1,51 @@
-import {
-    FormControlLabel,
-    Checkbox,
-    Box,
-    Grid,
-    TextField,
-    Typography,
-    Container,
-    Link  
-  } from "@mui/material";
-  
-  import CssBaseline from '@mui/material/CssBaseline'
-  // import { TableForm } from '../TableComponents'
-  import { TabloForm } from '../TabloCompo'
-  // import { TablaForm } from '../TableComp2'  
-  function Copyright(props) {
-    return (
-      <Typography variant="body2" color="text.secondary" align="center" {...props}>
-        {'Copyright © '}
-        <Link color="inherit" href="https://mui.com/">
-          Yunex Traffic
-        </Link>{' '}
-        {new Date().getFullYear()}
-        {'.'}
-      </Typography>
-    );
-  } 
-  
-  export default function SignUp() {
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      const data = new FormData(event.currentTarget);
-      console.log({
-        descripcion:data.get('descripcion'),
-        cantidad:data.get('cantidad'),
-        componente:data.get('componente')
-      });
-    };
-  
+import { useForm, useFieldArray } from 'react-hook-form' // Importación de hook de formularios
+import { // Importación de MUI
+  FormControlLabel,
+  Checkbox,
+  Box,
+  Grid,
+  TextField,
+  Typography,
+  Container,
+  Link  
+} from "@mui/material";
+// Importación de componentes necesarios
+import { TablaForm } from '../TablaComponents' // corregir
 
-  
-    return (
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
+const Copyright = (props) => {
+  return (
+    <Typography variant="body2" color="text.secondary" align="center" {...props}>
+        Copyright ©
+      <Link color="inherit" href="">
+        Yunex Traffic
+      </Link>
+        {` ${new Date().getFullYear()}.`}
+    </Typography>
+  )
+} 
+
+
+/*
+TODO: 
+> [-] Importar react hook form 
+- [-] Añadir los handlers para el fomulario
+- [-] Refactorizar componentes livianos
+- [-] Separar componentes en carpetas
+- [-] Abstraer componentes
+- [-] Ver documentación de los providers
+- [-] Pisible abstracción de <Step> <Step1 /> </Step>? 
+- [-] Realizar un placer holder de formularios 
+*/ 
+
+// Inicialización del SingUp (Registro)
+export default function SignUp() {
+  const { control, register, handleSubmit } = useForm();
+
+
+
+  return (
+    <Container component="main" maxWidth="xs">
+      <form onSubmit={handleSubmit(data => console.log(data))}> 
         <Box
           sx={{
             marginTop: 8,
@@ -53,13 +57,10 @@ import {
           <Typography component="h1" variant="h5">
             Información especifica
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+          <Box component="form" noValidate sx={{ mt: 3 }}>
             <Grid container spacing={2}>
             <Grid item xs={50} sm={20}>
-                {/* <TableForm/> */}
-                <TabloForm />
-                {/* <TablaForm/> */}
-                {/* <TablaCom /> */}
+                <TablaForm/>
                 </Grid>
               <Grid item xs={50} sm={20}>
                 <TextField
@@ -86,8 +87,8 @@ import {
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 5 }} />
-      </Container>
-    );
-  }
-  
+      </form>
+      <Copyright sx={{ mt: 5 }} />
+    </Container>
+  );
+}

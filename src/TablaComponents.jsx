@@ -14,7 +14,7 @@ import {
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
 
-function TabloForm() {
+function TablaForm() {
   const {
     register,
     control,
@@ -34,7 +34,7 @@ function TabloForm() {
   })
 
   return (
-    <Grid onSubmit={handleSubmit(data => console.log(data))}>
+    <Grid >
         {fields.map((item, index) => (
           <ul key={item.id}>
                   <FormControl>
@@ -45,7 +45,7 @@ function TabloForm() {
                             {...field}
                             label="Componente"
                             autoWidth
-                            name = 'componente'
+                            name = "componente"
                             sx={{ width:170 }}
                           >
                             <MenuItem value={1}>Uno</MenuItem>
@@ -89,13 +89,25 @@ function TabloForm() {
               name={`componentes.${index}.quiantity`}
               control={control}
             />
-            <Button variant='contained' sx={{margin:1, width:15}}><DeleteIcon onClick={() => remove(index)} color='blanco'sx={{width:20}}/></Button>
+            <Button 
+            variant='contained' 
+            sx={{margin:1, width:15}}>
+              <DeleteIcon 
+              onClick={() => remove(index)} 
+              color='blanco'sx={{width:20}}/>
+              </Button>
           </ul>
       ))}
-      <Button variant='contained' sx={{margin:1}}><AddIcon onClick={() => append({ quiantity: 1, component: 2 })} color='blanco'/></Button>
+      <Button 
+      variant='contained' 
+      type="Button"
+      sx={{margin:1}}><AddIcon 
+      onClick={() => append({ quiantity: 1, component: 2 })} 
+      color='blanco'/>
+      </Button>
       <Button type="submit">Test</Button>
     </Grid>
   );
 }
 
-export { TabloForm }
+export { TablaForm }
