@@ -1,3 +1,4 @@
+import React from "react";
 import { useForm, useFieldArray, Controller } from "react-hook-form";
 import {
   TextField,
@@ -10,7 +11,10 @@ import {
 
 } from '@mui/material'
 
-function TableForm() {
+import DeleteIcon from '@mui/icons-material/Delete';
+import AddIcon from '@mui/icons-material/Add';
+
+function TabloForm() {
   const {
     register,
     control,
@@ -30,10 +34,29 @@ function TableForm() {
   })
 
   return (
-    <form onSubmit={handleSubmit(data => console.log(data))}>
-      <ul>
+    <Grid onSubmit={handleSubmit(data => console.log(data))}>
         {fields.map((item, index) => (
-          <li key={item.id}>
+          <ul key={item.id}>
+                  <FormControl>
+                    <InputLabel>Componente</InputLabel>
+                    <Controller
+                        render={({ field }) => (
+                          <Select
+                            {...field}
+                            label="Componente"
+                            autoWidth
+                            name = 'componente'
+                            sx={{ width:170 }}
+                          >
+                            <MenuItem value={1}>Uno</MenuItem>
+                            <MenuItem value={2}>Dos</MenuItem>
+                            <MenuItem value={3}>Tres</MenuItem>
+                          </Select>
+                      )}
+                      name={`componentes.${index}.component`}
+                      control={control}
+                    />
+                  </FormControl>
             <Controller
               rules={{ 
                 required: 'Cantidad numérica requerida ',
@@ -53,6 +76,8 @@ function TableForm() {
                     {...field}
                     label="Cantidad"
                     variant="outlined"
+                    sx={{width:70}}
+                    name = 'cantidad'
                     error={errors.componentes?.[index]?.quiantity}
                     helperText={errors?.componentes?.[index]?.quiantity.message}
                     type="number"
@@ -64,45 +89,13 @@ function TableForm() {
               name={`componentes.${index}.quiantity`}
               control={control}
             />
-            <FormControl>
-              <InputLabel>Componente</InputLabel>
-              <Controller
-                  render={({ field }) => (
-                    <Select
-                      {...field}
-                      label="Componente"
-                      autoWidth
-                      sx={{ width:100 }}
-                    >
-                      <MenuItem value={1}>Uno</MenuItem>
-                      <MenuItem value={2}>Dos</MenuItem>
-                      <MenuItem value={3}>Tres</MenuItem>
-                    </Select>
-                )}
-                name={`componentes.${index}.component`}
-                control={control}
-              />
-            </FormControl>
-            <Button 
-              type="Button"
-              onClick={() => remove(index)}
-              variant="outlined"
-            >
-              Eliminar
-            </Button>
-          </li>
-        ))}
-      </ul>
-      <Button
-        type="Button"
-        onClick={() => append({ quiantity: 1, component: 2 })}
-      >
-        Añadir
-      </Button>
+            <Button variant='contained' sx={{margin:1, width:15}}><DeleteIcon onClick={() => remove(index)} color='blanco'sx={{width:20}}/></Button>
+          </ul>
+      ))}
+      <Button variant='contained' sx={{margin:1}}><AddIcon onClick={() => append({ quiantity: 1, component: 2 })} color='blanco'/></Button>
       <Button type="submit">Test</Button>
-      
-    </form>
+    </Grid>
   );
 }
 
-export { TableForm }
+export { TabloForm }

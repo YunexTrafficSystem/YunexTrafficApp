@@ -10,7 +10,8 @@ import {
   } from "@mui/material";
   
   import CssBaseline from '@mui/material/CssBaseline'
-  import { TableForm } from '../TableComponents'
+  // import { TableForm } from '../TableComponents'
+  import { TabloForm } from '../TabloCompo'
   // import { TablaForm } from '../TableComp2'  
   function Copyright(props) {
     return (
@@ -30,9 +31,9 @@ import {
       event.preventDefault();
       const data = new FormData(event.currentTarget);
       console.log({
-        componentes: data.get('componentes'),
-        cantidad: data.get('cantidad'),
         descripcion:data.get('descripcion'),
+        cantidad:data.get('cantidad'),
+        componente:data.get('componente')
       });
     };
   
@@ -54,8 +55,9 @@ import {
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
-            <Grid>
-                <TableForm/>
+            <Grid item xs={50} sm={20}>
+                {/* <TableForm/> */}
+                <TabloForm />
                 {/* <TablaForm/> */}
                 {/* <TablaCom /> */}
                 </Grid>

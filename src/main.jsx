@@ -28,7 +28,7 @@ import { TablaForm } from './TableComp2'
 const theme = createTheme({
   palette: {
       primary: {
-      main: '#00ff9d',
+      main: '#62FC81',
       light: '#6cffcf',
       dark: '#00ca6e',
       contrastText: '#000',
@@ -38,6 +38,9 @@ const theme = createTheme({
       light: '#bbffff',
       dark: '#50c9a3',
       contrastText: '#000',
+    },
+    blanco:{
+      main:'#e3f2fd',
     }
   }
 })
