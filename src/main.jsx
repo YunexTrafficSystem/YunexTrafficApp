@@ -12,6 +12,7 @@ import Registro from './SignUp'
 import SignUp from './SignUp'
 import Table from './Table'
 import Home from './Home'
+import { PlaceHolder } from './PlaceHolder'
 import { TableForm } from './TableComponents'
 import Electrico1 from './Electrico1'
 import Electronico1 from './Electronico1'
@@ -19,8 +20,10 @@ import Terreno1 from './Terreno1'
 import Tabla1 from './TablasTerreno/Tabla1'
 import { DatePicker } from './DatePicker'
 import TablaK from './TablasTerreno/TablaK'
+import { FormStepper } from './Components/FormStepper'
 
 const theme = createTheme({
+  spacing: 2,
   palette: {
       primary: {
       main: '#00E676',
@@ -48,8 +51,15 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="forgot" element={<Table />} />
-          <Route path="signup" element={<SignUp />} />
+          <Route path="Forgot" element={<Forgot />} />
+          <Route path="SignUp" element={<SignUp />} />
+          <Route path="ph" element={<PlaceHolder />} />
+          <Route path="Electrico" element={<Electrico1 />} />
+          <Route path="Electronico" element={<Electronico1 />} />
+          <Route path="Registro" element={<Registro />} />
+          <Route path="Login" element={<Login />} />
+          <Route path="Terreno" element={<Terreno1 />} />
+          <Route path="FormStepper" element={<FormStepper />}/>
         </Routes>
       </Router>      
     </ThemeProvider> 

@@ -42,7 +42,7 @@ function TableForm() {
                   message: 'Cantidad debe ser mayor a 0'
                 },
                 max: {
-                  value: 50,
+                  value: 51,
                   message: 'Cantidad debe ser menor a 50'
                 },
                 valuesAsNumber: true

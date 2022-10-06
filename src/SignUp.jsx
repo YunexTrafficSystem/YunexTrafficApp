@@ -74,7 +74,7 @@ export default function SignUp() {
               <Select
                 value={role}
                 label="Rol"
-                onChange={handleChange}
+           
                 name="rol"
               >
                 <MenuItem value="operador">Operador</MenuItem>
@@ -118,7 +118,7 @@ export default function SignUp() {
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
           >
-            Sign Up
+            Registrar
           </Button>
           <Grid container justifyContent="flex-end">
             <Grid item>

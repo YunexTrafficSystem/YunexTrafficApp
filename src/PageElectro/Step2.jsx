@@ -70,7 +70,7 @@ export default function SignUp() {
                 rows={4}
                 sx={{ minWidth:'100%' }}
                 variant="outlined"
-                />
+              />
               </Grid>
               <Grid item xs={6} sm={7}>
                 <FormControlLabel
