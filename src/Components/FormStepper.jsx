@@ -37,22 +37,18 @@ function FormStepper({ items, children }) {
 
   return (
     <>
-      <Stepper activeStep={activeStep}>
-        f
-        <Step>
-          <StepLabel></StepLabel>
-
-        </Step>
+      <Stepper>
+        {children.map((child, index) => (
+            <Step key={index}>
+              <StepLabel>Paso</StepLabel>
+            </Step>
+        ))}
       </Stepper>
-      <Box>
-        {/**  */}
+      {children.map((child, index) => (
+        <Box>
+          {children[index]}
       </Box>
-      <Button onClick={prevStep} variant="contained">
-        Regresar
-      </Button>
-      <Button onClick={nextStep} variant="contained">
-        Siguiente
-      </Button>
+      ))}
     </>
   )
 }

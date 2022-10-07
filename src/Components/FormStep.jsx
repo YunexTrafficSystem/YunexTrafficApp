@@ -7,7 +7,10 @@ import { Stepper, Step, StepLabel, Button, Box } from '@mui/material'
  * 
  * @param {ReactComponent} children - Elemento hijo, se pasará como prop para renderizar.
  * @param {String} title - Títutlo del paso.
- * @returns {ReactComponent} Paso a paso con título
+ * @returns {ReactComponent} - Componente de paso
+ * 
+ * @history
+ * - Inicio de formulario paso a paso
  */
 function FormStep({ children, title }) {
   return (
