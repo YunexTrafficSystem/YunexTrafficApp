@@ -23,32 +23,20 @@ import { FieldArray } from './FieldArray'
  * - Removiendo componentes inecesarios
 */
 
-function FormStepper({ items, children }) {
-
-  const [activeStep, setActiveStep] = useState(0)
-
-  const nextStep = () => {
-    setActiveStep((currentStep) => currentStep + 1)
-  }
-
-  const prevStep = () => {
-    setActiveStep((currentStep) => currentStep - 1)
-  }
+function FormStepper({ steps, children, activeStep, setActiveStep }) {
 
   return (
     <>
-      <Stepper>
-        {children.map((child, index) => (
+      <Stepper
+        alternativeLabel
+        activeStep={activeStep}
+      >
+        {steps.map((step, index) => (
             <Step key={index}>
-              <StepLabel>Paso</StepLabel>
+              <StepLabel>{step}</StepLabel>
             </Step>
         ))}
       </Stepper>
-      {children.map((child, index) => (
-        <Box>
-          {children[index]}
-      </Box>
-      ))}
     </>
   )
 }
