@@ -7,8 +7,6 @@ import { Box } from '@mui/material'
 
 function FormPageSteps({ activeStep, children }) {
 
-  console.log(children[activeStep])
-
   return (
     <>
       {children[activeStep]}

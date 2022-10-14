@@ -17,7 +17,7 @@ const handleChange = (event) => {
 };
 const pages = [
   <Step1 />,
-  <Step2/>,
+  <Step2 />,
 ]
 
 export default function HorizontalLinearStepper() {

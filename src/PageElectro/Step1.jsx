@@ -62,7 +62,7 @@ import {
           sx={{
             marginTop: 8,
             display: 'flex',
-            flexDirection: 'column',
+            flexDirection: 'column',  
             alignItems: 'center',
           }}
         >

@@ -8,7 +8,7 @@ import { FormStepper } from './Components/FormStepper'
 import { FormSteps } from './Components/FormSteps'
 import { FormPageSteps } from './Components/FormPageSteps'
 import { FormStep } from './Components/FormStep'
-import { Stepper, Step, StepLabel, Button, Box, Card } from '@mui/material'
+import { Stepper, Step, StepLabel, Button, Box, Card, Grid, ButtonGroup } from '@mui/material'
 
 function PlaceHolder() {
   const { control, register, handleSubmit, watch, formState: { errors } } = useForm({
@@ -17,19 +17,28 @@ function PlaceHolder() {
       module: 3,
       container:5,
       project:4
-    }   
+    }
   })
+  
 
   const { fields, append, remove } = useFieldArray({
     control,
     name: "mant",
   })
-
+  
   const onSubmit = data => {
     console.log(data)
   }
+  
+  const [activeStep, SetActiveStep] = useState(0) 
+  
+  const nextStep = () => {
+    SetActiveStep((activeStep) => activeStep + 1);
+  }
 
-  const [activeStep, SetActiveStep] = useState(2) 
+  const backStep = () => {
+    SetActiveStep((activeStep) => activeStep - 1);
+  }
 
   const steps = ['Información general', 'Información especifica']
   return (
@@ -40,7 +49,7 @@ function PlaceHolder() {
           activeStep={activeStep}
         />
       </Box>
-      <FormPageSteps activeStep={activeStep}>
+      <FormPageSteps activeStep={activeStep} >
         <FormStep>
           <InfoGeneral register={register} errors={errors} />
           <FieldArray 
@@ -55,8 +64,13 @@ function PlaceHolder() {
           <InfoSpecific register={register} errors={errors} />
         </FormStep>
       </FormPageSteps>
-      <Button onCLick={true}>Siguiente</Button>
-      <Button variant="contained" type="submit">Enviar</Button>
+      <Grid> 
+        <ButtonGroup>
+          <Button onClick={backStep}>Volver</Button>
+          <Button onClick={nextStep} variant="contained">Siguiente</Button>
+          <Button type="submit" variant="contained">Enviar</Button>
+        </ButtonGroup>
+      </Grid>
     </form>
   )
 }
