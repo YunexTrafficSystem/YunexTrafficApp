@@ -25,7 +25,7 @@ function InfoGeneral({ register, errors }) {
         <FormControl fullWidth>
         <InputLabel>Nombre Modulo</InputLabel>
         <Select
-          label="Nombre de modulo"
+          label="Nombre Modulo"
           defaultValue={1}
           {...register("module", {
             required: true,
@@ -46,7 +46,7 @@ function InfoGeneral({ register, errors }) {
         <InputLabel>Tipo Contenedor</InputLabel>
         <Select
         defaultValue={1}
-        label="Tipo de contenedor"
+        label="Tipo Contenedor"
         {...register("container", {
           required: true,
           message: 'Contenedor requerido'

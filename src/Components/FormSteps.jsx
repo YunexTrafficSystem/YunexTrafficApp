@@ -25,6 +25,4 @@ function FormSteps({ children, title, steps, activeStep }) {
     </Stepper>
   )
 }
-//Hola ✌
-// Ni había visto, que más
 export { FormSteps }

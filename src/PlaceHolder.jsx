@@ -9,6 +9,7 @@ import { FormSteps } from './Components/FormSteps'
 import { FormPageSteps } from './Components/FormPageSteps'
 import { FormStep } from './Components/FormStep'
 import { Stepper, Step, StepLabel, Button, Box, Card, Grid, ButtonGroup } from '@mui/material'
+import { positions } from '@mui/system'
 
 function PlaceHolder() {
   const { control, register, handleSubmit, watch, formState: { errors } } = useForm({
@@ -33,18 +34,21 @@ function PlaceHolder() {
   const [activeStep, SetActiveStep] = useState(0) 
   
   const nextStep = () => {
+    if ( activeStep === steps.length - 1 ) {
+
+    }
     SetActiveStep((activeStep) => activeStep + 1);
   }
 
   const backStep = () => {
     SetActiveStep((activeStep) => activeStep - 1);
   }
-
+  
   const steps = ['Información general', 'Información especifica']
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Box>
-        <FormStepper 
+        <FormStepper
           steps={steps}
           activeStep={activeStep}
         />
@@ -65,10 +69,21 @@ function PlaceHolder() {
         </FormStep>
       </FormPageSteps>
       <Grid> 
-        <ButtonGroup>
+        <ButtonGroup
+          sx={{
+            margin:"10px 0",
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
           <Button onClick={backStep}>Volver</Button>
-          <Button onClick={nextStep} variant="contained">Siguiente</Button>
-          <Button type="submit" variant="contained">Enviar</Button>
+          <Button
+            onClick={nextStep}
+            variant="contained"
+            type={(activeStep === steps.length) ? "submit" : "button" }
+          >
+            {activeStep === steps.length - 1 ? 'Enviar' : 'Siguiente'}
+          </Button>
         </ButtonGroup>
       </Grid>
     </form>

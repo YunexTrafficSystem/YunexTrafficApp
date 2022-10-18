@@ -11,10 +11,9 @@ function FormStep({ children, done, active }) {
       spacing={0}
       direction="column"
       alignItems="center"
-      sx={{ minWidth: 600 }}
     >
       <Card 
-        sx={{ p:2, maxWidth:600, marginTop:15 }}
+        sx={{ p:10, minWidth: 'md', marginTop:15 }}
       >
         {children}
       </Card>

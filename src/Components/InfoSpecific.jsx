@@ -7,7 +7,6 @@ import {
 } from '@mui/material'
 function InfoSpecific({ register, errors }) {
   return (
-    <div>
      <Grid container spacing={5}>
      <Grid item xs={12}>
         <TextField 
@@ -37,7 +36,6 @@ function InfoSpecific({ register, errors }) {
           </FormGroup>
         </Grid>
       </Grid>
-    </div>
   )
 }
 
