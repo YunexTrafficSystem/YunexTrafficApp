@@ -5,8 +5,6 @@ import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import Step1 from "./PageElectro/Step1"
-import Step2 from "./PageElectro/Step2"
 
 const steps = [
   "Paso 1",

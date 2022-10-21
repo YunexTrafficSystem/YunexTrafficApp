@@ -4,9 +4,9 @@ import Step from "@mui/material/Step"
 import StepLabel from "@mui/material/StepLabel"
 import Button from "@mui/material/Button"
 import Typography from "@mui/material/Typography"
-import Step1 from "./PageTerreno/Step1"
-import Step2 from "./PageTerreno/Step2"
-import Step3 from "./PageTerreno/Step3"
+// import Step1 from "./PageTerreno/Step1"
+// import Step2 from "./PageTerreno/Step2"
+// import Step3 from "./PageTerreno/Step3"
 import { useState } from 'react';
 const steps = [
   "Datos generales de la O.T",
@@ -19,11 +19,11 @@ const handleChange = (event) => {
 
 // Refactor en pages para almacenar título y
 // página relacionados en el { children }
-const pages = [
-  <Step1 />,
-  <Step2 />,
-  <Step3 />
-]
+// const pages = [
+//   <Step1 />,
+//   <Step2 />,
+//   <Step3 />
+// ]
 
 export default function HorizontalLinearStepper() {
   const [activeStep, setActiveStep] = useState(0)
