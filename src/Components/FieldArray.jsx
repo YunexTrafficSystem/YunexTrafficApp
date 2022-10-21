@@ -23,6 +23,7 @@ function FieldArray ({ fields, register, append, remove, errors, control, contro
                   <InputLabel>Componentes</InputLabel>
                   <Select 
                     label="Componente"
+                    required
                     defaultValue={1}
                     {...register(`mant.${index}.component`)} 
                   >
@@ -50,11 +51,12 @@ function FieldArray ({ fields, register, append, remove, errors, control, contro
               <Grid item xs={3}>
                 <Button
                   variant='contained'
-                  onClick={() => remove(index)}
-                  sx={{margin:1, widht:15}}
+                  onClick={() => remove(index)} // Añadir condicional
+                  sx={{margin:1, widht:15 }}
+                  disabled={index == 0}
                 >
                   <ClearIcon
-                    color='blanco' sx={{width:20}}>
+                    color="blanco" sx={{width:20}}>
                   </ClearIcon>
                 </Button>
                 </Grid>
@@ -64,7 +66,9 @@ function FieldArray ({ fields, register, append, remove, errors, control, contro
       <Button 
         variant='contained' 
         type="Button"
-        onClick={() => append({ component: 1, quantity: 1 })}>
+        onClick={() => append({ component: 1, quantity: 1 })}
+        disabled={fields.length >= 6}
+        >
           <AddIcon  
           color='blanco'/>
       </Button>

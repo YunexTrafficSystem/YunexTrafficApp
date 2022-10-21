@@ -10,6 +10,17 @@ import { FormPageSteps } from './Components/FormPageSteps'
 import { FormStep } from './Components/FormStep'
 import { Stepper, Step, StepLabel, Button, Box, Card, Grid, ButtonGroup } from '@mui/material'
 import { positions } from '@mui/system'
+import { FinalStep } from './Components/FinalStep'
+
+/* Lista de cosas por hacer
+* [-] Login de ultimo step 
+* [-] Controlar botones de paso a paso con validaciones y validacion de errores
+* [-] Realizar formularios de Electrico, Terreno 
+* [-] Realizar interfaz de tabla (editale)
+* [-] Recoleccion de datos para formulario de EHS
+* [-] Formulario EHS 
+* [-] Conectar el servidor
+*/
 
 function PlaceHolder() {
   const { control, register, handleSubmit, watch, formState: { errors } } = useForm({
@@ -27,16 +38,20 @@ function PlaceHolder() {
     name: "mant",
   })
   
-  const onSubmit = data => {
+  const onSubmit = (data) => {  
+    onError()
     console.log(data)
   }
-  
+
+  const onError = (errors, e) => {
+    if (!errors) {
+      nextStep()
+    }
+  }
+
   const [activeStep, SetActiveStep] = useState(0) 
   
   const nextStep = () => {
-    if ( activeStep === steps.length - 1 ) {
-
-    }
     SetActiveStep((activeStep) => activeStep + 1);
   }
 
@@ -46,7 +61,7 @@ function PlaceHolder() {
   
   const steps = ['Información general', 'Información especifica']
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit, onError)}>
       <Box>
         <FormStepper
           steps={steps}
@@ -67,6 +82,9 @@ function PlaceHolder() {
         <FormStep>
           <InfoSpecific register={register} errors={errors} />
         </FormStep>
+        <FormStep>
+          <FinalStep />
+        </FormStep>
       </FormPageSteps>
       <Grid> 
         <ButtonGroup
@@ -76,18 +94,22 @@ function PlaceHolder() {
             justifyContent: "center",
           }}
         >
-          <Button onClick={backStep}>Volver</Button>
+          <Button 
+            onClick={backStep}
+            disabled={!(activeStep === 1)}
+          >
+            Volver
+          </Button>
           <Button
-            onClick={nextStep}
             variant="contained"
-            type={(activeStep === steps.length) ? "submit" : "button" }
+            type="submit"
           >
             {activeStep === steps.length - 1 ? 'Enviar' : 'Siguiente'}
           </Button>
         </ButtonGroup>
       </Grid>
     </form>
-  )
+  ) 
 }
 
 export { PlaceHolder }

@@ -8,7 +8,6 @@ import Forgot from './Forgot'
 import Login from './Login'
 import Modal from './Modal'
 import Nav from './Nav'
-import Registro from './SignUp'
 import SignUp from './SignUp'
 import Table from './Table'
 import Home from './Home'
@@ -20,7 +19,16 @@ import Terreno1 from './Terreno1'
 import Tabla1 from './TablasTerreno/Tabla1'
 import { DatePicker } from './DatePicker'
 import TablaK from './TablasTerreno/TablaK'
+import { FinalStep } from './Components/FinalStep'
 import { FormStepper } from './Components/FormStepper'
+import { makeStyles } from '@mui/styles'
+
+const useStyles = makeStyles({
+  root: {
+    heigth: "100vh",
+    background: "red"
+  }
+})
 
 const theme = createTheme({
   spacing: 2,
@@ -39,6 +47,9 @@ const theme = createTheme({
     },
     blanco:{
       main:'#e3f2fd',
+    },
+    red:{
+      background: '#00E676'
     }
   }
 })
@@ -56,10 +67,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="ph" element={<PlaceHolder />} />
           <Route path="Electrico" element={<Electrico1 />} />
           <Route path="Electronico" element={<Electronico1 />} />
-          <Route path="Registro" element={<Registro />} />
           <Route path="Login" element={<Login />} />
           <Route path="Terreno" element={<Terreno1 />} />
           <Route path="FormStepper" element={<FormStepper />}/>
+          <Route path="FinalStep" element={< FinalStep/>}/>
         </Routes>
       </Router>      
     </ThemeProvider> 

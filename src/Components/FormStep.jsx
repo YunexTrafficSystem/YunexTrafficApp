@@ -13,12 +13,14 @@ function FormStep({ children, done, active }) {
       alignItems="center"
     >
       <Card 
-        sx={{ p:10, minWidth: 'md', marginTop:15 }}
+        sx={{ p:10, marginTop:15, maxWidth:450 }}
       >
         {children}
       </Card>
     </Grid>
   )
 }
+
+
 
 export { FormStep }

@@ -10,14 +10,15 @@ function InfoSpecific({ register, errors }) {
      <Grid container spacing={5}>
      <Grid item xs={12}>
         <TextField 
-          {...register("inputDescription", {
+          {...register("outDescription", {
             required: true,
             message: "Descripcinón de entrada requerida",
           })}
-          error={errors?.inputDescription}
+          error={errors?.outDescription}
           multiline
           rows={4}
           fullWidth
+          sx={{ minWidth: 339 }}
           variant="outlined"
           label="Descripción"
           >
