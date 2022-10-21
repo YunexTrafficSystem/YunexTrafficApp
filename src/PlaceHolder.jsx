@@ -40,7 +40,9 @@ function PlaceHolder() {
   
   const onSubmit = (data) => {  
     onError()
-    console.log(data)
+    if (activeStep === steps.length -1 ) {
+      alert(JSON.stringify(data))
+    }
   }
 
   const onError = (errors, e) => {
@@ -49,10 +51,24 @@ function PlaceHolder() {
     }
   }
 
+  const returnStepLabel = (activeStep) => {
+    let label = "Siguente"
+    if(activeStep == steps.length - 1) {
+      label = "Finalizar"
+    } else if (activeStep >= steps.length - 1) {
+      label = "Reestablecer"
+    } 
+    return label
+  }
+
   const [activeStep, SetActiveStep] = useState(0) 
   
   const nextStep = () => {
-    SetActiveStep((activeStep) => activeStep + 1);
+    if (activeStep >= steps.length) {
+      window.location.reload()
+    } else {
+      SetActiveStep((activeStep) => activeStep + 1);
+    }
   }
 
   const backStep = () => {
@@ -61,7 +77,7 @@ function PlaceHolder() {
   
   const steps = ['Información general', 'Información especifica']
   return (
-    <form onSubmit={handleSubmit(onSubmit, onError)}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <Box>
         <FormStepper
           steps={steps}
@@ -104,7 +120,7 @@ function PlaceHolder() {
             variant="contained"
             type="submit"
           >
-            {activeStep === steps.length - 1 ? 'Enviar' : 'Siguiente'}
+            {returnStepLabel(activeStep)}
           </Button>
         </ButtonGroup>
       </Grid>
