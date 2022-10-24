@@ -1,6 +1,10 @@
 import { Typography, Grid } from '@mui/material'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
+/** Último paso de formulario eléctronico
+ * Página de reseteo de formulario ( Sin datos a completar )
+ */
+
 function FinalStep() {
     return (
         <>
@@ -14,7 +18,7 @@ function FinalStep() {
                 color="primary" 
                 sx={{ fontSize: 210 }}/>
         </div> 
-                <Typography variant="subtitle1" component="p" fontSize={30}
+                <Typography variant=" " component="p" fontSize={30}
                 sx={{
                     margin:"10px 0",
                     display: "flex",

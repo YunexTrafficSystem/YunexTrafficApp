@@ -15,7 +15,7 @@ function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
+      <Link color="inherit" href="https://www.yunextraffic.com/global/en/">
         Yunex Traffic
       </Link>{' '}
       {new Date().getFullYear()}
@@ -24,6 +24,7 @@ function Copyright(props) {
   );
 }
 
+/** Recuperacion de contraseña, a través de correo electrónico */
 
 export default function SignIn() {
   const handleSubmit = (event) => {

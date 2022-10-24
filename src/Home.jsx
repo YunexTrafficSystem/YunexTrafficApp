@@ -17,7 +17,7 @@ function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
+      <Link color="inherit" href="https://www.yunextraffic.com/global/en/">
         Yunex Traffic
       </Link>{' '}
       {new Date().getFullYear()}
@@ -85,6 +85,8 @@ const footers = [
     'Terms of use'],
   },
 ];
+
+/** Página de inicio */
 
 function FeaturesContent() {
   return (
@@ -171,7 +173,7 @@ function FeaturesContent() {
                 size="large"
                 sx={{ marginTop: 8 }}
               >
-                Prueba la herramienta ahora
+                Iniciar ahora 
               </Button>
             </Grid>
           </Grid>

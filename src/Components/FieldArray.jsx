@@ -12,6 +12,7 @@ import ClearIcon from '@mui/icons-material/Clear';
 import AddIcon from '@mui/icons-material/Add';
 import HorizontalLinearStepper from '../Terreno1';
 
+/** Field array de tabla de componenetes/ formulario dinámico */
 function FieldArray ({ fields, register, append, remove, errors, control, controller: Controll, spacing }) {
   return (
     <>
@@ -48,6 +49,7 @@ function FieldArray ({ fields, register, append, remove, errors, control, contro
                   inputProps={{ min: 1, max: 50 }} 
                 />
               </Grid>
+              {/** Butón eliminar fila de componentes */}
               <Grid item xs={3}>
                 <Button
                   variant='contained'
@@ -63,6 +65,7 @@ function FieldArray ({ fields, register, append, remove, errors, control, contro
             </Grid>
           </Box>
         ))}
+        {/** Botón añadir fila de componenetes, no superior a 6 filas agregadas */}
       <Button 
         variant='contained' 
         type="Button"

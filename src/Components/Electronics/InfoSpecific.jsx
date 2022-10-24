@@ -5,7 +5,16 @@ import {
   FormControlLabel,
   Grid,
 } from '@mui/material'
+
+//Cada componente requiere explicitamente de propiedades tal cómo:
+//<Component        error       =    {errors} 
+//    ↑               ↑                 ↑
+//    |               |          Variable de la propiedad
+//    |           Propiedades
+//Componenetes 
+
 function InfoSpecific({ register, errors }) {
+  /** Segundo step, muestra la información específica del formulario*/
   return (
      <Grid container spacing={5}>
      <Grid item xs={12}>

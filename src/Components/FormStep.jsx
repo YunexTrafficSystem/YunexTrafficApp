@@ -1,9 +1,8 @@
 import { useState } from 'react'
 import { Step, Card, Grid } from '@mui/material'
 
+/** Paso de formulario y requisito de FormStepper */
 
-// Reractorizar para no poner un step 
-// Haciendo de que trabajo,  
 function FormStep({ children, done, active }) {
   return (
     <Grid

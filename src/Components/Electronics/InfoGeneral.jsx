@@ -7,8 +7,16 @@ import {
   Grid
 }  from '@mui/material'
 
+//Cada componente requiere explicitamente de propiedades tal cómo:
+//<Component        error       =    {errors} 
+//    ↑               ↑                 ↑
+//    |               |          Variable de la propiedad
+//    |           Propiedades
+//Componenetes     
+
 function InfoGeneral({ register, errors }) {
   return (
+    /** Primer step, muestra la información general del formulario*/
     <Grid container spacing={5}>
       <Grid item xs={12}>
         <TextField
