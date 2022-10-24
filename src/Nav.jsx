@@ -9,11 +9,15 @@ import {
   Menu,
   Container,
   Button,
-  MenuItem
+  MenuItem,
+  Link
 } from "@mui/material";
 
 
-const pages = [ "Dashboard", "Login", "Inicio"];
+const pages = [ 
+  { title:"Dashboard", ref: "/"},
+  { title: "Login", ref: "/Login" },
+  { title: "Inicio", ref: "/SignUp" }];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -78,8 +82,8 @@ const ResponsiveAppBar = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page.title} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{page.title}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -105,11 +109,12 @@ const ResponsiveAppBar = () => {
           <Box sx={{ flexGrow: 1, display: { md: 'flex', flexDirection:'row-reverse', xs: 'none'} }}>
             {pages.map((page) => (
               <Button
-                key={page}
+                key={page.title}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 1, color: "white", display: "block" }}
+                href={page.ref}
               >
-                {page}
+                {page.title}
               </Button>
             ))}
           </Box>
@@ -119,3 +124,5 @@ const ResponsiveAppBar = () => {
   );
 };
 export default ResponsiveAppBar;
+
+

@@ -11,7 +11,7 @@ import {
   FormControlLabel,
   CssBaseline
 } from '@mui/material'
-import { LockOutlinedIcon } from '@mui/icons-material'
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
 import { BrowserRouter as Router, Routes, Route, Link as RouterLink } from 'react-router-dom'
 import { useForm } from "react-hook-form";
 
@@ -27,16 +27,11 @@ function Copyright(props) {
     </Typography>
   )
 }
+
 // Función que renderiza la App (Login de usuario)
 export default function SignIn() {
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    const data = new FormData(event.currentTarget)
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    })
-  }
+  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const onSubmit = data => console.log(data);
 
   return (
     <Container component="main" maxWidth="xs">
@@ -55,30 +50,35 @@ export default function SignIn() {
         <Typography component="h1" variant="h5">
           Inicio de Sesion
         </Typography>
-        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+        <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate sx={{ mt: 1 }}>
           <TextField
             margin="normal"
             required
             fullWidth
-            id="email"
+            type="email"
             label="Correo Electronico"
-            name="email"
             autoComplete="email"
             autoFocus
+            {...register("email", { required: true, pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/ })}
           />
           <TextField
             margin="normal"
             required
             fullWidth
-            name="password"
             label="Contraseña"
             type="password"
             id="password"
             autoComplete="current-password"
+            {...register("password", { required: true,  minLength: 8,  maxLength: 20 })}
           />
           <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Recuerdame"
+            control={
+              <Checkbox 
+                color="primary"
+                {...register("remember")} 
+              />
+            }
+            label="Mentener sesión iniciada"
           />
           <Button
             type="submit"
@@ -90,12 +90,12 @@ export default function SignIn() {
           </Button>
           <Grid container>
             <Grid item xs>
-              <Link variant="body2"  to="forgot" underline="none" component={RouterLink}>
+                <Link variant="body2"  to="/forgot" underline="none" component={RouterLink}>
                 Olvide mi contraseña
               </Link>
             </Grid>
             <Grid item>
-              <Link variant="body2" to="signup" underline="none" component={RouterLink} >
+              <Link variant="body2" to="/signup" underline="none" component={RouterLink} >
                 No tengo cuenta
               </Link>
             </Grid>

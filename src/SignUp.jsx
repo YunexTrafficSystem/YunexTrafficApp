@@ -24,7 +24,7 @@ function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
+      <Link color="inherit" href="https://www.yunextraffic.com/global/en/">
         Yunex Traffic
       </Link>{' '}
       {new Date().getFullYear()}
@@ -122,7 +122,7 @@ export default function SignUp() {
           </Button>
           <Grid container justifyContent="flex-end">
             <Grid item>
-              <Link to="/" variant="body2" underline="none" component={RouterLink}>
+              <Link to="/Login" variant="body2" underline="none" component={RouterLink}>
                 Ya tengo cuenta
               </Link>
             </Grid>
