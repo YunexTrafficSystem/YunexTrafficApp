@@ -12,12 +12,15 @@ import {
   MenuItem,
   Link
 } from "@mui/material";
+import { Router, Routes, Route, Link as RouterLink } from 'react-router-dom'
+
 
 
 const pages = [ 
   { title:"Dashboard", ref: "/"},
   { title: "Login", ref: "/Login" },
-  { title: "Inicio", ref: "/SignUp" }];
+  { title: "Inicio", ref: "/SignUp" }
+]
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -83,7 +86,13 @@ const ResponsiveAppBar = () => {
             >
               {pages.map((page) => (
                 <MenuItem key={page.title} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page.title}</Typography>
+                  <Typography 
+                    textAlign="center"
+                    component={Button}
+                    href={page.ref}
+                  >
+                    {page.title}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -106,11 +115,10 @@ const ResponsiveAppBar = () => {
           >
             TYTS
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { md: 'flex', flexDirection:'row-reverse', xs: 'none'} }}>
+          <Box sx={{ flexGrow: 1, display: { md: 'flex', flexDirection:'row-reverse', xs: 'none'}}}>
             {pages.map((page) => (
               <Button
                 key={page.title}
-                onClick={handleCloseNavMenu}
                 sx={{ my: 1, color: "white", display: "block" }}
                 href={page.ref}
               >
