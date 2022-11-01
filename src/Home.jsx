@@ -86,8 +86,6 @@ const footers = [
   },
 ];
 
-/** Página de inicio */
-
 function FeaturesContent() {
   return (
     <>
@@ -111,7 +109,6 @@ function FeaturesContent() {
       <Container maxWidth="md" component="main">
         <Grid container spacing={5} alignItems="flex-end">
           {features.map((tier) => (
-            // Enterprise card is full width at sm breakpoint
             <Grid
               item
               key={tier.title}
@@ -210,7 +207,6 @@ function FeaturesContent() {
 
         <Copyright sx={{ mt: 5 }} />
       </Container>
-      {/* End footer */}
     </>
   );
 }

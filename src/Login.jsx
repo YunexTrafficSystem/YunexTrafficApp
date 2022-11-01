@@ -28,7 +28,6 @@ function Copyright(props) {
   )
 }
 
-// Función que renderiza la App (Login de usuario)
 export default function SignIn() {
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const onSubmit = data => console.log(data);
@@ -78,7 +77,7 @@ export default function SignIn() {
                 {...register("remember")} 
               />
             }
-            label="Mentener sesión iniciada"
+            label="Mantener sesión iniciada"
           />
           <Button
             type="submit"

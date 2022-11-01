@@ -1,9 +1,13 @@
 import { useState } from 'react'
 import { Box } from '@mui/material'
 
-// Concepto de pasos
-// Los pasos se obtendran de active steps y se enlistaran de la siguiente forma:
-// [{children}].map => activeStep = PageToLoad
+/**
+ * Es una página en la que se pasa la información general para el formulario de Zona/Terreno
+ * @author Miguel Castillo <miguel126xl9@outlook.es>
+ * @param {Number} activeStep - Número de la página actual 
+ * @param {ReactComponent} children - elemento hijo del padre (En este caso de FormPageSteps) 
+ * @returns {ReactComponent} - Página especificada del paso a paso
+ */
 
 function FormPageSteps({ activeStep, children }) {
 

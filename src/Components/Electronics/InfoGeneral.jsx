@@ -7,26 +7,26 @@ import {
   Grid
 }  from '@mui/material'
 
-//Cada componente requiere explicitamente de propiedades tal cómo:
-//<Component        error       =    {errors} 
-//    ↑               ↑                 ↑
-//    |               |          Variable de la propiedad
-//    |           Propiedades
-//Componenetes     
+  /**
+ * Es una página en la que se pasa la retroalimentación para el formulario de Electronico/Electronico
+ * @author Katerine Ospina <ospinakaterine4@gmail.com>
+ * @param {ReactHook} register - Registro por campo, se reciben desde react-hook-form
+ * @param {ReactHook} errors - Errores del formulario, se reciben desde react-hook-form
+ * @returns {ReactComponent} - Página de Step 1 (Información General)
+ */
 
 function InfoGeneral({ register, errors }) {
   return (
-    /** Primer step, muestra la información general del formulario*/
     <Grid container spacing={5}>
       <Grid item xs={12}>
         <TextField
           fullWidth
           label="Serial"
           {...register("serial", {
-            required: true,
-            message: 'Serial es requerido'
+            required: "Serial es requerido",
           })}
           error={errors?.serial}
+          helperText={errors?.serial && errors?.serial.message}
           />
       </Grid>
       <Grid item xs={4}>
@@ -91,10 +91,10 @@ function InfoGeneral({ register, errors }) {
       <Grid item xs={12}>
         <TextField 
           {...register("inputDescription", {
-            required: true,
-            message: "Descripcinón de entrada requerida",
+            required: "Descripcion es requerida",
           })}
           error={errors?.inputDescription}
+          helperText={errors?.inputDescription && errors?.inputDescription.message}
           multiline
           rows={4}
           fullWidth

@@ -19,6 +19,7 @@ import { Link as RouterLink } from 'react-router-dom'
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
 import CssBaseline from '@mui/material/CssBaseline'
 import { useState } from 'react'
+import {useForm} from 'react-hook-form'
 
 function Copyright(props) {
   return (
@@ -33,9 +34,11 @@ function Copyright(props) {
   );
 }
 
-// Apartir de aquí es la inicialización del componente Sing Up (Registro)
 export default function SignUp() {
-  
+
+  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const onSubmit = data => console.log(data);
+
   const [role, setRole] = useState('')
 
   return (
@@ -55,7 +58,7 @@ export default function SignUp() {
         <Typography component="h1" variant="h5">
           Registro
         </Typography>
-       
+        <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate sx={{ mt: 1 }}>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
@@ -66,50 +69,59 @@ export default function SignUp() {
                 id="firstName"
                 label="Nombre Completo"
                 autoFocus
+                {...register("name",{ required: true })} 
               />
             </Grid>
             <Grid item xs={12} sm={6}>
             <FormControl sx={{ minWidth: '100%' }} required>
-              <InputLabel id="demo-simple-select-helper-label">Rol</InputLabel>
+              <InputLabel>Rol</InputLabel>
               <Select
-                value={role}
                 label="Rol"
-           
-                name="rol"
+                required
+                defaultValue={1}
+                {...register("role")} 
               >
-                <MenuItem value="operador">Operador</MenuItem>
-                <MenuItem value="usuario">Usuario</MenuItem>
-                <MenuItem value="externo">Externo</MenuItem>
-                <MenuItem value="invitado">Invitado</MenuItem>
+                <MenuItem value={1}>Operador</MenuItem>
+                <MenuItem value={2}>Usuario</MenuItem>
+                <MenuItem value={3}>Externo</MenuItem>
+                <MenuItem value={4}>Invitado</MenuItem>
               </Select>
             </FormControl > 
             </Grid>
             <Grid item xs={12}>
               <TextField
+                margin="normal"
                 required
                 fullWidth
-                id="email"
+                type="email"
                 label="Correo Electronico"
-                name="email"
                 autoComplete="email"
+                autoFocus
+                {...register("email", { required: true, pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/ })}
               />
             </Grid>
             <Grid item xs={12}>
               <TextField
+                margin="normal"
                 required
                 fullWidth
-                name="password"
                 label="Contraseña"
                 type="password"
                 id="password"
-                autoComplete="new-password"
+                autoComplete="current-password"
+                {...register("password", { required: true,  minLength: 8,  maxLength: 20 })}
               />
             </Grid>
             <Grid item xs={12}>
-              <FormControlLabel
-                control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="Acepta terminos y condiciones."
+            <FormControlLabel
+            control={
+              <Checkbox 
+                color="primary"
+                {...register("terms", { required: true })} 
               />
+            }
+            label="Acepto terminos y condiciones"
+          />
             </Grid>
           </Grid>
           <Button
@@ -127,6 +139,7 @@ export default function SignUp() {
               </Link>
             </Grid>
           </Grid>
+          </Box>
         </Box>
 
       <Copyright sx={{ mt: 5 }} />

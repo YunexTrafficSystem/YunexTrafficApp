@@ -10,9 +10,7 @@ import {
 }  from '@mui/material'
 import ClearIcon from '@mui/icons-material/Clear';
 import AddIcon from '@mui/icons-material/Add';
-import HorizontalLinearStepper from '../Terreno1';
 
-/** Field array de tabla de componenetes/ formulario dinámico */
 function FieldArray ({ fields, register, append, remove, errors, control, controller: Controll, spacing }) {
   return (
     <>
@@ -26,7 +24,7 @@ function FieldArray ({ fields, register, append, remove, errors, control, contro
                     label="Componente"
                     required
                     defaultValue={1}
-                    {...register(`mant.${index}.component`)} 
+                    {...register("quantity",`mant.${index}.component`)} 
                   >
                     <MenuItem value={1}>Comp1</MenuItem>
                     <MenuItem value={2}>Comp2</MenuItem>
@@ -39,21 +37,20 @@ function FieldArray ({ fields, register, append, remove, errors, control, contro
               <Grid item xs={4}>
                 <TextField
                   {...register(`mant.${index}.quantity`, { 
-                  required: true,
-                  message:'Cantidad es requerido'
+                  required: "Cantidad es requerida",
                   })}
-                  error={errors?.mant?.[index]?.quantity} 
+                  error={errors?.mant?.[index]?.quantity}
+                  helperText={errors?.quantity && errors?.quantity.message} 
                   fullWidth
                   type="number"
                   label="Cantidad"
                   inputProps={{ min: 1, max: 50 }} 
                 />
               </Grid>
-              {/** Butón eliminar fila de componentes */}
               <Grid item xs={3}>
                 <Button
                   variant='contained'
-                  onClick={() => remove(index)} // Añadir condicional
+                  onClick={() => remove(index)} 
                   sx={{margin:1, widht:15 }}
                   disabled={index == 0}
                 >
@@ -65,7 +62,6 @@ function FieldArray ({ fields, register, append, remove, errors, control, contro
             </Grid>
           </Box>
         ))}
-        {/** Botón añadir fila de componenetes, no superior a 6 filas agregadas */}
       <Button 
         variant='contained' 
         type="Button"

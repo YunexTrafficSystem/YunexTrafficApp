@@ -1,0 +1,29 @@
+{
+  "electrics": [
+    {
+      "id": 9222,
+      "modulo": "type_1",
+      "color": "green"
+    },
+    {
+      "id": 9223,
+      "modulo": "type_2",
+      "color": "red"
+    },
+    {
+      "id": 9224,
+      "modulo": "type_3",
+      "color": "green"
+    },
+    {
+      "id": 9225,
+      "modulo": "type_5",
+      "color": "blue"
+    },
+    {
+      "id": 9225,
+      "modulo": "type_5",
+      "color": "blue"
+    }
+  ]
+}

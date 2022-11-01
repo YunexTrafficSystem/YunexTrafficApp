@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useForm, useFieldArray, Controller } from "react-hook-form";
 import { FieldArray } from "./Components/FieldArray";
-import { InfoGeneral } from "./Components/Electronics/InfoGeneral";
-import { InfoSpecific } from "./Components/Electronics/InfoSpecific";
+import { InfoSpecific } from "./Components/Zone/InfoSpecific";
+import { InfoGeneral } from "./Components/Zone/InfoGeneral";
+import { FeedBack } from "./Components/Zone/FeedBack";
 import { FormStepper } from "./Components/FormStepper";
 import { FormSteps } from "./Components/FormSteps";
 import { FormPageSteps } from "./Components/FormPageSteps";
@@ -20,15 +21,14 @@ import {
 import { positions } from "@mui/system";
 import { FinalStep } from "./Components/FinalStep";
 
-function Electronico() {
-  const { control, register, handleSubmit, watch, formState: { errors } } = useForm({
-    defaultValues: {
-      mant: [{ quantity: 1, component: 1 }], 
-      module: 3,
-      container:5,
-      project:4
-    }
-  })
+function Zone() {
+  const {
+    control,
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm()
 
   const onSubmit = (data) => {
     onError();
@@ -36,13 +36,6 @@ function Electronico() {
       alert(JSON.stringify(data));
     }
   };
-
-  const { fields, append, prepend, remove, swap, move, insert } = useFieldArray(
-    {
-      control,
-      name: "mant"
-    }
-  );
 
   const onError = (errors) => {
     if (!errors) {
@@ -59,6 +52,7 @@ function Electronico() {
     }
     return label;
   };
+
   const [activeStep, SetActiveStep] = useState(0);
 
   const nextStep = () => {
@@ -73,7 +67,11 @@ function Electronico() {
     SetActiveStep((activeStep) => activeStep - 1);
   };
 
-  const steps = ["Información general", "Información especifica"];
+  const steps = [
+    "Información general",
+    "Realimentación",
+    "Información especifica",
+  ];
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -83,16 +81,17 @@ function Electronico() {
       <FormPageSteps activeStep={activeStep}>
         <FormStep>
           <InfoGeneral register={register} errors={errors} />
-          <FieldArray
-            fields={fields}
-            register={register}
-            append={append}
-            remove={remove}
-            errors={errors}
-          />
         </FormStep>
         <FormStep>
-          <InfoSpecific register={register} errors={errors} />
+          <FeedBack register={register} errors={errors} />
+        </FormStep>
+        <FormStep>
+          <InfoSpecific
+            register={register}
+            errors={errors}
+            Controller={Controller}
+            control={control}
+          />
         </FormStep>
         <FormStep>
           <FinalStep />
@@ -105,10 +104,14 @@ function Electronico() {
             display: "flex",
             justifyContent: "center",
           }}
-        >
-          <Button onClick={backStep} disabled={!(activeStep === 1)}>
+        >{
+          !(activeStep === steps.length || activeStep === 0) &&
+          <Button
+            onClick={backStep}
+          >
             Volver
           </Button>
+        }
           <Button variant="contained" type="submit">
             {returnStepLabel(activeStep)}
           </Button>
@@ -118,4 +121,4 @@ function Electronico() {
   );
 }
 
-export { Electronico };
+export { Zone };

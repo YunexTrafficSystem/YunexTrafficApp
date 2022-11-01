@@ -6,24 +6,24 @@ import {
   Grid,
 } from '@mui/material'
 
-//Cada componente requiere explicitamente de propiedades tal cómo:
-//<Component        error       =    {errors} 
-//    ↑               ↑                 ↑
-//    |               |          Variable de la propiedad
-//    |           Propiedades
-//Componenetes 
+  /**
+ * Es una página en la que se pasa la retroalimentación para el formulario de Electronics/Electronico
+ * @author Katerine Ospina <ospinakaterine4@gmail.com>
+ * @param {ReactHook} register - Registro por campo, se reciben desde react-hook-form
+ * @param {ReactHook} errors - Errores del formulario, se reciben desde react-hook-form
+ * @returns {ReactComponent} - Página de Step 2 (Información Específica)
+ */
 
 function InfoSpecific({ register, errors }) {
-  /** Segundo step, muestra la información específica del formulario*/
   return (
      <Grid container spacing={5}>
      <Grid item xs={12}>
         <TextField 
           {...register("outDescription", {
-            required: true,
-            message: "Descripcinón de entrada requerida",
+            required: "Descripcion es requerida",
           })}
           error={errors?.outDescription}
+          helperText={errors?.outDescription && errors?.outDescription.message}
           multiline
           rows={4}
           fullWidth

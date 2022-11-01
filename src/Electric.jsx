@@ -1,34 +1,29 @@
 import { useState } from "react";
-import { useForm, useFieldArray, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
+import { Button, Box, Grid, ButtonGroup } from "@mui/material";
+import { positions } from "@mui/system";
+// Imports de Componentes necesarios en formulario
+import { InfoSpecific } from "./Components/Electrics/InfoSpecific";
 import { FieldArray } from "./Components/FieldArray";
-import { InfoGeneral } from "./Components/Electronics/InfoGeneral";
-import { InfoSpecific } from "./Components/Electronics/InfoSpecific";
+import { InfoGeneral } from "./Components/Electrics/InfoGeneral";
 import { FormStepper } from "./Components/FormStepper";
 import { FormSteps } from "./Components/FormSteps";
 import { FormPageSteps } from "./Components/FormPageSteps";
 import { FormStep } from "./Components/FormStep";
-import {
-  Stepper,
-  Step,
-  StepLabel,
-  Button,
-  Box,
-  Card,
-  Grid,
-  ButtonGroup,
-} from "@mui/material";
-import { positions } from "@mui/system";
 import { FinalStep } from "./Components/FinalStep";
 
-function Electronico() {
-  const { control, register, handleSubmit, watch, formState: { errors } } = useForm({
-    defaultValues: {
-      mant: [{ quantity: 1, component: 1 }], 
-      module: 3,
-      container:5,
-      project:4
-    }
-  })
+/**
+ * Es el formulario de Electrico
+ * @author Miguel Castillo <miguel126xl9@outlook.es>
+ * @returns {ReactComponent} - Formulario de Electrico
+ */
+
+function Electric() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const onSubmit = (data) => {
     onError();
@@ -36,13 +31,6 @@ function Electronico() {
       alert(JSON.stringify(data));
     }
   };
-
-  const { fields, append, prepend, remove, swap, move, insert } = useFieldArray(
-    {
-      control,
-      name: "mant"
-    }
-  );
 
   const onError = (errors) => {
     if (!errors) {
@@ -83,13 +71,6 @@ function Electronico() {
       <FormPageSteps activeStep={activeStep}>
         <FormStep>
           <InfoGeneral register={register} errors={errors} />
-          <FieldArray
-            fields={fields}
-            register={register}
-            append={append}
-            remove={remove}
-            errors={errors}
-          />
         </FormStep>
         <FormStep>
           <InfoSpecific register={register} errors={errors} />
@@ -118,4 +99,4 @@ function Electronico() {
   );
 }
 
-export { Electronico };
+export { Electric };

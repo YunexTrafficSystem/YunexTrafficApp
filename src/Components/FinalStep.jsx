@@ -1,10 +1,6 @@
 import { Typography, Grid } from '@mui/material'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
-/** Último paso de formulario eléctronico
- * Página de reseteo de formulario ( Sin datos a completar )
- */
-
 function FinalStep() {
     return (
         <>

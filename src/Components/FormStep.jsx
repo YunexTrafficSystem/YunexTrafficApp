@@ -1,8 +1,5 @@
 import { useState } from 'react'
 import { Step, Card, Grid } from '@mui/material'
-
-/** Paso de formulario y requisito de FormStepper */
-
 function FormStep({ children, done, active }) {
   return (
     <Grid

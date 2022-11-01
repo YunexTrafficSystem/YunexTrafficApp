@@ -10,6 +10,8 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { Link as RouteLink } from 'react-router-dom';
+import { useForm } from "react-hook-form"
+
 
 function Copyright(props) {
   return (
@@ -24,16 +26,9 @@ function Copyright(props) {
   );
 }
 
-/** Recuperacion de contraseña, a través de correo electrónico */
-
 export default function SignIn() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-    });
-  };
+  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const onSubmit = data => console.log(data);
 
   return (
     <Container component="main" maxWidth="xs">
@@ -52,17 +47,17 @@ export default function SignIn() {
         <Typography component="h1" variant="h5">
         Recuperar Contraseña
         </Typography>
-        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+        <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate sx={{ mt: 1 }}>
         <TextField
             margin="normal"
             required
             fullWidth
-            id="email"
+            type="email"
             label="Correo Electronico"
-            name="email"
             autoComplete="email"
             autoFocus
-        />
+            {...register("email", { required: true, pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/ })}
+          />
       
         <Button
             type="submit"
