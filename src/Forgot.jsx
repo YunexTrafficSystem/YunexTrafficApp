@@ -11,6 +11,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { Link as RouteLink } from 'react-router-dom';
 import { useForm } from "react-hook-form"
+import Nav from './Nav'
 
 
 function Copyright(props) {
@@ -31,6 +32,8 @@ export default function SignIn() {
   const onSubmit = data => console.log(data);
 
   return (
+    <>
+    <Nav />
     <Container component="main" maxWidth="xs">
     <CssBaseline />
     <Box
@@ -83,5 +86,6 @@ export default function SignIn() {
     </Box>
     <Copyright sx={{ mt: 8, mb: 4 }} />
     </Container>
+    </>
   );
 }

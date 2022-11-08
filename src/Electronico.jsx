@@ -6,6 +6,7 @@ import { InfoSpecific } from "./Components/Electronics/InfoSpecific";
 import { FormStepper } from "./Components/FormStepper";
 import { FormSteps } from "./Components/FormSteps";
 import { FormPageSteps } from "./Components/FormPageSteps";
+import Nav from "./Nav"
 import { FormStep } from "./Components/FormStep";
 import {
   Stepper,
@@ -76,6 +77,9 @@ function Electronico() {
   const steps = ["Información general", "Información especifica"];
 
   return (
+    <>
+    <Nav />
+    <br />
     <form onSubmit={handleSubmit(onSubmit)}>
       <Box>
         <FormStepper steps={steps} activeStep={activeStep} />
@@ -115,6 +119,7 @@ function Electronico() {
         </ButtonGroup>
       </Grid>
     </form>
+    </>
   );
 }
 

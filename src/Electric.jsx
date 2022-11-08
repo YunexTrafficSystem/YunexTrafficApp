@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Button, Box, Grid, ButtonGroup } from "@mui/material";
 import { positions } from "@mui/system";
-// Imports de Componentes necesarios en formulario
 import { InfoSpecific } from "./Components/Electrics/InfoSpecific";
 import { FieldArray } from "./Components/FieldArray";
 import { InfoGeneral } from "./Components/Electrics/InfoGeneral";
@@ -11,12 +10,7 @@ import { FormSteps } from "./Components/FormSteps";
 import { FormPageSteps } from "./Components/FormPageSteps";
 import { FormStep } from "./Components/FormStep";
 import { FinalStep } from "./Components/FinalStep";
-
-/**
- * Es el formulario de Electrico
- * @author Miguel Castillo <miguel126xl9@outlook.es>
- * @returns {ReactComponent} - Formulario de Electrico
- */
+import Nav from "./Nav"
 
 function Electric() {
   const {
@@ -64,6 +58,9 @@ function Electric() {
   const steps = ["Información general", "Información especifica"];
 
   return (
+    <>
+    <Nav />
+    <br />
     <form onSubmit={handleSubmit(onSubmit)}>
       <Box>
         <FormStepper steps={steps} activeStep={activeStep} />
@@ -96,6 +93,7 @@ function Electric() {
         </ButtonGroup>
       </Grid>
     </form>
+    </>
   );
 }
 

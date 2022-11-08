@@ -12,6 +12,7 @@ import {
   GlobalStyles
 } from '@mui/material';
 import StarIcon from '@mui/icons-material/StarBorder';
+import Nav from "./Nav"
 
 function Copyright(props) {
   return (
@@ -89,6 +90,7 @@ const footers = [
 function FeaturesContent() {
   return (
     <>
+    <Nav />
       <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
       <CssBaseline />
       <Container disableGutters maxWidth="sm" component="main" sx={{ pt: 8, pb: 6 }}>

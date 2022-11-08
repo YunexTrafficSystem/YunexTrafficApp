@@ -14,6 +14,7 @@ import {
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
 import { Link as RouterLink } from 'react-router-dom'
 import { useForm } from "react-hook-form";
+import Nav from "./Nav"
 
 function Copyright(props) {
   return (
@@ -31,18 +32,20 @@ function Copyright(props) {
 export default function SignIn() {
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const onSubmit = data => console.log(data);
-
+  
   return (
+    <>
+    <Nav />
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <Box
         sx={{
-        marginTop: 8,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
+          marginTop: 8,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
         }}
-      >
+        >
         <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
           <LockOutlinedIcon />
         </Avatar>
@@ -59,7 +62,7 @@ export default function SignIn() {
             autoComplete="email"
             autoFocus
             {...register("email", { required: true, pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/ })}
-          />
+            />
           <TextField
             margin="normal"
             required
@@ -69,22 +72,22 @@ export default function SignIn() {
             id="password"
             autoComplete="current-password"
             {...register("password", { required: true,  minLength: 8,  maxLength: 20 })}
-          />
+            />
           <FormControlLabel
             control={
               <Checkbox 
-                color="primary"
-                {...register("remember")} 
+              color="primary"
+              {...register("remember")} 
               />
             }
             label="Mantener sesión iniciada"
-          />
+            />
           <Button
             type="submit"
             fullWidth
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
-          >
+            >
             Ingresar
           </Button>
           <Grid container>
@@ -103,5 +106,6 @@ export default function SignIn() {
       </Box>
       <Copyright sx={{ mt: 8, mb: 4 }} />
     </Container>
+    </>
   )
 }

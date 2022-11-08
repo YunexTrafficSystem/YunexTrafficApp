@@ -8,6 +8,7 @@ import { FormStepper } from "./Components/FormStepper";
 import { FormSteps } from "./Components/FormSteps";
 import { FormPageSteps } from "./Components/FormPageSteps";
 import { FormStep } from "./Components/FormStep";
+import Nav from './Nav'
 import {
   Stepper,
   Step,
@@ -74,6 +75,9 @@ function Zone() {
   ];
 
   return (
+    <>
+    <Nav /> 
+    <br />
     <form onSubmit={handleSubmit(onSubmit)}>
       <Box>
         <FormStepper steps={steps} activeStep={activeStep} />
@@ -118,6 +122,7 @@ function Zone() {
         </ButtonGroup>
       </Grid>
     </form>
+    </>
   );
 }
 

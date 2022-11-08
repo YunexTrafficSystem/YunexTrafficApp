@@ -19,6 +19,7 @@ import { Link as RouterLink } from 'react-router-dom'
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
 import CssBaseline from '@mui/material/CssBaseline'
 import { useState } from 'react'
+import Nav from './Nav'
 import {useForm} from 'react-hook-form'
 
 function Copyright(props) {
@@ -42,6 +43,8 @@ export default function SignUp() {
   const [role, setRole] = useState('')
 
   return (
+    <>
+    <Nav />
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <Box
@@ -144,5 +147,6 @@ export default function SignUp() {
 
       <Copyright sx={{ mt: 5 }} />
     </Container>
+    </>
   );
 }

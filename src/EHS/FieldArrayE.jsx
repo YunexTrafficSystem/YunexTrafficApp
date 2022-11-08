@@ -1,58 +1,66 @@
 import {
   TextField,
-  Select,
-  MenuItem,
-  FormControl,
   Button, 
-  InputLabel,
   Box,
   Grid
 }  from '@mui/material'
 import ClearIcon from '@mui/icons-material/Clear';
-import { useForm, useFieldArray, Controller } from "react-hook-form";
 import AddIcon from '@mui/icons-material/Add';
 
-function FieldArray ({ fields, register, append, remove, errors, control, controller: Controll, spacing }) {
-     const { fields, append, prepend, remove, swap, move, insert } = useFieldArray(
-    {
-      control,
-      name: "mant"
-    }
-  );
+function FieldArrayE ({ fields, register, append, remove, errors, control, controller: Controll, spacing }) {
   return (
     <>
       {fields.map((field, index) => (
         <Box key={field.id}>
           <Grid container spacing={5} sx={{p:'13px 0'}}>
-              <Grid item xs={5}>
-                <FormControl fullWidth>
-                  <InputLabel>Componentes</InputLabel>
-                  <Select 
-                    label="Componente"
-                    required
-                    defaultValue={1}
-                    {...register("quantity",`mant.${index}.component`)} 
-                  >
-                    <MenuItem value={1}>Comp1</MenuItem>
-                    <MenuItem value={2}>Comp2</MenuItem>
-                    <MenuItem value={3}>Comp3</MenuItem>
-                    <MenuItem value={4}>Comp4</MenuItem>
-                    <MenuItem value={5}>Comp5</MenuItem>
-                  </Select>
-                </FormControl>
+              <Grid item xs={2}>
+               <TextField 
+               label="Dato 1"
+               />
               </Grid>
-              <Grid item xs={4}>
-                <TextField
-                  {...register(`mant.${index}.quantity`, { 
-                  required: "Cantidad es requerida",
-                  })}
-                  error={errors?.mant?.[index]?.quantity}
-                  helperText={errors?.quantity && errors?.quantity.message} 
-                  fullWidth
-                  type="number"
-                  label="Cantidad"
-                  inputProps={{ min: 1, max: 50 }} 
-                />
+              <Grid item xs={2}>
+               <TextField 
+               label="Dato 2"
+               />
+              </Grid>
+              <Grid item xs={2}>
+               <TextField 
+               label="Dato 3"/>
+              </Grid>
+              <Grid item xs={2}>
+               <TextField 
+               label="Dato 4"
+               />
+              </Grid>
+              <Grid item xs={2}>
+               <TextField 
+               label="Dato 5"
+               />
+              </Grid>
+              <Grid item xs={2}>
+               <TextField 
+               label="Dato 6"
+               />
+              </Grid>
+              <Grid item xs={2}>
+               <TextField 
+               label="Dato 7"
+               />
+              </Grid>
+              <Grid item xs={2}>
+               <TextField 
+               label="Dato 8"
+               />
+              </Grid>
+              <Grid item xs={2}>
+               <TextField 
+               label="Dato 9"
+               />
+              </Grid>
+              <Grid item xs={2}>
+               <TextField 
+               label="Dato 10"
+               />
               </Grid>
               <Grid item xs={3}>
                 <Button
@@ -82,4 +90,4 @@ function FieldArray ({ fields, register, append, remove, errors, control, contro
   )
 }
 
-export { FieldArray }
+export { FieldArrayE }
