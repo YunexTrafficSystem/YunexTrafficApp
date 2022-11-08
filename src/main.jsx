@@ -8,6 +8,8 @@ import Login from './Login'
 import Nav from './Nav'
 import SignUp from './SignUp'
 import Home from './Home'
+import  Menu   from './EHS/Menu'
+import { FieldArray }  from './EHS/FieldArrayE'
 import { Electronico } from './Electronico'
 import { Electric } from './Electric'
 import { FinalStep } from './Components/FinalStep'
@@ -62,6 +64,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="FinalStep" element={< FinalStep/>}/>
           <Route path="Electrico" element={< Electric/>}/>
           <Route path="Terreno" element={< Zone/>}/>
+          <Route path="Menu" element={<Menu />}/>
+          <Route path="FieldArray" element={<FieldArray />}/>
         </Routes>
       </Router>      
     </ThemeProvider> 

@@ -43,7 +43,7 @@ function FeedBack({ register, errors }) {
             <MenuItem value={2}>Diag2</MenuItem>
             <MenuItem value={3}>Diag3</MenuItem>
             <MenuItem value={4}>Diag4</MenuItem>
-            <MenuItem value={5}>Diag5</MenuItem>
+            <MenuItem value={5}>Diag5</MenuItem>x
           </Select>
         </FormControl>
       </Grid>

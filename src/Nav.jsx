@@ -15,9 +15,18 @@ import {
 import { Router, Routes, Route, Link as RouterLink } from 'react-router-dom'
 
 const pages = [ 
-  { title:"Dashboard", ref: "/"},
-  { title: "Login", ref: "/Login" },
-  { title: "Inicio", ref: "/SignUp" }
+  { 
+    title:"Dashboard", 
+    ref: "/"
+  },
+  { 
+    title: "Login", 
+    ref: "/Login" 
+  },
+  { 
+    title: "Inicio", 
+    ref: "/SignUp" 
+  }
 ]
 
 const ResponsiveAppBar = () => {
