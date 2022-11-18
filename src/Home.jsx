@@ -12,9 +12,17 @@ import {
   GlobalStyles
 } from '@mui/material';
 import StarIcon from '@mui/icons-material/StarBorder';
-import Nav from "./Nav"
-
+import Nav from './Nav'
 function Copyright(props) {
+
+  const url = 'https://jsonplaceholder.typicode.com/todos/1'
+  const api_url = 'http://localhost:8088/singin'
+  const data = {
+    email: "lab22@email.com",
+    password: "lab2022"
+  }
+
+
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
@@ -91,20 +99,21 @@ function FeaturesContent() {
   return (
     <>
     <Nav />
+    <br/>
       <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
       <CssBaseline />
       <Container disableGutters maxWidth="sm" component="main" sx={{ pt: 8, pb: 6 }}>
         <Typography
           component="h1"
-          variant="h2"
+          variant="h3"
           align="center"
           color="text.primary"
           gutterBottom
         >
-          Texto x
+          The Yunex Traffic System
         </Typography>
-        <Typography variant="h5" align="center" color="text.secondary" component="p">
-          Texto x mas largo
+        <Typography variant="p" align="center" color="text.secondary" component="p">
+          Herramienta de software para la administracion y optimizacion de procesos, encargada de ser el aliado numero uno en la ayuda de actividades repetitivas, con el fin de tener un mejor control de los registros de las diversas areas.
         </Typography>
       </Container>
       {/* End hero unit */}
@@ -171,6 +180,7 @@ function FeaturesContent() {
                 variant="contained"
                 size="large"
                 sx={{ marginTop: 8 }}
+                href="Login"
               >
                 Iniciar ahora 
               </Button>

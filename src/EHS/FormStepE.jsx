@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Step, Card, Grid } from '@mui/material'
-function FormStepE({ children, done, active }) {
+function FormStepE({ children }) {
   return (
     <Grid
       container
@@ -9,7 +9,7 @@ function FormStepE({ children, done, active }) {
       alignItems="center"
     >
       <Card 
-        sx={{ p:10, marginTop:15, maxWidth: 2000 }}
+        sx={{ p:10, marginTop:15, minWidth: 500, overflow: 'auto'  }}
       >
         {children}
       </Card>

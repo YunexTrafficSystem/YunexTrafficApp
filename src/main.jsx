@@ -6,9 +6,11 @@ import ReactDOM from 'react-dom/client'
 import Forgot from './Forgot'
 import Login from './Login'
 import Nav from './Nav'
+import Footer  from './Components/Footer'
 import SignUp from './SignUp'
 import Home from './Home'
 import  Menu   from './Menu'
+import DataGrid from './Components/DataGrid'
 import { EHS } from './EHS'
 import { Electronico } from './Electronico'
 import { Electric } from './Electric'
@@ -65,9 +67,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="Terreno" element={< Zone/>}/>
           <Route path="Menu" element={<Menu />}/>
           <Route path="EHS" element={<EHS />}/>
+          <Route path="DataGrid" element={<DataGrid />}/>
         </Routes>
       </Router>      
     </ThemeProvider> 
+      <Footer />
   </React.StrictMode>
 )
 

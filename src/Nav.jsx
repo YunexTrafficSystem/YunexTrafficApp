@@ -12,19 +12,14 @@ import {
   MenuItem,
   Link
 } from "@mui/material";
-import { Router, Routes, Route, Link as RouterLink } from 'react-router-dom'
 
 const pages = [ 
-  { 
-    title:"Dashboard", 
-    ref: "/"
-  },
   { 
     title: "Login", 
     ref: "/Login" 
   },
   { 
-    title: "Inicio", 
+    title: "Sign Up", 
     ref: "/SignUp" 
   }
 ]
