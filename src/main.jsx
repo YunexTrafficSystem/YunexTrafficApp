@@ -70,8 +70,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="DataGrid" element={<DataGrid />}/>
         </Routes>
       </Router>      
-    </ThemeProvider> 
       <Footer />
+    </ThemeProvider> 
   </React.StrictMode>
 )
 

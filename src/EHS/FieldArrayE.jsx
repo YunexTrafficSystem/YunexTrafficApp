@@ -9,6 +9,13 @@ import ClearIcon from '@mui/icons-material/Clear';
 import AddIcon from '@mui/icons-material/Add';
 import CreateIcon from '@mui/icons-material/Create';
 
+/**
+ * Tabla editable Ehs para datos de colaboradores (Sin scolling)
+ * @author Katerine Ospina <ospinakaterine4@gmail.com>
+ * @returns {ReactComponent} - Tabla con react-hook-form con funcionalidad de botones de añadir y eliminar fila (Sin terminar)
+ */
+  
+
 function FieldArrayE ({ fields, register, append, remove, errors, control, controller: Controll, spacing }) {
   return (
     <>

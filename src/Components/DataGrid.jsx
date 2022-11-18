@@ -13,6 +13,12 @@ import AddIcon from '@mui/icons-material/Add'
 import Grid from '@mui/material/Grid'
 import ClearIcon from '@mui/icons-material/Clear'
 import DeleteIcon from '@mui/icons-material/Delete';
+ 
+/**
+ * Pagina para tabla editable EHS de datos personales de los colaboradores
+ * @author Katerine Ospina <ospinakaterine4@gmail.com>
+ * @returns {ReactComponent} - Tabla de componentes a llenar, botones con funcionalidades para eliminar, añadir o editar colaboradores
+ */
 
 const columns = [
   { 

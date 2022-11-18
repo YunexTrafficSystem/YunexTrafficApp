@@ -1,13 +1,13 @@
-import { useState } from "react";
-import { useForm, useFieldArray, Controller } from "react-hook-form";
-import { FieldArray } from "./Components/FieldArray";
-import { InfoGeneral } from "./Components/Electronics/InfoGeneral";
-import { InfoSpecific } from "./Components/Electronics/InfoSpecific";
-import { FormStepper } from "./Components/FormStepper";
-import { FormSteps } from "./Components/FormSteps";
-import { FormPageSteps } from "./Components/FormPageSteps";
+import { useState } from "react"
+import { useForm, useFieldArray, Controller } from "react-hook-form"
+import { FieldArray } from "./Components/FieldArray"
+import { InfoGeneral } from "./Components/Electronics/InfoGeneral"
+import { InfoSpecific } from "./Components/Electronics/InfoSpecific"
+import { FormStepper } from "./Components/FormStepper"
+import { FormSteps } from "./Components/FormSteps"
+import { FormPageSteps } from "./Components/FormPageSteps"
 import Nav from "./Nav"
-import { FormStep } from "./Components/FormStep";
+import { FormStep } from "./Components/FormStep"
 import {
   Stepper,
   Step,
@@ -17,9 +17,9 @@ import {
   Card,
   Grid,
   ButtonGroup,
-} from "@mui/material";
-import { positions } from "@mui/system";
-import { FinalStep } from "./Components/FinalStep";
+} from "@mui/material"
+import { positions } from "@mui/system"
+import { FinalStep } from "./Components/FinalStep"
 
 function Electronico() {
   const { control, register, handleSubmit, watch, formState: { errors } } = useForm({

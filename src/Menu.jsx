@@ -13,6 +13,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import EngineeringIcon from '@mui/icons-material/Engineering';
 import WarningIcon from '@mui/icons-material/Warning';
 import SchoolIcon from '@mui/icons-material/School';
+import Container from '@mui/material/Container'
 
 export default function PrimarySearchAppBar() {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -146,7 +147,7 @@ export default function PrimarySearchAppBar() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Container sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
           <Typography
@@ -248,6 +249,6 @@ export default function PrimarySearchAppBar() {
       </AppBar>
       {renderMobileMenu}
       {renderMenu}
-    </Box>
+    </Container>
   );
 }

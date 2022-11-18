@@ -1,5 +1,11 @@
 import { useState } from 'react'
 import { Step, Card, Grid } from '@mui/material'
+
+/**
+ * Carta que contiene al fieldArray
+ * @author Katerine Ospina <ospinakaterine4@gmail.com>
+ */
+
 function FormStepE({ children }) {
   return (
     <Grid
