@@ -1,49 +1,145 @@
-import { useState } from 'react';
-import BottomNavigation from '@mui/material/BottomNavigation';
-import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import FolderIcon from '@mui/icons-material/Folder';
-import RestoreIcon from '@mui/icons-material/Restore';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import Container from '@mui/material/Container'
+import { useState } from 'react'
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import { Menu as MenuIcon } from "@mui/icons-material";
+import {
+  IconButton,
+  Typography,
+  Menu,
+  Container,
+  Button,
+  MenuItem,
+  Link
+} from "@mui/material";
 
-  /**
- * Footer o pie de pagina del sistema con datos relacionados a la empresa
- * @author Katerine Ospina <ospinakaterine4@gmail.com>
- * @returns {ReactComponent} - Footer con funcionalidad en ButtonIcons
- */
+const pages = [ 
+  { 
+    title:'Compliace', 
+    ref: '/' 
+  },
+  { 
+    title: 'For Suppliers', 
+    ref: '/' 
+  },
+  {
+    title:'Data Privacy & Cookies',
+    ref: '/'
+  },
+  {
+    title: 'Imprint',
+    ref:'/'
+  }
+]
 
-export default function LabelBottomNavigation() {
-  const [value, setValue] = useState('recents');
+const ResponsiveFooter = () => {
+  const [anchorElNav, setAnchorElNav] = useState(null);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
   };
 
   return (
-    <Container sx={{display: 'flex', flexFlow: 'column', height: '100%'}}>
-    <BottomNavigation sx={{ position: 'fixed', bottom: 0, minWidth: '100%', minHeight: '1vh' }} value={value} onChange={handleChange}>
-      <BottomNavigationAction
-        label="Recents"
-        value="recents"
-        icon={<RestoreIcon />}
-      />
-      <BottomNavigationAction
-        label="Favorites"
-        value="favorites"
-        icon={<FavoriteIcon />}
-      />
-      <BottomNavigationAction
-        label="Nearby"
-        value="nearby"
-        icon={<LocationOnIcon />}
-      />
-      <BottomNavigationAction 
-      label="Folder" 
-      value="folder" 
-      icon={<FolderIcon />} 
-      />
-    </BottomNavigation>
-    </Container>
+    <AppBar position='static' color="black">
+      <Container maxWidth="xl">
+        <Toolbar disableGutters >
+          <Typography
+            variant="h6"
+            noWrap
+            component="a"
+            href="/"
+            sx={{
+              mr: 2,
+              display: { xs: "none", md: "flex" },
+              fontFamily: "monospace",
+              fontWeight: 700,
+              letterSpacing: ".0rem",
+              color: "inherit",
+              textDecoration: "none"
+            }}
+          >
+            TYTS
+          </Typography>
+
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: "none" } }}>
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleOpenNavMenu}
+              color="secondary"
+            >
+              <MenuIcon />
+            </IconButton>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorElNav}
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "left"
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "left"
+              }}
+              open={Boolean(anchorElNav)}
+              onClose={handleCloseNavMenu}
+              sx={{
+                display: { xs: "block", md: "none" }
+              }}
+            >
+              {pages.map((page) => (
+                <MenuItem key={page.title} onClick={handleCloseNavMenu}>
+                  <Typography
+                    textAlign="center"
+                    component={Button}
+                    href={page.ref}
+                  >
+                    {page.title}
+                  </Typography>
+                </MenuItem>
+              ))}
+            </Menu>
+          </Box>
+          <Typography
+            variant="h5"
+            noWrap
+            component="a"
+            href=""
+            sx={{
+              mr: 2,
+              display: { xs: "flex", md: "none" },
+              flexGrow: 1,
+              fontFamily: "monospace",
+              fontWeight: 700,
+              letterSpacing: 0,
+              color: "white",
+              textDecoration: "none"
+            }}
+          >
+            TYTS
+          </Typography>
+          <Box sx={{ flexGrow: 1, display: { md: 'flex', flexDirection:'row-reverse', xs: 'none'}}}>
+            {pages.map((page) => (
+              <Button
+                key={page.title}
+                sx={{ my: 1, display: "block", color:'inherit' }}
+                href={page.ref}
+              >
+                {page.title}
+              </Button>
+            ))}
+          </Box>
+        </Toolbar>
+      </Container>
+    </AppBar>
   );
-}
+};
+export default ResponsiveFooter;
+
+

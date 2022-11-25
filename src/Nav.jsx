@@ -90,6 +90,7 @@ const ResponsiveAppBar = () => {
                 <MenuItem key={page.title} onClick={handleCloseNavMenu}>
                   <Typography 
                     textAlign="center"
+                    color='inherit'
                     component={Button}
                     href={page.ref}
                   >
@@ -121,7 +122,7 @@ const ResponsiveAppBar = () => {
             {pages.map((page) => (
               <Button
                 key={page.title}
-                sx={{ my: 1, color: "white", display: "block" }}
+                sx={{ my: 2, color: "inherit", display: "block" }}
                 href={page.ref}
               >
                 {page.title}
@@ -134,5 +135,3 @@ const ResponsiveAppBar = () => {
   );
 };
 export default ResponsiveAppBar;
-
-

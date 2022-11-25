@@ -1,25 +1,21 @@
-import { useState } from "react"
-import AppBar from "@mui/material/AppBar"
-import Box from "@mui/material/Box"
-import Toolbar from "@mui/material/Toolbar"
-import IconButton from "@mui/material/IconButton"
-import Typography from "@mui/material/Typography"
-import Badge from "@mui/material/Badge"
-import MenuItem from "@mui/material/MenuItem"
-import Menu from "@mui/material/Menu"
-import MenuIcon from "@mui/icons-material/Menu"
-import PersonAddIcon from '@mui/icons-material/PersonAdd';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import EngineeringIcon from '@mui/icons-material/Engineering';
-import WarningIcon from '@mui/icons-material/Warning';
-import SchoolIcon from '@mui/icons-material/School';
-import Container from '@mui/material/Container'
+import { useState } from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import Menu from '@mui/material/Menu';
+import MenuIcon from '@mui/icons-material/Menu';
+import ReportIcon from '@mui/icons-material/Report';
+import CampaignIcon from '@mui/icons-material/Campaign';
+import InventoryIcon from '@mui/icons-material/Inventory';
+import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
+import Button from '@mui/material/Button'
 
 export default function PrimarySearchAppBar() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
 
-  const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
   const handleProfileMenuOpen = (event) => {
@@ -39,118 +35,83 @@ export default function PrimarySearchAppBar() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
-  const menuId = "primary-search-account-menu";
-  const renderMenu = (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{
-        vertical: "top",
-        horizontal: "left"
-      }}
-      id={menuId}
-      keepMounted
-      transformOrigin={{
-        vertical: "top",
-        horizontal: "left"
-      }}
-    >
-    </Menu>
-  );
+  const menuId = 'primary-search-account-menu';
 
-  const mobileMenuId = "primary-search-account-menu-mobile";
+
+  const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMobileMenu = (
     <Menu
       anchorEl={mobileMoreAnchorEl}
       anchorOrigin={{
-        vertical: "top",
-        horizontal: "left"
+        vertical: 'top',
+        horizontal: 'right',
       }}
       id={mobileMenuId}
       keepMounted
       transformOrigin={{
-        vertical: "top",
-        horizontal: "left"
+        vertical: 'top',
+        horizontal: 'right',
       }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-       <MenuItem
-       onClick={handleMenuClose}
-       >         
+      <Button href="/" sx={{maxHeigth:2}}>
         <IconButton
           size="large"
           aria-label="account of current user"
           aria-controls="primary-search-account-menu"
           aria-haspopup="true"
           color="inherit"
-          href="../EHS"
+          href='/'
         >
-           <PersonAddIcon />
+          <AssignmentIndIcon />
         </IconButton>
-        <p>Datos Personales</p>
-      </MenuItem> 
-      <MenuItem>
+        <p >Datos Personales</p>
+      </Button>
+      <Button href="/">
         <IconButton
           size="large"
           aria-label="account of current user"
           aria-controls="primary-search-account-menu"
           aria-haspopup="true"
           color="inherit"
-          href="/"
         >
-           <LocationOnIcon />
+          <ReportIcon />
         </IconButton>
-        <p>Segumiento de vehiculos</p>
-      </MenuItem>
-      <MenuItem>
+        <p>Preoperacionales</p>
+      </Button>
+      <Button href="/">
         <IconButton
           size="large"
           aria-label="account of current user"
           aria-controls="primary-search-account-menu"
           aria-haspopup="true"
           color="inherit"
-          href="/"
         >
-           <EngineeringIcon />
+          <CampaignIcon />
         </IconButton>
-        <p>Entrega de Dotación</p>
-      </MenuItem>
-      <MenuItem>
+        <p>Preventivos Daños</p>
+      </Button>
+      <Button href="/">
         <IconButton
           size="large"
           aria-label="account of current user"
           aria-controls="primary-search-account-menu"
           aria-haspopup="true"
           color="inherit"
-          href="/"
         >
-           <WarningIcon />
+          <InventoryIcon />
         </IconButton>
-        <p>Actos Inseguros</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton
-          size="large"
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-          href="/"
-        >
-           <SchoolIcon />
-        </IconButton>
-        <p>Plan de Capacitación</p>
-      </MenuItem>
-      
-      
+        <p>Inventario Elementos</p>
+      </Button>
     </Menu>
   );
 
   return (
-    <Container sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <Typography
+        <Typography
             variant="h6"
             noWrap
             component="a"
@@ -167,67 +128,8 @@ export default function PrimarySearchAppBar() {
           >
             TYTS
           </Typography>
-          <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <IconButton
-              size="large"
-              color="inherit"
-              href="../EHS"
-            >
-              <Badge>
-                <PersonAddIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              size="large"
-              color="inherit"
-              href="/"
-            >
-              <Badge>
-                <LocationOnIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              size="large"
-              color="inherit"
-              href="/"
-            >
-              <Badge>
-                <EngineeringIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              size="large"
-              color="inherit"
-              href="/"
-            >
-              <Badge>
-                <WarningIcon  />
-              </Badge>
-            </IconButton>
-            <IconButton
-              size="large"
-              color="inherit"
-              href="/"
-            >
-              <Badge>
-                <SchoolIcon />
-              </Badge>
-            </IconButton>
-          </Box>
-          <Box sx={{ display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-          </Box>
-          <Typography
+
+        <Typography
             variant="h5"
             noWrap
             component="a"
@@ -245,10 +147,72 @@ export default function PrimarySearchAppBar() {
           >
             TYTS
           </Typography>
+          <Box sx={{ flexGrow: 1 }} />
+          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+            <IconButton
+              size="large"
+              edge="end"
+              aria-label="account of current user"
+              aria-controls={menuId}
+              aria-haspopup="true"
+              onClick={handleProfileMenuOpen}
+              color="inherit"
+              href="/"
+            >
+              <AssignmentIndIcon />
+            </IconButton>
+            <IconButton
+              size="large"
+              edge="end"
+              aria-label="account of current user"
+              aria-controls={menuId}
+              aria-haspopup="true"
+              onClick={handleProfileMenuOpen}
+              color="inherit"
+              href="/"
+            >
+              <ReportIcon />
+            </IconButton>
+            <IconButton
+              size="large"
+              edge="end"
+              aria-label="account of current user"
+              aria-controls={menuId}
+              aria-haspopup="true"
+              onClick={handleProfileMenuOpen}
+              color="inherit"
+              href="/"
+            >
+              <CampaignIcon />
+            </IconButton>
+            <IconButton
+              size="large"
+              edge="end"
+              aria-label="account of current user"
+              aria-controls={menuId}
+              aria-haspopup="true"
+              onClick={handleProfileMenuOpen}
+              color="inherit"
+              href="/"
+            >
+              <InventoryIcon />
+            </IconButton>
+          </Box>
+          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+            <IconButton
+              size="large"
+              aria-label="show more"
+              aria-controls={mobileMenuId}
+              aria-haspopup="true"
+              onClick={handleMobileMenuOpen}
+              color="inherit"
+            >
+              <MenuIcon />
+            </IconButton>
+          </Box>
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
-      {renderMenu}
-    </Container>
+    </Box>
   );
 }

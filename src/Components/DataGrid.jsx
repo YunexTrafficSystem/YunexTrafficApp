@@ -185,6 +185,7 @@ export default function StickyHeadTable() {
       <Button 
         variant='contained' 
         type="Button"
+        onClick={()=>append({createData})}
         >
           <AddIcon  
           color='blanco'/>
