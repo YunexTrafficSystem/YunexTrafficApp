@@ -71,7 +71,7 @@ const ResponsiveFooter = () => {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="secondary"
+              color="inherit"
             >
               <MenuIcon />
             </IconButton>
@@ -118,7 +118,7 @@ const ResponsiveFooter = () => {
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: 0,
-              color: "white",
+              color: "inherit",
               textDecoration: "none"
             }}
           >

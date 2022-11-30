@@ -6,7 +6,6 @@ import { InfoSpecific } from "./Components/Electronics/InfoSpecific"
 import { FormStepper } from "./Components/FormStepper"
 import { FormSteps } from "./Components/FormSteps"
 import { FormPageSteps } from "./Components/FormPageSteps"
-import Nav from "./Nav"
 import { FormStep } from "./Components/FormStep"
 import {
   Stepper,
@@ -21,7 +20,7 @@ import {
 import { positions } from "@mui/system"
 import { FinalStep } from "./Components/FinalStep"
 
-function Electronico() {
+export default function Electronico() {
   const { control, register, handleSubmit, watch, formState: { errors } } = useForm({
     defaultValues: {
       mant: [{ quantity: 1, component: 1 }], 
@@ -78,8 +77,7 @@ function Electronico() {
 
   return (
     <>
-    <Nav />
-    <br />
+    
     <form onSubmit={handleSubmit(onSubmit)}>
       <Box>
         <FormStepper steps={steps} activeStep={activeStep} />

@@ -1,38 +1,28 @@
-import { useState } from 'react';
-import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import MuiDrawer from '@mui/material/Drawer';
-import Box from '@mui/material/Box';
-import MuiAppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
-import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
-import Link from '@mui/material/Link';
-import MenuIcon from '@mui/icons-material/Menu';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import LogoutIcon from '@mui/icons-material/Logout';
-import { mainListItems, secondaryListItems } from './ListItems';
-import Welcome from './Welcome';
-import Reports from './Reports';
+import { useState } from 'react'
+import { styled, createTheme, ThemeProvider } from '@mui/material/styles'
+import CssBaseline from '@mui/material/CssBaseline'
+import MuiDrawer from '@mui/material/Drawer'
+import Box from '@mui/material/Box'
+import MuiAppBar from '@mui/material/AppBar'
+import Toolbar from '@mui/material/Toolbar'
+import List from '@mui/material/List'
+import Typography from '@mui/material/Typography'
+import Divider from '@mui/material/Divider'
+import IconButton from '@mui/material/IconButton'
+import Container from '@mui/material/Container'
+import Grid from '@mui/material/Grid'
+import Paper from '@mui/material/Paper'
+import MenuIcon from '@mui/icons-material/Menu'
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
+import LogoutIcon from '@mui/icons-material/Logout'
+import { MainListItems, SecondaryListItems } from './ListItems'
+import Welcome from './Welcome'
+import Reports from './Reports'
+import Electric from '../../Electric'
+import Electronic from '../../Electronico'
+import Zone from '../../Zone'
 
-function Copyright(props) { 
-    return (
-      <Typography variant="body2" color="text.secondary" align="center" {...props}>
-        {'Copyright © '}
-        <Link color="inherit" href="https://www.yunextraffic.com/global/en/">
-          Yunex Traffic
-        </Link>{' '}
-        {new Date().getFullYear()}
-        {'.'}
-      </Typography>
-    );
-  }
-const drawerWidth = 210;
+const drawerWidth = 230;
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
@@ -94,6 +84,11 @@ function DashboardContent() {
   const toggleDrawer = () => {
     setOpen(!open);
   };
+  const [selectedTab, setTab] = useState(1);
+  const selectTab = (i) => {
+    console.log(i);
+    setTab(i);
+  };
 
   return (
     <ThemeProvider theme={mdTheme}>
@@ -126,7 +121,7 @@ function DashboardContent() {
             >
               TYTS
             </Typography>
-            <IconButton color="inherit">
+            <IconButton color="inherit" href='/'>
                 <LogoutIcon />
               </IconButton>
           </Toolbar>
@@ -147,9 +142,16 @@ function DashboardContent() {
           </Toolbar>
           <Divider />
           <List component="nav">
-            {mainListItems}
+            <MainListItems 
+             onClick={
+              selectTab
+            }/>
             <Divider sx={{ my: 1 }} />
-            {secondaryListItems}
+            <SecondaryListItems 
+            onClick={
+              selectTab
+            }
+            />
           </List>
         </Drawer>
         <Box
@@ -160,7 +162,6 @@ function DashboardContent() {
                 ? theme.palette.grey[100]
                 : theme.palette.grey[900],
             flexGrow: 1,
-            height: '100vh',
             overflow: 'auto',
           }}
         >
@@ -177,24 +178,11 @@ function DashboardContent() {
                     minHeight:200
                   }}
                 >
-                  <Welcome />
+                  {showTab(selectedTab)}
                 </Paper>
               </Grid>
              
-              <Grid item xs={12}>
-              <Paper
-                  sx={{
-                    p: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: 240,
-                  }}
-                >
-                  <Reports />
-                </Paper>
-              </Grid>
             </Grid>
-            <Copyright sx={{ pt: 4 }} />
           </Container>
         </Box>
       </Box>
@@ -205,3 +193,17 @@ function DashboardContent() {
 export default function Dashboard() {
   return <DashboardContent />;
 }
+function showTab(tabNum) {
+  if (tabNum === 1) {
+    return <Welcome />;
+  } else if (tabNum === 2) {
+    return <Reports />;
+  } else if (tabNum ===3){
+    return <Electric />
+  } else if (tabNum ===4){
+    return <Electronic />
+  } else if (tabNum ===5){
+    return <Zone />
+  }
+}
+// Aun falatan colocar rutas, por que no se tienen paginas a las cual llamar

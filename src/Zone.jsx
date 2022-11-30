@@ -22,7 +22,7 @@ import {
 import { positions } from "@mui/system";
 import { FinalStep } from "./Components/FinalStep";
 
-function Zone() {
+export default function Zone() {
   const {
     control,
     register,
@@ -76,8 +76,6 @@ function Zone() {
 
   return (
     <>
-    <Nav /> 
-    <br />
     <form onSubmit={handleSubmit(onSubmit)}>
       <Box>
         <FormStepper steps={steps} activeStep={activeStep} />

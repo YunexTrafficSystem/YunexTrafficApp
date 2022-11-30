@@ -10,9 +10,8 @@ import { FormSteps } from "./Components/FormSteps";
 import { FormPageSteps } from "./Components/FormPageSteps";
 import { FormStep } from "./Components/FormStep";
 import { FinalStep } from "./Components/FinalStep";
-import Nav from "./Nav"
 
-function Electric() {
+export default function Electric() {
   const {
     register,
     handleSubmit,
@@ -59,8 +58,6 @@ function Electric() {
 
   return (
     <>
-    <Nav />
-    <br />
     <form onSubmit={handleSubmit(onSubmit)}>
       <Box>
         <FormStepper steps={steps} activeStep={activeStep} />

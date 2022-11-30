@@ -77,9 +77,9 @@ export default function SignUp() {
             </Grid>
             <Grid item xs={12} sm={6}>
             <FormControl sx={{ minWidth: '100%' }} required>
-              <InputLabel>Rol</InputLabel>
+              <InputLabel>Rol solicitado</InputLabel>
               <Select
-                label="Rol"
+                label="Rol solicitado"
                 required
                 defaultValue={1}
                 {...register("role")} 
