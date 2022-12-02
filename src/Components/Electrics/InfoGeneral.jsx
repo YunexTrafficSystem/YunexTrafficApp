@@ -40,11 +40,10 @@ import {
             })}
             error={errors?.type}
           >
-            <MenuItem value={1}>Tipo 1</MenuItem>
-            <MenuItem value={2}>Tipo 2</MenuItem>
-            <MenuItem value={3}>Tipo 3</MenuItem>
-            <MenuItem value={4}>Tipo 4</MenuItem>
-            <MenuItem value={5}>Tipo 5</MenuItem>
+            <MenuItem value={1}>Vehicular</MenuItem>
+            <MenuItem value={2}>Flecha</MenuItem>
+            <MenuItem value={3}>Peatonal</MenuItem>
+            <MenuItem value={4}>Sonoro</MenuItem>
           </Select>
           </FormControl>
         </Grid>
@@ -63,6 +62,7 @@ import {
             <MenuItem value={1}>Verde</MenuItem>
             <MenuItem value={2}>Amarillo</MenuItem>
             <MenuItem value={3}>Rojo</MenuItem>
+            <MenuItem value={3}>Sonoro</MenuItem>
           </Select>
           </FormControl>
         </Grid>
@@ -78,8 +78,8 @@ import {
                 })}
                 errors={errors?.project}
             >
-              <MenuItem value={1}>proj1</MenuItem>
-              <MenuItem value={2}>proj2</MenuItem>
+              <MenuItem value={1}>Bogota</MenuItem>
+              <MenuItem value={2}>Monteria</MenuItem>
               <MenuItem value={3}>proj3</MenuItem>
               <MenuItem value={4}>proj4</MenuItem>
               <MenuItem value={5}>proj5</MenuItem>

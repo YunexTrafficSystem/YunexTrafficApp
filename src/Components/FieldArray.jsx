@@ -26,7 +26,7 @@ function FieldArray ({ fields, register, append, remove, errors, control, contro
                     defaultValue={1}
                     {...register("quantity",`mant.${index}.component`)} 
                   >
-                    <MenuItem value={1}>Comp1</MenuItem>
+                    <MenuItem value={1}>Resistencia</MenuItem>
                     <MenuItem value={2}>Comp2</MenuItem>
                     <MenuItem value={3}>Comp3</MenuItem>
                     <MenuItem value={4}>Comp4</MenuItem>

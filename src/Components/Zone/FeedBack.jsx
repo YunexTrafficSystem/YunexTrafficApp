@@ -39,11 +39,26 @@ function FeedBack({ register, errors }) {
               required: "Contenedor requerido",
             })}
           >
-            <MenuItem value={1}>Diag1</MenuItem>
-            <MenuItem value={2}>Diag2</MenuItem>
-            <MenuItem value={3}>Diag3</MenuItem>
-            <MenuItem value={4}>Diag4</MenuItem>
-            <MenuItem value={5}>Diag5</MenuItem>x
+            <MenuItem value={1}>FEN</MenuItem>
+            <MenuItem value={2}>FSS</MenuItem>
+            <MenuItem value={3}>FCT</MenuItem>
+            <MenuItem value={4}>FCM</MenuItem>
+            <MenuItem value={5}>FAC</MenuItem>
+            <MenuItem value={5}>FDT</MenuItem>
+            <MenuItem value={5}>ATA</MenuItem>
+            <MenuItem value={5}>ACL</MenuItem>
+            <MenuItem value={5}>APA</MenuItem>
+            <MenuItem value={5}>RSF-(MOBI)</MenuItem>
+            <MenuItem value={5}>REP</MenuItem>
+            <MenuItem value={5}>IEN</MenuItem>
+            <MenuItem value={5}>TCT</MenuItem>
+            <MenuItem value={5}>EEN</MenuItem>
+            <MenuItem value={5}>AUC</MenuItem>
+            <MenuItem value={5}>PCT</MenuItem>
+            <MenuItem value={5}>PSD</MenuItem>
+            <MenuItem value={5}>PPT</MenuItem>
+            <MenuItem value={5}>SCN</MenuItem>
+
           </Select>
         </FormControl>
       </Grid>

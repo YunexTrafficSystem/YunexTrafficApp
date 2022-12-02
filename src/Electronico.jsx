@@ -19,6 +19,7 @@ import {
 } from "@mui/material"
 import { positions } from "@mui/system"
 import { FinalStep } from "./Components/FinalStep"
+import Paper from '@mui/material/Paper'
 
 export default function Electronico() {
   const { control, register, handleSubmit, watch, formState: { errors } } = useForm({
@@ -76,6 +77,17 @@ export default function Electronico() {
   const steps = ["Información general", "Información especifica"];
 
   return (
+    <Grid container spacing={3}>
+    <Grid item xs={12} sx={{ display: 'flex', alignItems: 'center' }}>
+      <Paper
+        sx={{
+          p: 2,
+          display: 'flex',
+          flexDirection: 'column',
+          width: '100%',
+          minHeight: 200
+        }}
+      >
     <>
     
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -118,6 +130,9 @@ export default function Electronico() {
       </Grid>
     </form>
     </>
+    </Paper>
+    </Grid>
+    </Grid>
   );
 }
 

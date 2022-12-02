@@ -80,8 +80,8 @@ function InfoGeneral({ register, errors }) {
                 message: 'Proyecto requerido'
               })}
           >
-            <MenuItem value={1}>proj1</MenuItem>
-            <MenuItem value={2}>proj2</MenuItem>
+            <MenuItem value={1}>Bogotá</MenuItem>
+            <MenuItem value={2}>Monteria</MenuItem>
             <MenuItem value={3}>proj3</MenuItem>
             <MenuItem value={4}>proj4</MenuItem>
             <MenuItem value={5}>proj5</MenuItem>

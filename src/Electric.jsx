@@ -10,6 +10,7 @@ import { FormSteps } from "./Components/FormSteps";
 import { FormPageSteps } from "./Components/FormPageSteps";
 import { FormStep } from "./Components/FormStep";
 import { FinalStep } from "./Components/FinalStep";
+import Paper from '@mui/material/Paper'
 
 export default function Electric() {
   const {
@@ -57,8 +58,19 @@ export default function Electric() {
   const steps = ["Información general", "Información especifica"];
 
   return (
+     <Grid container spacing={3}>
+          <Grid item xs={12} sx={{ display: 'flex', alignItems: 'center' }}>
+            <Paper
+              sx={{
+                p: 2,
+                display: 'flex',
+                flexDirection: 'column',
+                width: '100%',
+                minHeight: 200
+              }}
+            >
     <>
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)}> 
       <Box>
         <FormStepper steps={steps} activeStep={activeStep} />
       </Box>
@@ -91,6 +103,9 @@ export default function Electric() {
       </Grid>
     </form>
     </>
+      </Paper>
+      </Grid>
+      </Grid>
   );
 }
 

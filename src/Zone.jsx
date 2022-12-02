@@ -21,6 +21,7 @@ import {
 } from "@mui/material";
 import { positions } from "@mui/system";
 import { FinalStep } from "./Components/FinalStep";
+import Paper from '@mui/material/Paper'
 
 export default function Zone() {
   const {
@@ -75,6 +76,17 @@ export default function Zone() {
   ];
 
   return (
+    <Grid container spacing={3}>
+    <Grid item xs={12} sx={{ display: 'flex', alignItems: 'center' }}>
+      <Paper
+        sx={{
+          p: 2,
+          display: 'flex',
+          flexDirection: 'column',
+          width: '100%',
+          minHeight: 200
+        }}
+      >
     <>
     <form onSubmit={handleSubmit(onSubmit)}>
       <Box>
@@ -121,6 +133,9 @@ export default function Zone() {
       </Grid>
     </form>
     </>
+    </Paper>
+    </Grid>
+    </Grid>
   );
 }
 

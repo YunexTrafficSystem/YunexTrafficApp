@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Step, Card, Grid } from '@mui/material'
+import { Step, Card, Paper, Grid } from '@mui/material'
 function FormStep({ children, done, active }) {
   return (
     <Grid
@@ -8,15 +8,11 @@ function FormStep({ children, done, active }) {
       direction="column"
       alignItems="center"
     >
-      <Card 
-        sx={{ p:10, marginTop:15, maxWidth:450 }}
-      >
+      
         {children}
-      </Card>
+      
     </Grid>
   )
 }
-
-
 
 export { FormStep }

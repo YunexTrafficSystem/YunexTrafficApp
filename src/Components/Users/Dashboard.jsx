@@ -21,6 +21,13 @@ import Reports from './Reports'
 import Electric from '../../Electric'
 import Electronic from '../../Electronico'
 import Zone from '../../Zone'
+import EditProfile from './EditProfile'
+import Ensambles from './Ensambles'
+import Garantias from './Garantias'
+import Datos from './Datos'
+import Preoperacionales from './Preoperacionales'
+import Preventivos from './Preventivos'
+import InventarioEhs from './InventarioEhs'
 
 const drawerWidth = 230;
 
@@ -169,17 +176,8 @@ function DashboardContent() {
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={3}>
               <Grid item xs={12} sx={{display:'flex', alignItems: 'center'}}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    width:'100%',
-                    minHeight:200
-                  }}
-                >
+               
                   {showTab(selectedTab)}
-                </Paper>
               </Grid>
              
             </Grid>
@@ -197,13 +195,24 @@ function showTab(tabNum) {
   if (tabNum === 1) {
     return <Welcome />;
   } else if (tabNum === 2) {
-    return <Reports />;
+    return <EditProfile />;
   } else if (tabNum ===3){
     return <Electric />
   } else if (tabNum ===4){
     return <Electronic />
   } else if (tabNum ===5){
     return <Zone />
+  }else if (tabNum ==6){
+    return <Ensambles/>
+  } else if (tabNum ==7){
+    return <Garantias/>
+  } else if (tabNum ==8){
+    return <Datos />
+  } else if (tabNum ==9){
+    return <Preoperacionales />
+  } else if (tabNum ==10){
+    return <Preventivos />
+  } else if (tabNum ==11){
+    return <InventarioEhs />
   }
 }
-// Aun falatan colocar rutas, por que no se tienen paginas a las cual llamar
