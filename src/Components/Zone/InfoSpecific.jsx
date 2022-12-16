@@ -12,16 +12,6 @@ import {
   Typography,
 } from "@mui/material";
 
-/**
- * Es una página en la que se pasa la información general para el formulario de Zona/Terreno
- * @author Miguel Castillo <miguel126xl9@outlook.es>
- * @param {ReactHook} register - Registro por campo, se reciben desde react-hook-form
- * @param {ReactHook} errors - Errores del formulario, se reciben desde react-hook-form
- * @param {ReactHook} Controller - Controlador para (valga la redundancia) componentes controlados en formulario
- * @param {ReactHook} control - control de formulario, componente enviado para el manejo del controlador
- * @returns {ReactComponent} - Página de Información Especifica
- */
-
 function InfoSpecific({ register, errors, Controller, control }) {
   const [start, setStart] = useState(moment(new Date()));
   const [end, setEnd] = useState(moment(new Date()));
@@ -87,20 +77,20 @@ function InfoSpecific({ register, errors, Controller, control }) {
       </Grid>
       <Grid item xs={6}>
         <FormControl fullWidth>
-        <InputLabel>Prioridad</InputLabel>
-        <Select
-        defaultValue={1}
-        label="Actividad"
-        sx={{ minWidth:100 }}
-        {...register("activity", {
-          required: true,
-          message: 'Activida es requerido'
-        })}
-        >
-          <MenuItem value={1}>Mantenimiento revision de controladores</MenuItem>
-          <MenuItem value={2}>Mantenimiento preventivo de controladores</MenuItem>
-          <MenuItem value={3}>Mantenimiento correctivo de controladores</MenuItem>
-        </Select>
+          <InputLabel>Prioridad</InputLabel>
+          <Select
+            defaultValue={1}
+            label="Actividad"
+            sx={{ minWidth: 100 }}
+            {...register("activity", {
+              required: true,
+              message: 'Activida es requerido'
+            })}
+          >
+            <MenuItem value={1}>Mantenimiento revision de controladores</MenuItem>
+            <MenuItem value={2}>Mantenimiento preventivo de controladores</MenuItem>
+            <MenuItem value={3}>Mantenimiento correctivo de controladores</MenuItem>
+          </Select>
         </FormControl>
       </Grid>
       <Grid item xs={6}>

@@ -3,13 +3,10 @@ import {
   Stepper,
   Step,
   StepLabel,
-  Button,
-  Box
 } from '@mui/material'
 
-import { FieldArray } from './FieldArray'
 
-function FormStepper({ steps, children, activeStep, setActiveStep }) {
+function FormStepper({ steps, activeStep }) {
 
   return (
     <>

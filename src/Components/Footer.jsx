@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import { Menu as MenuIcon } from "@mui/icons-material";
+import AppBar from "@mui/material/AppBar"
+import Box from "@mui/material/Box"
+import Toolbar from "@mui/material/Toolbar"
+import { Menu as MenuIcon } from "@mui/icons-material"
 import {
   IconButton,
   Typography,
@@ -10,8 +10,7 @@ import {
   Container,
   Button,
   MenuItem,
-  Link
-} from "@mui/material";
+} from "@mui/material"
 
 const pages = [ 
   { 
@@ -33,14 +32,14 @@ const pages = [
 ]
 
 const ResponsiveFooter = () => {
-  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElNav, setAnchorElNav] = useState(null)
 
   const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
+    setAnchorElNav(event.currentTarget)
+  }
   const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
+    setAnchorElNav(null)
+  }
 
   return (
     <AppBar position='static' color="black">
@@ -138,8 +137,8 @@ const ResponsiveFooter = () => {
         </Toolbar>
       </Container>
     </AppBar>
-  );
-};
-export default ResponsiveFooter;
+  )
+}
+export default ResponsiveFooter
 
 

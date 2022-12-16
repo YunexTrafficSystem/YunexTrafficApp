@@ -7,14 +7,6 @@ import {
   Grid,
 } from "@mui/material";
 
-/**
- * Es una página en la que se pasa la retroalimentación para el formulario de Zona/Terreno
- * @author Miguel Castillo <miguel126xl9@outlook.es>
- * @param {ReactHook} register - Registro por campo, se reciben desde react-hook-form
- * @param {ReactHook} errors - Errores del formulario, se reciben desde react-hook-form
- * @returns {ReactComponent} - Página de Feedback
- */
-
 function FeedBack({ register, errors }) {
   return (
     <Grid container spacing={5}>

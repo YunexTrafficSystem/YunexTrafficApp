@@ -1,7 +1,5 @@
 import { useState } from "react"
-import Paper from "@mui/material/Paper"
 import Table from "@mui/material/Table"
-import Menu from '../Menu'
 import TableBody from "@mui/material/TableBody"
 import TableCell from "@mui/material/TableCell"
 import TableContainer from "@mui/material/TableContainer"
@@ -13,7 +11,7 @@ import AddIcon from '@mui/icons-material/Add'
 import Grid from '@mui/material/Grid'
 import ClearIcon from '@mui/icons-material/Clear'
 import DeleteIcon from '@mui/icons-material/Delete';
- 
+
 /**
  * Pagina para tabla editable EHS de datos personales de los colaboradores
  * @author Katerine Ospina <ospinakaterine4@gmail.com>
@@ -21,47 +19,47 @@ import DeleteIcon from '@mui/icons-material/Delete';
  */
 
 const columns = [
-  { 
-    id: "nombres", 
-    label: "Nombres", 
+  {
+    id: "nombres",
+    label: "Nombres",
     minWidth: 170,
-    align: "center" 
+    align: "center"
   },
-  { 
-    id: "apellidos", 
-    label: "Apellidos", 
+  {
+    id: "apellidos",
+    label: "Apellidos",
     minWidth: 170,
-    align: "center" 
+    align: "center"
   },
-  { 
-    id: "identificacion", 
-    label: "Identificacion", 
+  {
+    id: "identificacion",
+    label: "Identificacion",
     minWidth: 170,
-    align: "center" 
+    align: "center"
   },
-  { 
-    id: "telefono", 
-    label: "Telefono", 
+  {
+    id: "telefono",
+    label: "Telefono",
     minWidth: 170,
-    align: "center" 
+    align: "center"
   },
-  { 
-    id: "tipo", 
-    label: "Tipo de Sangre", 
+  {
+    id: "tipo",
+    label: "Tipo de Sangre",
     minWidth: 170,
-    align: "center" 
+    align: "center"
   },
-  { 
-    id: "nacimiento", 
-    label: "Fecha Nacimiento", 
+  {
+    id: "nacimiento",
+    label: "Fecha Nacimiento",
     minWidth: 170,
-    align: "center" 
+    align: "center"
   },
-  { 
-    id: "direccion", 
-    label: "Direccion", 
+  {
+    id: "direccion",
+    label: "Direccion",
     minWidth: 170,
-    align: "center" 
+    align: "center"
   },
   {
     id: "localidad",
@@ -89,16 +87,16 @@ function createData(nombres, apellidos, identificacion, telefono, tipo, nacimien
 
 const rows = [
   createData(
-  <TextField />, 
-  <TextField />, 
-  <TextField />, 
-  <TextField />, 
-  <TextField />, 
-  <TextField />, 
-  <TextField />, 
-  <TextField />, 
-  <TextField />, 
-  <TextField />, 
+    <TextField />,
+    <TextField />,
+    <TextField />,
+    <TextField />,
+    <TextField />,
+    <TextField />,
+    <TextField />,
+    <TextField />,
+    <TextField />,
+    <TextField />,
   )
 ];
 
@@ -117,8 +115,8 @@ export default function StickyHeadTable() {
 
   return (
     <>
-    {/* <Menu /> */}
-    <br />
+      {/* <Menu /> */}
+      <br />
       <TableContainer sx={{ maxHeight: 440 }}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
@@ -150,45 +148,45 @@ export default function StickyHeadTable() {
                         </TableCell>
                       );
                     })}
-                    <Grid sx={{padding:10}}>
+                    <Grid sx={{ padding: 10 }}>
                       <Grid>
-                    <Button
-                  variant='contained'
-                  type="Button"
-                  >
-                    <DeleteIcon 
-                    color='blanco' sx={{width:20}}
-                    >
-                      </DeleteIcon>
-                  </Button>
-                  </Grid>
-                  <Grid>
-                  <Button
-                  variant='contained'
-                  type="Button"
-                  >
-                    <ClearIcon 
-                    color='blanco' sx={{width:20}}
-                    >
-                      </ClearIcon>
-                  </Button>
-                  </Grid>
-                  </Grid>
+                        <Button
+                          variant='contained'
+                          type="Button"
+                        >
+                          <DeleteIcon
+                            color='blanco' sx={{ width: 20 }}
+                          >
+                          </DeleteIcon>
+                        </Button>
+                      </Grid>
+                      <Grid>
+                        <Button
+                          variant='contained'
+                          type="Button"
+                        >
+                          <ClearIcon
+                            color='blanco' sx={{ width: 20 }}
+                          >
+                          </ClearIcon>
+                        </Button>
+                      </Grid>
+                    </Grid>
                   </TableRow>
                 );
               })}
           </TableBody>
         </Table>
       </TableContainer>
-      <Grid sx={{padding:7}}>
-      <Button 
-        variant='contained' 
-        type="Button"
-        onClick={()=>append({createData})}
+      <Grid sx={{ padding: 7 }}>
+        <Button
+          variant='contained'
+          type="Button"
+          onClick={() => append({ createData })}
         >
-          <AddIcon  
-          color='blanco'/>
-      </Button>
+          <AddIcon
+            color='blanco' />
+        </Button>
       </Grid>
     </>
   );

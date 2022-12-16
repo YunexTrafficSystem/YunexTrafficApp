@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import { Step, Card, Grid } from '@mui/material'
+import { Card, Grid } from '@mui/material'
 
 /**
  * Carta que contiene al fieldArray

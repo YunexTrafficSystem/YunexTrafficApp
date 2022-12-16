@@ -5,21 +5,14 @@ import { InfoSpecific } from "./Components/Zone/InfoSpecific";
 import { InfoGeneral } from "./Components/Zone/InfoGeneral";
 import { FeedBack } from "./Components/Zone/FeedBack";
 import { FormStepper } from "./Components/FormStepper";
-import { FormSteps } from "./Components/FormSteps";
 import { FormPageSteps } from "./Components/FormPageSteps";
 import { FormStep } from "./Components/FormStep";
-import Nav from './Nav'
 import {
-  Stepper,
-  Step,
-  StepLabel,
   Button,
   Box,
-  Card,
   Grid,
   ButtonGroup,
 } from "@mui/material";
-import { positions } from "@mui/system";
 import { FinalStep } from "./Components/FinalStep";
 import Paper from '@mui/material/Paper'
 

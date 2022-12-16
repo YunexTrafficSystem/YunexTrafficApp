@@ -1,6 +1,3 @@
-import { useState } from 'react'
-import { Box } from '@mui/material'
-
 /**
  * Es una página en la que se pasa la información general para el formulario de Zona/Terreno
  * @author Miguel Castillo <miguel126xl9@outlook.es>

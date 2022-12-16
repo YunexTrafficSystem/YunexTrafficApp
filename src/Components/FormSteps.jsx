@@ -1,7 +1,6 @@
-import { useState } from 'react'
-import { Stepper, Step, StepLabel, Button, Box } from '@mui/material'
+import { Stepper, Step, StepLabel } from '@mui/material'
 
-function FormSteps({ children, title, steps, activeStep }) {
+function FormSteps({ steps, activeStep }) {
   return (
     <Stepper activeStep={activeStep}>
       {steps.map((step, index) => (

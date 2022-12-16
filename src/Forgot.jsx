@@ -33,59 +33,59 @@ export default function SignIn() {
 
   return (
     <>
-    <Nav />
-    <Container component="main" maxWidth="xs">
-    <CssBaseline />
-    <Box
-        sx={{
-        marginTop: 8,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        }}
-    >
-        <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-        <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-        Recuperar Contraseña
-        </Typography>
-        <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate sx={{ mt: 1 }}>
-        <TextField
-            margin="normal"
-            required
-            fullWidth
-            type="email"
-            label="Correo Electronico"
-            autoComplete="email"
-            autoFocus
-            {...register("email", { required: true, pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/ })}
-          />
-      
-        <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 3, mb: 2 }}
+      <Nav />
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <Box
+          sx={{
+            marginTop: 8,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
         >
-            Aceptar 
-        </Button>
-        <Grid container>
-            <Grid item xs>
-            <Link to="/" variant="body2" component={RouteLink}>
-               Regresar
-            </Link>
+          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Recuperar Contraseña
+          </Typography>
+          <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate sx={{ mt: 1 }}>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              type="email"
+              label="Correo Electronico"
+              autoComplete="email"
+              autoFocus
+              {...register("email", { required: true, pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/ })}
+            />
+
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Aceptar
+            </Button>
+            <Grid container>
+              <Grid item xs>
+                <Link to="/" variant="body2" component={RouteLink}>
+                  Regresar
+                </Link>
+              </Grid>
+              <Grid item>
+                <Link to="/signup" variant="body2" component={RouteLink}>
+                  No tengo cuenta
+                </Link>
+              </Grid>
             </Grid>
-            <Grid item>
-            <Link to="/signup" variant="body2" component={RouteLink}>
-                No tengo cuenta
-            </Link>
-            </Grid>
-        </Grid>
+          </Box>
         </Box>
-    </Box>
-    <Copyright sx={{ mt: 8, mb: 4 }} />
-    </Container>
+        <Copyright sx={{ mt: 8, mb: 4 }} />
+      </Container>
     </>
   );
 }

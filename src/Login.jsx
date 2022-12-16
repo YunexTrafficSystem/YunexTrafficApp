@@ -32,80 +32,80 @@ function Copyright(props) {
 export default function SignIn() {
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const onSubmit = data => console.log(data);
-  
+
   return (
     <>
-    <Nav />
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <Box
-        sx={{
-          marginTop: 8,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}
+      <Nav />
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <Box
+          sx={{
+            marginTop: 8,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
         >
-        <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Inicio de Sesion
-        </Typography>
-        <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate sx={{ mt: 1 }}>
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            type="email"
-            label="Correo Electronico"
-            autoComplete="email"
-            autoFocus
-            {...register("email", { required: true, pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/ })}
+          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Inicio de Sesion
+          </Typography>
+          <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate sx={{ mt: 1 }}>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              type="email"
+              label="Correo Electronico"
+              autoComplete="email"
+              autoFocus
+              {...register("email", { required: true, pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/ })}
             />
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            label="Contraseña"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-            {...register("password", { required: true,  minLength: 8,  maxLength: 20 })}
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              label="Contraseña"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+              {...register("password", { required: true, minLength: 8, maxLength: 20 })}
             />
-          <FormControlLabel
-            control={
-              <Checkbox 
-              color="primary"
-              {...register("remember")} 
-              />
-            }
-            label="Mantener sesión iniciada"
+            <FormControlLabel
+              control={
+                <Checkbox
+                  color="primary"
+                  {...register("remember")}
+                />
+              }
+              label="Mantener sesión iniciada"
             />
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 3, mb: 2 }}
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
             >
-            Ingresar
-          </Button>
-          <Grid container>
-            <Grid item xs>
-                <Link variant="body2"  to="/forgot" underline="none" component={RouterLink}>
-                Olvide mi contraseña
-              </Link>
+              Ingresar
+            </Button>
+            <Grid container>
+              <Grid item xs>
+                <Link variant="body2" to="/forgot" underline="none" component={RouterLink}>
+                  Olvide mi contraseña
+                </Link>
+              </Grid>
+              <Grid item>
+                <Link variant="body2" to="/signup" underline="none" component={RouterLink} >
+                  No tengo cuenta
+                </Link>
+              </Grid>
             </Grid>
-            <Grid item>
-              <Link variant="body2" to="/signup" underline="none" component={RouterLink} >
-                No tengo cuenta
-              </Link>
-            </Grid>
-          </Grid>
+          </Box>
         </Box>
-      </Box>
-      <Copyright sx={{ mt: 8, mb: 4 }} />
-    </Container>
+        <Copyright sx={{ mt: 8, mb: 4 }} />
+      </Container>
     </>
   )
 }

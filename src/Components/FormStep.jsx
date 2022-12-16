@@ -1,6 +1,5 @@
-import { useState } from 'react'
-import { Step, Card, Paper, Grid } from '@mui/material'
-function FormStep({ children, done, active }) {
+import { Grid } from '@mui/material'
+function FormStep({ children }) {
   return (
     <Grid
       container
@@ -8,9 +7,7 @@ function FormStep({ children, done, active }) {
       direction="column"
       alignItems="center"
     >
-      
-        {children}
-      
+      {children}
     </Grid>
   )
 }

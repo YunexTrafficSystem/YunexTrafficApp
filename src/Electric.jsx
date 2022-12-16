@@ -1,12 +1,9 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Button, Box, Grid, ButtonGroup } from "@mui/material";
-import { positions } from "@mui/system";
 import { InfoSpecific } from "./Components/Electrics/InfoSpecific";
-import { FieldArray } from "./Components/FieldArray";
 import { InfoGeneral } from "./Components/Electrics/InfoGeneral";
 import { FormStepper } from "./Components/FormStepper";
-import { FormSteps } from "./Components/FormSteps";
 import { FormPageSteps } from "./Components/FormPageSteps";
 import { FormStep } from "./Components/FormStep";
 import { FinalStep } from "./Components/FinalStep";
@@ -58,54 +55,54 @@ export default function Electric() {
   const steps = ["Información general", "Información especifica"];
 
   return (
-     <Grid container spacing={3}>
-          <Grid item xs={12} sx={{ display: 'flex', alignItems: 'center' }}>
-            <Paper
-              sx={{
-                p: 2,
-                display: 'flex',
-                flexDirection: 'column',
-                width: '100%',
-                minHeight: 200
-              }}
-            >
-    <>
-    <form onSubmit={handleSubmit(onSubmit)}> 
-      <Box>
-        <FormStepper steps={steps} activeStep={activeStep} />
-      </Box>
-      <FormPageSteps activeStep={activeStep}>
-        <FormStep>
-          <InfoGeneral register={register} errors={errors} />
-        </FormStep>
-        <FormStep>
-          <InfoSpecific register={register} errors={errors} />
-        </FormStep>
-        <FormStep>
-          <FinalStep />
-        </FormStep>
-      </FormPageSteps>
-      <Grid>
-        <ButtonGroup
+    <Grid container spacing={3}>
+      <Grid item xs={12} sx={{ display: 'flex', alignItems: 'center' }}>
+        <Paper
           sx={{
-            margin: "10px 0",
-            display: "flex",
-            justifyContent: "center",
+            p: 2,
+            display: 'flex',
+            flexDirection: 'column',
+            width: '100%',
+            minHeight: 200
           }}
         >
-          <Button onClick={backStep} disabled={!(activeStep === 1)}>
-            Volver
-          </Button>
-          <Button variant="contained" type="submit">
-            {returnStepLabel(activeStep)}
-          </Button>
-        </ButtonGroup>
+          <>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <Box>
+                <FormStepper steps={steps} activeStep={activeStep} />
+              </Box>
+              <FormPageSteps activeStep={activeStep}>
+                <FormStep>
+                  <InfoGeneral register={register} errors={errors} />
+                </FormStep>
+                <FormStep>
+                  <InfoSpecific register={register} errors={errors} />
+                </FormStep>
+                <FormStep>
+                  <FinalStep />
+                </FormStep>
+              </FormPageSteps>
+              <Grid>
+                <ButtonGroup
+                  sx={{
+                    margin: "10px 0",
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                >
+                  <Button onClick={backStep} disabled={!(activeStep === 1)}>
+                    Volver
+                  </Button>
+                  <Button variant="contained" type="submit">
+                    {returnStepLabel(activeStep)}
+                  </Button>
+                </ButtonGroup>
+              </Grid>
+            </form>
+          </>
+        </Paper>
       </Grid>
-    </form>
-    </>
-      </Paper>
-      </Grid>
-      </Grid>
+    </Grid>
   );
 }
 

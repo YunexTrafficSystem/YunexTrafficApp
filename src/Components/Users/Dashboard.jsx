@@ -11,13 +11,11 @@ import Divider from '@mui/material/Divider'
 import IconButton from '@mui/material/IconButton'
 import Container from '@mui/material/Container'
 import Grid from '@mui/material/Grid'
-import Paper from '@mui/material/Paper'
 import MenuIcon from '@mui/icons-material/Menu'
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
 import LogoutIcon from '@mui/icons-material/Logout'
 import { MainListItems, SecondaryListItems } from './ListItems'
 import Welcome from './Welcome'
-import Reports from './Reports'
 import Electric from '../../Electric'
 import Electronic from '../../Electronico'
 import Zone from '../../Zone'
@@ -29,8 +27,24 @@ import Preoperacionales from './Preoperacionales'
 import Preventivos from './Preventivos'
 import InventarioEhs from './InventarioEhs'
 
-const drawerWidth = 230;
+const drawerWidth = 230
 
+// Lista de módulos
+const modules = [
+  <Welcome />,
+  <EditProfile />,
+  <Electric />,
+  <Electronic />,
+  <Zone />,
+  <Ensambles />,
+  <Garantias />,
+  <Datos />,
+  <Preoperacionales />,
+  <Preventivos />,
+  <InventarioEhs />
+]
+
+// Desplegable
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
 })(({ theme, open }) => ({
@@ -47,7 +61,7 @@ const AppBar = styled(MuiAppBar, {
       duration: theme.transitions.duration.enteringScreen,
     }),
   }),
-}));
+}))
 
 const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
@@ -73,35 +87,35 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
       }),
     },
   }),
-);
+)
 
-const mdTheme = createTheme({  
-  palette: {  
-    primary: {  
-      main: '#00E676',  
-      light: '#00E676',  
-      dark: '#00ca6e',  
-      contrastText: '#000',  
-    },  
+const mdTheme = createTheme({
+  palette: {
+    primary: {
+      main: '#00E676',
+      light: '#00E676',
+      dark: '#00ca6e',
+      contrastText: '#000',
+    },
   }
 })
 
 function DashboardContent() {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(true)
   const toggleDrawer = () => {
-    setOpen(!open);
-  };
-  const [selectedTab, setTab] = useState(1);
+    setOpen(!open)
+  }
+  const [selectedTab, setTab] = useState(1)
+
   const selectTab = (i) => {
-    console.log(i);
-    setTab(i);
-  };
+    setTab(i)
+  }
 
   return (
     <ThemeProvider theme={mdTheme}>
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
-        <AppBar position="absolute" open={open}>
+        <AppBar open={open}>
           <Toolbar
             sx={{
               pr: '24px'
@@ -129,15 +143,15 @@ function DashboardContent() {
               TYTS
             </Typography>
             <IconButton color="inherit" href='/'>
-                <LogoutIcon />
-              </IconButton>
+              <LogoutIcon />
+            </IconButton>
           </Toolbar>
         </AppBar>
         <Drawer variant="permanent" open={open}>
           <Toolbar
             sx={{
               display: 'flex',
-              
+
               alignItems: 'center',
               justifyContent: 'flex-end',
               px: [1],
@@ -149,15 +163,15 @@ function DashboardContent() {
           </Toolbar>
           <Divider />
           <List component="nav">
-            <MainListItems 
-             onClick={
-              selectTab
-            }/>
+            <MainListItems
+              onClick={
+                selectTab
+              } />
             <Divider sx={{ my: 1 }} />
-            <SecondaryListItems 
-            onClick={
-              selectTab
-            }
+            <SecondaryListItems
+              onClick={
+                selectTab
+              }
             />
           </List>
         </Drawer>
@@ -175,44 +189,21 @@ function DashboardContent() {
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={3}>
-              <Grid item xs={12} sx={{display:'flex', alignItems: 'center'}}>
-               
-                  {showTab(selectedTab)}
+              <Grid item xs={12} sx={{ display: 'flex', alignItems: 'center' }}>
+
+                {modules[selectedTab-1]}
               </Grid>
-             
+
             </Grid>
           </Container>
         </Box>
       </Box>
     </ThemeProvider>
-  );
+  )
 }
 
-export default function Dashboard() {
-  return <DashboardContent />;
+function Dashboard() {
+  return <DashboardContent />
 }
-function showTab(tabNum) {
-  if (tabNum === 1) {
-    return <Welcome />;
-  } else if (tabNum === 2) {
-    return <EditProfile />;
-  } else if (tabNum ===3){
-    return <Electric />
-  } else if (tabNum ===4){
-    return <Electronic />
-  } else if (tabNum ===5){
-    return <Zone />
-  }else if (tabNum ==6){
-    return <Ensambles/>
-  } else if (tabNum ==7){
-    return <Garantias/>
-  } else if (tabNum ==8){
-    return <Datos />
-  } else if (tabNum ==9){
-    return <Preoperacionales />
-  } else if (tabNum ==10){
-    return <Preventivos />
-  } else if (tabNum ==11){
-    return <InventarioEhs />
-  }
-}
+
+export default Dashboard
