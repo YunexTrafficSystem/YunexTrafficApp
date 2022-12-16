@@ -55,7 +55,7 @@ export default function PrimarySearchAppBar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <Button href="/" sx={{maxHeigth:2}}>
+      <Button href="/" sx={{ maxHeigth: 2 }}>
         <IconButton
           size="large"
           aria-label="account of current user"
@@ -111,7 +111,7 @@ export default function PrimarySearchAppBar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-        <Typography
+          <Typography
             variant="h6"
             noWrap
             component="a"
@@ -129,7 +129,7 @@ export default function PrimarySearchAppBar() {
             TYTS
           </Typography>
 
-        <Typography
+          <Typography
             variant="h5"
             noWrap
             component="a"

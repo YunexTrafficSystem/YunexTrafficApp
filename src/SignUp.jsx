@@ -37,7 +37,7 @@ function Copyright(props) {
 
 export default function SignUp() {
 
-  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const { register, handleSubmit } = useForm();
   const onSubmit = data => console.log(data);
 
   return (

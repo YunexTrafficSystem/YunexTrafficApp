@@ -1,9 +1,6 @@
-import { useTheme } from '@mui/material/styles'
-import Title from './Title'
 import { Container, Grid, Paper } from '@mui/material'
 
 export default function InventarioEhs() {
-  const theme = useTheme();
 
   return (
     <>
@@ -20,7 +17,6 @@ export default function InventarioEhs() {
                 minHeight: 500
               }}
             >
-              <Title>Ingreso de Inventario</Title>
             </Paper>
           </Grid>
           </Grid>

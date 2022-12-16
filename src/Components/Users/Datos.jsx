@@ -1,11 +1,6 @@
-import { useTheme } from '@mui/material/styles'
-import Title from './Title'
-import Report from './Reports'
 import { Container, Grid, Paper } from '@mui/material'
-import DataGrid from '../DataGrid'
 
 export default function Datos() {
-
   return (
     <>
       <Container>
@@ -20,8 +15,7 @@ export default function Datos() {
                 minHeight: 500
               }}
             >
-              <Title>Datos Personales</Title>
-              <DataGrid />
+              {/* Elementos de tabla */}
             </Paper>
           </Grid>
         </Grid>

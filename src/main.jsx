@@ -10,21 +10,12 @@ import SignUp from './SignUp'
 import Home from './Home'
 import Dashboard from './Components/Users/Dashboard'
 import Menu from './Menu'
-import DataGrid from './Components/DataGrid'
 import { EHS } from './EHS'
 import { Electronico } from './Electronico'
 import { Electric } from './Electric'
 import { FinalStep } from './Components/FinalStep'
 import { FormStepper } from './Components/FormStepper'
-import { makeStyles } from '@mui/styles'
 import { Zone } from './Zone'
-
-const useStyles = makeStyles({
-  root: {
-    heigth: "100vh",
-    background: "red"
-  }
-})
 
 const theme = createTheme({
   spacing: 2,
@@ -59,7 +50,6 @@ const theme = createTheme({
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      {/* <Nav /> */}
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -73,11 +63,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="Terreno" element={< Zone />} />
           <Route path="Menu" element={<Menu />} />
           <Route path="EHS" element={<EHS />} />
-          <Route path="DataGrid" element={<DataGrid />} />
           <Route path="Dashboard" element={<Dashboard />} />
         </Routes>
       </Router>
-      <br />
       <Footer />
     </ThemeProvider>
   </React.StrictMode>

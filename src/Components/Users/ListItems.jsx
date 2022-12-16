@@ -17,15 +17,13 @@ import BuildCircleIcon from '@mui/icons-material/BuildCircle'
 import AssignmentReturnIcon from '@mui/icons-material/AssignmentReturn'
 
 
-
-
 function MainListItems(props) {
   return (
     <>
       <ListItemButton
-      onClick={() => {
-        props.onClick(1);
-      }}
+        onClick={() => {
+          props.onClick(1);
+        }}
       >
         <ListItemIcon>
           <DashboardIcon />
@@ -33,9 +31,9 @@ function MainListItems(props) {
         <ListItemText primary="Dashboard" />
       </ListItemButton>
       <ListItemButton
-      onClick={() => {
-        props.onClick(2);
-      }}
+        onClick={() => {
+          props.onClick(2);
+        }}
       >
         <ListItemIcon>
           <PersonIcon />
@@ -62,6 +60,7 @@ function SecondaryListItems(props) {
     const NewOpen = !ehs
     setEhs(NewOpen)
   }
+
   return (
     <>
       <ListSubheader component="div" inset>
@@ -77,9 +76,9 @@ function SecondaryListItems(props) {
       <Collapse in={lab} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 4 }}
-          onClick={() => {
-            props.onClick(3);
-          }}
+            onClick={() => {
+              props.onClick(3);
+            }}
           >
             <ListItemIcon>
               <AssignmentIcon />
@@ -87,9 +86,9 @@ function SecondaryListItems(props) {
             <ListItemText primary="Eléctrico" />
           </ListItemButton>
           <ListItemButton sx={{ pl: 4 }}
-          onClick={() => {
-            props.onClick(4);
-          }}
+            onClick={() => {
+              props.onClick(4);
+            }}
           >
             <ListItemIcon>
               <AssignmentIcon />
@@ -108,9 +107,9 @@ function SecondaryListItems(props) {
       <Collapse in={terreno} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 4 }}
-          onClick={() => {
-            props.onClick(5);
-          }}>
+            onClick={() => {
+              props.onClick(5);
+            }}>
             <ListItemIcon>
               <AssignmentIcon />
             </ListItemIcon>
@@ -119,9 +118,9 @@ function SecondaryListItems(props) {
         </List>
       </Collapse>
       <ListItemButton
-      onClick={() => {
-        props.onClick(6);
-      }}
+        onClick={() => {
+          props.onClick(6);
+        }}
       >
         <ListItemIcon>
           <HandymanIcon />
@@ -129,9 +128,9 @@ function SecondaryListItems(props) {
         <ListItemText primary="Ensambles" />
       </ListItemButton>
       <ListItemButton
-      onClick={() => {
-        props.onClick(7);
-      }}
+        onClick={() => {
+          props.onClick(7);
+        }}
       >
         <ListItemIcon>
           <AssignmentReturnIcon />
@@ -148,18 +147,18 @@ function SecondaryListItems(props) {
       <Collapse in={ehs} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <ListItemButton sx={{ pl: 4 }}
-          onClick={() => {
-            props.onClick(8);
-          }}>
+            onClick={() => {
+              props.onClick(8);
+            }}>
             <ListItemIcon>
               <AssignmentIcon />
             </ListItemIcon>
             <ListItemText primary="Datos Personales" />
           </ListItemButton>
           <ListItemButton sx={{ pl: 4 }}
-          onClick={() => {
-            props.onClick(9);
-          }}
+            onClick={() => {
+              props.onClick(9);
+            }}
           >
             <ListItemIcon>
               <AssignmentIcon />
@@ -167,18 +166,18 @@ function SecondaryListItems(props) {
             <ListItemText primary="Preoperacionales" />
           </ListItemButton>
           <ListItemButton sx={{ pl: 4 }}
-          onClick={() => {
-            props.onClick(10);
-          }}>
+            onClick={() => {
+              props.onClick(10);
+            }}>
             <ListItemIcon>
               <AssignmentIcon />
             </ListItemIcon>
             <ListItemText primary="Preventivos" />
           </ListItemButton>
           <ListItemButton sx={{ pl: 4 }}
-          onClick={() => {
-            props.onClick(11);
-          }}
+            onClick={() => {
+              props.onClick(11);
+            }}
           >
             <ListItemIcon>
               <AssignmentIcon />
@@ -197,5 +196,5 @@ export {
 }
 export default function MainListItemes(props) {
   return <MainListItems onClick={props.onClick} />,
- <SecondaryListItems onClick={props.onClick} />;
+    <SecondaryListItems onClick={props.onClick} />;
 }

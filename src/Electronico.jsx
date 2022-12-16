@@ -21,49 +21,49 @@ export default function Electronico() {
   })
 
   const onSubmit = (data) => {
-    onError();
+    onError()
     if (activeStep === steps.length - 1) {
-      alert(JSON.stringify(data));
+      alert(JSON.stringify(data))
     }
-  };
+  }
 
   const { fields, append, prepend, remove, swap, move, insert } = useFieldArray(
     {
       control,
       name: "mant"
     }
-  );
+  )
 
   const onError = (errors) => {
     if (!errors) {
-      nextStep();
+      nextStep()
     }
-  };
+  }
 
   const returnStepLabel = (activeStep) => {
-    let label = "Siguente";
+    let label = "Siguente"
     if (activeStep == steps.length - 1) {
-      label = "Finalizar";
+      label = "Finalizar"
     } else if (activeStep >= steps.length - 1) {
-      label = "Reestablecer";
+      label = "Reestablecer"
     }
-    return label;
-  };
-  const [activeStep, SetActiveStep] = useState(0);
+    return label
+  }
+  const [activeStep, SetActiveStep] = useState(0)
 
   const nextStep = () => {
     if (activeStep >= steps.length) {
-      window.location.reload();
+      window.location.reload()
     } else {
-      SetActiveStep((activeStep) => activeStep + 1);
+      SetActiveStep((activeStep) => activeStep + 1)
     }
-  };
+  }
 
   const backStep = () => {
-    SetActiveStep((activeStep) => activeStep - 1);
-  };
+    SetActiveStep((activeStep) => activeStep - 1)
+  }
 
-  const steps = ["Información general", "Información especifica"];
+  const steps = ["Información general", "Información especifica"]
 
   return (
     <Grid container spacing={3}>
@@ -122,7 +122,7 @@ export default function Electronico() {
         </Paper>
       </Grid>
     </Grid>
-  );
+  )
 }
 
-export { Electronico };
+export { Electronico }

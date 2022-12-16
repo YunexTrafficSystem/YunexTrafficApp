@@ -26,12 +26,6 @@
     "capitalize": "^2.0.4",
     "date-fns": "^2.29.3",
     "dayjs": "^1.11.5",
-    "eslint": "^8.0.1",
-    "eslint-config-standard": "latest",
-    "eslint-plugin-import": "^2.25.2",
-    "eslint-plugin-n": "^15.0.0",
-    "eslint-plugin-promise": "^6.0.0",
-    "eslint-plugin-react": "latest",
     "json-server": "^0.17.0",
     "moment": "^2.29.4",
     "prop-types": "^15.8.1",
@@ -47,5 +41,13 @@
     "styled-components": "^5.3.5",
     "vite": "^3.0.7"
   },
-  "packageManager": "yarn@3.2.2"
+  "packageManager": "yarn@3.2.2",
+  "devDependencies": {
+    "eslint": "^8.0.1",
+    "eslint-config-standard": "latest",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "latest"
+  }
 }

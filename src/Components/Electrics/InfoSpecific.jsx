@@ -6,13 +6,13 @@ import {
   Grid,
 } from "@mui/material";
 
-  /**
- * Es una página en la que se pasa la retroalimentación para el formulario de Electrics/Electrico
- * @author Katerine Ospina <ospinakaterine4@gmail.com>
- * @param {ReactHook} register - Registro por campo, se reciben desde react-hook-form
- * @param {ReactHook} errors - Errores del formulario, se reciben desde react-hook-form
- * @returns {ReactComponent} - Página de Step 2 (Información Específica)
- */
+/**
+* Es una página en la que se pasa la retroalimentación para el formulario de Electrics/Electrico
+* @author Katerine Ospina <ospinakaterine4@gmail.com>
+* @param {ReactHook} register - Registro por campo, se reciben desde react-hook-form
+* @param {ReactHook} errors - Errores del formulario, se reciben desde react-hook-form
+* @returns {ReactComponent} - Página de Step 2 (Información Específica)
+*/
 
 function InfoSpecific({ register, errors }) {
   return (
@@ -22,7 +22,7 @@ function InfoSpecific({ register, errors }) {
           fullWidth
           label="Voltage"
           type="number"
-          {...register("voltage", { required:"Requerido", min: 1, max: 99 })}
+          {...register("voltage", { required: "Requerido", min: 1, max: 99 })}
           error={errors?.voltage}
           helperText={errors?.voltage && errors?.voltage.message}
         />
@@ -32,7 +32,7 @@ function InfoSpecific({ register, errors }) {
           fullWidth
           type="number"
           label="Corriente"
-          {...register("current", { required:"Requerido", min: 1, max: 99 })}
+          {...register("current", { required: "Requerido", min: 1, max: 99 })}
           error={errors?.current}
           helperText={errors?.current && errors?.current.message}
         />
@@ -42,7 +42,7 @@ function InfoSpecific({ register, errors }) {
           fullWidth
           label="Potencia"
           type="number"
-          {...register("power", {required:"Requerido", min: 1, max: 99 })}
+          {...register("power", { required: "Requerido", min: 1, max: 99 })}
           error={errors?.power}
           helperText={errors?.power && errors?.power.message}
         />

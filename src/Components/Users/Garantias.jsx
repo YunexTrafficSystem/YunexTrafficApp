@@ -1,6 +1,4 @@
 import { useTheme } from '@mui/material/styles'
-import Title from './Title'
-import Report from './Reports'
 import { Container, Grid, Paper } from '@mui/material'
 
 export default function Ensambles() {
@@ -21,7 +19,6 @@ export default function Ensambles() {
                 minHeight: 500
               }}
             >
-              <Title>Garantias</Title>
             </Paper>
           </Grid>
           </Grid>

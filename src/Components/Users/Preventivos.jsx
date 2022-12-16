@@ -1,6 +1,4 @@
 import { useTheme } from '@mui/material/styles'
-import Title from './Title'
-import Report from './Reports'
 import { Container, Grid, Paper } from '@mui/material'
 
 export default function Preventivos() {
@@ -21,7 +19,6 @@ export default function Preventivos() {
                 minHeight: 500
               }}
             >
-              <Title>Preventivos</Title>
             </Paper>
           </Grid>
           </Grid>

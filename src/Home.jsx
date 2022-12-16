@@ -1,4 +1,4 @@
-import { 
+import {
   Box,
   Button,
   Card,
@@ -69,8 +69,8 @@ const footers = [
   {
     title: 'Company',
     description: ['Acerca de',
-      'Mision, vision y Proposito', 
-      'Carrera', 
+      'Mision, vision y Proposito',
+      'Carrera',
       'Ferias y eventos',
       'Para proveedores'],
   },
@@ -90,16 +90,16 @@ const footers = [
   },
   {
     title: 'Legal',
-    description: ['Privacy policy', 
-    'Terms of use'],
+    description: ['Privacy policy',
+      'Terms of use'],
   },
 ];
 
 function FeaturesContent() {
   return (
     <>
-    <Nav />
-    <br/>
+      <Nav />
+      <br />
       <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
       <CssBaseline />
       <Container disableGutters maxWidth="sm" component="main" sx={{ pt: 8, pb: 6 }}>
@@ -149,7 +149,7 @@ function FeaturesContent() {
                       mb: 2,
                     }}
                   >
-                    
+
                   </Box>
                   <ul>
                     {tier.description.map((line) => (
@@ -182,13 +182,13 @@ function FeaturesContent() {
                 sx={{ marginTop: 8 }}
                 href="Login"
               >
-                Iniciar ahora 
+                Iniciar ahora
               </Button>
             </Grid>
           </Grid>
         </Container>
-    </Container>
-     
+      </Container>
+
     </>
   );
 }

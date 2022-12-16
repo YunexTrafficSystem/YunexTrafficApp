@@ -5,15 +5,15 @@ import {
   FormControl,
   InputLabel,
   Grid
-}  from '@mui/material'
+} from '@mui/material'
 
-  /**
- * Es una página en la que se pasa la retroalimentación para el formulario de Electronico/Electronico
- * @author Katerine Ospina <ospinakaterine4@gmail.com>
- * @param {ReactHook} register - Registro por campo, se reciben desde react-hook-form
- * @param {ReactHook} errors - Errores del formulario, se reciben desde react-hook-form
- * @returns {ReactComponent} - Página de Step 1 (Información General)
- */
+/**
+* Es una página en la que se pasa la retroalimentación para el formulario de Electronico/Electronico
+* @author Katerine Ospina <ospinakaterine4@gmail.com>
+* @param {ReactHook} register - Registro por campo, se reciben desde react-hook-form
+* @param {ReactHook} errors - Errores del formulario, se reciben desde react-hook-form
+* @returns {ReactComponent} - Página de Step 1 (Información General)
+*/
 
 function InfoGeneral({ register, errors }) {
   return (
@@ -27,58 +27,58 @@ function InfoGeneral({ register, errors }) {
           })}
           error={errors?.serial}
           helperText={errors?.serial && errors?.serial.message}
-          />
+        />
       </Grid>
       <Grid item xs={4}>
         <FormControl fullWidth>
-        <InputLabel>Nombre Modulo</InputLabel>
-        <Select
-          label="Nombre Modulo"
-          defaultValue={1}
-          {...register("module", {
-            required: true,
-            message: 'Módulo es requerido'
-          })}
-        >
-          <MenuItem value={1}>mod1</MenuItem>
-          <MenuItem value={2}>mod2</MenuItem>
-          <MenuItem value={3}>mod3</MenuItem>
-          <MenuItem value={4}>mod4</MenuItem>
-          <MenuItem value={5}>mod5</MenuItem>
-        </Select>
+          <InputLabel>Nombre Modulo</InputLabel>
+          <Select
+            label="Nombre Modulo"
+            defaultValue={1}
+            {...register("module", {
+              required: true,
+              message: 'Módulo es requerido'
+            })}
+          >
+            <MenuItem value={1}>mod1</MenuItem>
+            <MenuItem value={2}>mod2</MenuItem>
+            <MenuItem value={3}>mod3</MenuItem>
+            <MenuItem value={4}>mod4</MenuItem>
+            <MenuItem value={5}>mod5</MenuItem>
+          </Select>
         </FormControl>
       </Grid>
 
       <Grid item xs={4}>
         <FormControl fullWidth>
-        <InputLabel>Tipo Contenedor</InputLabel>
-        <Select
-        defaultValue={1}
-        label="Tipo Contenedor"
-        {...register("container", {
-          required: true,
-          message: 'Contenedor requerido'
-        })}
-        >
-          <MenuItem value={1}>cont1</MenuItem>
-          <MenuItem value={2}>cont2</MenuItem>
-          <MenuItem value={3}>cont3</MenuItem>
-          <MenuItem value={4}>cont4</MenuItem>
-          <MenuItem value={5}>cont5</MenuItem>
-        </Select>
+          <InputLabel>Tipo Contenedor</InputLabel>
+          <Select
+            defaultValue={1}
+            label="Tipo Contenedor"
+            {...register("container", {
+              required: true,
+              message: 'Contenedor requerido'
+            })}
+          >
+            <MenuItem value={1}>cont1</MenuItem>
+            <MenuItem value={2}>cont2</MenuItem>
+            <MenuItem value={3}>cont3</MenuItem>
+            <MenuItem value={4}>cont4</MenuItem>
+            <MenuItem value={5}>cont5</MenuItem>
+          </Select>
         </FormControl>
       </Grid>
 
       <Grid item xs={4}>
         <FormControl fullWidth >
-        <InputLabel>Proyecto</InputLabel>
+          <InputLabel>Proyecto</InputLabel>
           <Select
             label="Proyecto"
-            defaultValue={1} 
+            defaultValue={1}
             {...register("project", {
-                required: true,
-                message: 'Proyecto requerido'
-              })}
+              required: true,
+              message: 'Proyecto requerido'
+            })}
           >
             <MenuItem value={1}>Bogotá</MenuItem>
             <MenuItem value={2}>Monteria</MenuItem>
@@ -89,7 +89,7 @@ function InfoGeneral({ register, errors }) {
         </FormControl>
       </Grid>
       <Grid item xs={12}>
-        <TextField 
+        <TextField
           {...register("inputDescription", {
             required: "Descripcion es requerida",
           })}
@@ -100,7 +100,7 @@ function InfoGeneral({ register, errors }) {
           fullWidth
           variant="outlined"
           label="Descripción"
-          >
+        >
         </TextField>
       </Grid>
     </Grid>

@@ -1,6 +1,4 @@
 import { useTheme } from '@mui/material/styles'
-import Title from './Title'
-import Report from './Reports'
 import { Container, Grid, Paper } from '@mui/material'
 
 export default function Preoperacionales() {
@@ -21,7 +19,6 @@ export default function Preoperacionales() {
                 minHeight: 500
               }}
             >
-              <Title>Preoperacionales</Title>
             </Paper>
           </Grid>
           </Grid>

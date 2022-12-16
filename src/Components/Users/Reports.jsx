@@ -5,26 +5,24 @@ import Dialog from "@mui/material/Dialog"
 import DialogActions from "@mui/material/DialogActions"
 import DialogContent from "@mui/material/DialogContent"
 import DialogContentText from "@mui/material/DialogContentText"
-import Title from "./Title"
 import DialogTitle from "@mui/material/DialogTitle"
 import { Container, Grid, FormControl, InputLabel, Select, MenuItem } from "@mui/material"
 
 
 export default function FormFDialog() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false)
 
   const handleClickOpen = () => {
     setOpen(true);
-  };
+  }
 
   const handleClose = () => {
     setOpen(false);
-  };
+  }
 
   return (
     <>
       <Container>
-        <Title>Reporte</Title>
         <p>En este espacio usted podrá realizar el reporte correspondiente de los elementos que se encuentran en mal estado, recuerde que este será remitido al area EHS, con el fin de dar solución al problema</p>
         <Grid item xs={12} sx={{display: 'flex',alignItems: 'center',justifyContent: 'center'}}>
         <Button variant='contained' onClick={handleClickOpen}>
