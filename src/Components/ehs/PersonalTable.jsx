@@ -45,7 +45,7 @@ const rows = [
     new Date()
   ),
     getCell(
-    2,
+    3,
     'Miguel Angel Castillo Amador',
     1002582736,
     'Yunex',
@@ -58,7 +58,7 @@ const rows = [
     new Date()
   ),
     getCell(
-    2,
+    4,
     'Miguel Angel Castillo Amador',
     1002582736,
     'Yunex',
@@ -71,7 +71,7 @@ const rows = [
     new Date()
   ),
     getCell(
-    2,
+    5,
     'Miguel Angel Castillo Amador',
     1002582736,
     'Yunex',
@@ -84,7 +84,7 @@ const rows = [
     new Date()
   ),
     getCell(
-    2,
+    6,
     'Miguel Angel Castillo Amador',
     1002582736,
     'Yunex',
@@ -97,7 +97,7 @@ const rows = [
     new Date()
   ),
   getCell(
-    2,
+    7,
     'Miguel Angel Castillo Amador',
     1002582736,
     'Yunex',
@@ -110,7 +110,7 @@ const rows = [
     new Date()
   ),
   getCell(
-    2,
+    8,
     'Miguel Angel Castillo Amador',
     1002582736,
     'Yunex',
@@ -123,7 +123,7 @@ const rows = [
     new Date()
   ),
   getCell(
-    2,
+    9,
     'Miguel Angel Castillo Amador',
     1002582736,
     'Yunex',
@@ -136,7 +136,7 @@ const rows = [
     new Date()
   ),
   getCell(
-    2,
+    10,
     'Miguel Angel Castillo Amador',
     1002582736,
     'Yunex',
@@ -149,7 +149,7 @@ const rows = [
     new Date()
   ),
   getCell(
-    2,
+    11,
     'Miguel Angel Castillo Amador',
     1002582736,
     'Yunex',
@@ -162,7 +162,7 @@ const rows = [
     new Date()
   ),
   getCell(
-    2,
+    12,
     'Miguel Angel Castillo Amador',
     1002582736,
     'Yunex',

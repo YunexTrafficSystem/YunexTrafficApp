@@ -64,7 +64,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="menu" element={<Menu />} />
           <Route path="ehs" element={<EHS />} />
           <Route path="dashboard" element={<Dashboard />} />
-          {/* <Route path="grid" element={<DataGrid />} /> */}
         </Routes>
       </Router>
       <br />
