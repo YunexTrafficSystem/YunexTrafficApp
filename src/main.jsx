@@ -8,7 +8,7 @@ import Login from './Login'
 import Footer from './Components/Footer'
 import SignUp from './SignUp'
 import Home from './Home'
-import Dashboard from './Components/Users/Dashboard'
+import Dashboard from './Components/users/Dashboard'
 import Menu from './Menu'
 import { EHS } from './EHS'
 import { Electronico } from './Electronico'
@@ -53,19 +53,21 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="Forgot" element={<Forgot />} />
-          <Route path="SignUp" element={<SignUp />} />
-          <Route path="Electro" element={<Electronico />} />
-          <Route path="Login" element={<Login />} />
-          <Route path="FormStepper" element={<FormStepper />} />
-          <Route path="FinalStep" element={< FinalStep />} />
-          <Route path="Electrico" element={< Electric />} />
-          <Route path="Terreno" element={< Zone />} />
-          <Route path="Menu" element={<Menu />} />
-          <Route path="EHS" element={<EHS />} />
-          <Route path="Dashboard" element={<Dashboard />} />
+          <Route path="forgot" element={<Forgot />} />
+          <Route path="signUp" element={<SignUp />} />
+          <Route path="electro" element={<Electronico />} />
+          <Route path="login" element={<Login />} />
+          <Route path="formStepper" element={<FormStepper />} />
+          <Route path="finalStep" element={< FinalStep />} />
+          <Route path="electrico" element={< Electric />} />
+          <Route path="terreno" element={< Zone />} />
+          <Route path="menu" element={<Menu />} />
+          <Route path="ehs" element={<EHS />} />
+          <Route path="dashboard" element={<Dashboard />} />
+          {/* <Route path="grid" element={<DataGrid />} /> */}
         </Routes>
       </Router>
+      <br />
       <Footer />
     </ThemeProvider>
   </React.StrictMode>

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Button, Box, Grid, ButtonGroup } from "@mui/material";
-import { InfoSpecific } from "./Components/Electrics/InfoSpecific";
-import { InfoGeneral } from "./Components/Electrics/InfoGeneral";
+import { InfoSpecific } from "./Components/electrics/InfoSpecific";
+import { InfoGeneral } from "./Components/electrics/InfoGeneral";
 import { FormStepper } from "./Components/FormStepper";
 import { FormPageSteps } from "./Components/FormPageSteps";
 import { FormStep } from "./Components/FormStep";

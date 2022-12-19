@@ -1,4 +1,5 @@
 import { Container, Grid, Paper } from '@mui/material'
+import { PersonalTable } from '../ehs/PersonalTable'
 
 export default function Datos() {
   return (
@@ -15,7 +16,7 @@ export default function Datos() {
                 minHeight: 500
               }}
             >
-              {/* Elementos de tabla */}
+              <PersonalTable />
             </Paper>
           </Grid>
         </Grid>

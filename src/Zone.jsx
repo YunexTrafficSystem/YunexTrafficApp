@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useForm, useFieldArray, Controller } from "react-hook-form";
 import { FieldArray } from "./Components/FieldArray";
-import { InfoSpecific } from "./Components/Zone/InfoSpecific";
-import { InfoGeneral } from "./Components/Zone/InfoGeneral";
-import { FeedBack } from "./Components/Zone/FeedBack";
+import { InfoSpecific } from "./Components/zone/InfoSpecific";
+import { InfoGeneral } from "./Components/zone/InfoGeneral";
+import { FeedBack } from "./Components/zone/FeedBack";
 import { FormStepper } from "./Components/FormStepper";
 import { FormPageSteps } from "./Components/FormPageSteps";
 import { FormStep } from "./Components/FormStep";
