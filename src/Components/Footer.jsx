@@ -2,46 +2,57 @@ import { useState } from 'react'
 import AppBar from "@mui/material/AppBar"
 import Box from "@mui/material/Box"
 import Toolbar from "@mui/material/Toolbar"
-import {Container,  Button, Typography,} from "@mui/material"
+import {Container, Typography,Grid} from "@mui/material"
 
+import { makeStyles } from '@material-ui/core/styles'
+const useStyles = makeStyles(theme => ({
+  text: {
+    align: 'center',
+  }
+}));
 
 const ResponsiveFooter = () => {
-
+  const classes = useStyles();
 
   return (
-    <AppBar position='static' color="black">
 
-      <Container maxWidth="xl">
+      <AppBar position='bottom' color="black" margin="0%">
 
-        <Toolbar disableGutters >
+        <Container sm={12} className={classes.text}>
 
-          <Box display="inline-block">
-            <Typography variant="body2">
-              Compliace
+          <Toolbar>
+              <Grid container alignItems="right" >
 
-            </Typography>
+                <Grid Item sm={3}>
+                  <Typography variant="body2">
+                    Compliace
+                  </Typography>
+                </Grid>
+                <Grid Item sm={3}>
+                  <Typography variant="body2">
+                    For Suppliers
+                  </Typography>
+                </Grid>
+                
+                <Grid Item sm={3}>
+                  <Typography variant="body2">
+                    Data Privacy & Cookies
+                  </Typography>
+                </Grid>
 
-            <Typography variant="body2">
-              For Suppliers
+                <Grid Item sm={3}>
+                  <Typography variant="body2">
+                    Impripmit
+                  </Typography>
+                </Grid>
 
-            </Typography>
-             
-            <Typography variant="body2">
-              Data Privacy  Cookies
 
-            </Typography>
+              </Grid>
+          </Toolbar>
 
-            <Typography variant="body2">
-              Impripmit
+        </Container>
 
-            </Typography>
-          </Box>
-
-        </Toolbar>
-
-      </Container>
-
-    </AppBar>
+      </AppBar>
   )
 }
 export default ResponsiveFooter

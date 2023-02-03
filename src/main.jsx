@@ -10,6 +10,7 @@ import SignUp from './SignUp'
 import Home from './Home'
 import Dashboard from './Components/users/Dashboard'
 import Menu from './Menu'
+
 import { EHS } from './EHS'
 import { Electronico } from './Electronico'
 import { Electric } from './Electric'
