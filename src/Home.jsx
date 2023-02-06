@@ -32,20 +32,20 @@ function FeaturesContent() {
   return (
     <>
       <AppBar position="static">
-          <Box className={classes.main}>        
+          <Box className={classes.main} padding="1%">        
             <Toolbar>
               <Container>
                 <img src="../public/img/logo.png" alt="" width="100px" height="40px" />
               </Container>
               <Box sx={{ flexGrow: 1, display: { md: 'flex', flexDirection:'row-reverse', xs: 'none'}}}>
                 <Button variant="contained" href="Login">
-                  IniciarSesion
+                  INICIARSESION
                 </Button>
                 <Button  variant="contained"  href="SignUp">
-                    Registrarse
+                    REGISTRARSE
                 </Button>
                 <Button variant="contained" color="inherit" href="/" >
-                  Inicio
+                  INICIO
                 </Button>
               </Box>
             </Toolbar> 

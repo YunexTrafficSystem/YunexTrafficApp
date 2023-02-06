@@ -43,29 +43,28 @@ export default function SignUp() {
       <CssBaseline/>
       <ThemeProvider>
         <AppBar position="static">
-          <Box className={classes.card}>        
+          <Box className={classes.card} padding="1%">        
             <Toolbar>
               <Container>
                 <img src="../public/img/logo.png" alt="" width="100px" height="40px" />
               </Container>
               <Box sx={{ flexGrow: 1, display: { md: 'flex', flexDirection:'row-reverse', xs: 'none'}}}>
                 <Button variant="contained" href="Login">
-                  IniciarSesion
+                  INICIARSESION
                 </Button>
                 <Button  variant="contained" theme={theme} href="SignUp">
-                    Registrarse
+                    REGISTRARSE
                 </Button>
                 <Button variant="contained" href="/" >
-                  Inicio
+                  INICIO
                 </Button>
               </Box>
             </Toolbar> 
           </Box>
         </AppBar>
-        <Box className={classes.main} padding="2%">
-          <br/>
+        <Box className={classes.main} padding="4%">
           <Container>
-              <Box padding='2%' width="500px" margin="auto" boxShadow=" 0px 2px 2px black"  className={classes.card}>
+              <Box padding='2%' width="500px" margin="auto" boxShadow=" 0px 2px 2px black"  className={classes.card} >
                 <Box sx={{
                   marginTop: 2,
                   display: 'flex',
@@ -77,7 +76,7 @@ export default function SignUp() {
                       <AccountCircleIcon  />
                     </Avatar>
                     <Typography component="h1" variant="h5" align="center">
-                      Registro
+                      REGISTRO
                     </Typography>
                   </Box>
                   <br />
@@ -145,15 +144,22 @@ export default function SignUp() {
                               label="Acepto terminos y condiciones"
                             />
                         </Grid>
-                        <Grid container >
-                          <Button
-                            type="submit"
-                            variant="contained"
-                            sx={{ mt: 3, mb: 2 }}
+                        <Grid
+                          container
+                          justifyContent="center"
+                        >
+                          <Grid
+                            item
                           >
-                            Registrar
-                          </Button>
-                        </Grid> 
+                            <Button
+                              type="submit"
+                              variant="contained"
+                              sx={{ mt: 3, mb: 2 }}
+                            >
+                              ENVIAR
+                            </Button>
+                          </Grid>
+                        </Grid>
                         <Grid container >
                           <Link to="/Login" variant="body2" underline="none"component={RouterLink}>
                             Ya tengo cuenta

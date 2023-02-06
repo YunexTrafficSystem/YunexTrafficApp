@@ -67,7 +67,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="dashboard" element={<Dashboard />} />
         </Routes>
       </Router>
-      <br />
       <Footer />
     </ThemeProvider>
   </React.StrictMode>

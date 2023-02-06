@@ -2,7 +2,7 @@ import { useState } from 'react'
 import AppBar from "@mui/material/AppBar"
 import Box from "@mui/material/Box"
 import Toolbar from "@mui/material/Toolbar"
-import {Container, Typography,Grid} from "@mui/material"
+import {Container, Typography,Grid,CssBaseline} from "@mui/material"
 
 import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles(theme => ({
@@ -15,33 +15,34 @@ const ResponsiveFooter = () => {
   const classes = useStyles();
 
   return (
+    
+      <AppBar position='static' color="black">
+        <CssBaseline/>
 
-      <AppBar position='bottom' color="black" margin="0%">
-
-        <Container sm={12} className={classes.text}>
+        <Container sm={12}  >
 
           <Toolbar>
               <Grid container alignItems="right" >
 
                 <Grid Item sm={3}>
-                  <Typography variant="body2">
+                  <Typography variant="body2" align="center">
                     Compliace
                   </Typography>
                 </Grid>
                 <Grid Item sm={3}>
-                  <Typography variant="body2">
+                  <Typography variant="body2" align="center">
                     For Suppliers
                   </Typography>
                 </Grid>
                 
                 <Grid Item sm={3}>
-                  <Typography variant="body2">
+                  <Typography variant="body2" align="center">
                     Data Privacy & Cookies
                   </Typography>
                 </Grid>
 
                 <Grid Item sm={3}>
-                  <Typography variant="body2">
+                  <Typography variant="body2" align="center">
                     Impripmit
                   </Typography>
                 </Grid>

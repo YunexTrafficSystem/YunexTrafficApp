@@ -36,26 +36,26 @@ export default function SignIn() {
       <ThemeProvider >
       <CssBaseline />
         <AppBar position="static">
-          <Box className={classes.card}>        
+          <Box className={classes.card} padding="1%">        
             <Toolbar>
               <Container>
                 <img src="../public/img/logo.png" alt="" width="100px" height="40px" />
               </Container>
               <Box sx={{ flexGrow: 1, display: { md: 'flex', flexDirection:'row-reverse', xs: 'none'}}}>
                 <Button variant="contained" theme={theme}  href="Login">
-                  IniciarSesion
+                  INICIARSESION
                 </Button>
                 <Button  variant="contained"  href="SignUp">
-                    Registrarse
+                    REGISTRARSE
                 </Button>
                 <Button variant="contained" color="primary" href="/" >
-                  Inicio
+                  INICIO
                 </Button>
               </Box>
             </Toolbar> 
           </Box>
         </AppBar>
-        <Box className={classes.main} padding="2%">
+        <Box className={classes.main} padding="4%">
           <br />
           <Container>
             <Box padding='2%' width="500px" margin="auto" boxShadow=" 0px 2px 2px black" color="inherit" className={classes.card}>
@@ -95,14 +95,24 @@ export default function SignIn() {
                     {...register("password", { required: true, minLength: 8, maxLength: 20 })}
                   />
                   <br />
-                  <Button
-                    type="submit"
-                      
-                    variant="contained"
-                    sx={{ mt: 3, mb: 2 }}
+                  <Grid
+                    container
+                    justifyContent="center"
                   >
-                    Ingresar
-                  </Button>
+                    <Grid
+                      item
+                    >
+                      <Button
+                        type="submit"
+                          
+                        variant="contained"
+                        sx={{ mt: 3, mb: 2 }}
+                      >
+                        Ingresar
+                      </Button>
+
+                    </Grid>
+                  </Grid>
                   <Grid container alignItems="bottom">
                     <Grid item xs>
                       <Link variant="body2" to="/forgot" underline="none" component={RouterLink}>

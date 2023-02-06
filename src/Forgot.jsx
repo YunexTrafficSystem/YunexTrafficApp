@@ -2,8 +2,7 @@ import * as React from 'react';
 import {Avatar,Button, CssBaseline, TextField, Link, Grid, Box, Typography, Container, AppBar, Toolbar,GlobalStyles} from '@mui/material';
 import { Link as RouteLink } from 'react-router-dom';
 import { useForm } from "react-hook-form"
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-
+import HistoryIcon from '@mui/icons-material/History';
 
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@material-ui/core';
@@ -38,30 +37,29 @@ export default function SignIn() {
       <GlobalStyles margin="0%" padding="0%"/>
       <CssBaseline />   
       <ThemeProvider>
-      <AppBar position="static">
-          <Box className={classes.card}>        
+      <AppBar position="static" >
+          <Box className={classes.card} padding="1%">        
             <Toolbar>
               <Container>
                 <img src="../public/img/logo.png" alt="" width="100px" height="40px" />
               </Container>
               <Box sx={{ flexGrow: 1, display: { md: 'flex', flexDirection:'row-reverse', xs: 'none'}}}>
                 <Button variant="contained" theme={theme}  href="Login">
-                  IniciarSesion
+                  INICIARSESION
                 </Button>
                 <Button  variant="contained"  href="SignUp">
-                    Registrarse
+                  REGISTRARSE
                 </Button>
                 <Button variant="contained" color="primary" href="/" >
-                  Inicio
+                  INICIO
                 </Button>
               </Box>
             </Toolbar> 
           </Box>
         </AppBar>
       </ThemeProvider>
-      <Box className={classes.main}>
-      <br />
-        <Box padding='2%' width="500px" margin="auto" boxShadow=" 0px 2px 2px black" className={classes.card}>
+      <Box className={classes.main} padding="4%">
+        <Box padding='2%' width="500px" height="400px" margin="auto" boxShadow=" 0px 2px 2px black" className={classes.card}>
         
           <Box
             sx={{
@@ -73,13 +71,12 @@ export default function SignIn() {
           >
             <Box>
               <Avatar sx={{bgcolor:"primary.main", margin:"auto"}}>
-                <AccountCircleIcon  />
+                <HistoryIcon  />
               </Avatar>
               <Typography  component="h1" variant="h5" align="center">
                 RECUPERAR CONTRASEÑA
               </Typography>
             </Box>
-            
               <br />
               <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate sx={{ mt: 1 }}>
                 <TextField
@@ -92,7 +89,6 @@ export default function SignIn() {
                   autoFocus
                   {...register("email", { required: true, pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/ })}
                 />
-
                 <Button
                   type="submit"
                   fullWidth
@@ -121,3 +117,20 @@ export default function SignIn() {
     </>
   );
 }
+
+<Grid
+container
+justifyContent="center"
+>
+<Grid
+  item
+>
+                          <Button
+                            type="submit"
+                            variant="contained"
+                            sx={{ mt: 3, mb: 2 }}
+                          >
+                            Registrar
+                          </Button>
+</Grid>
+</Grid>
