@@ -1,69 +1,58 @@
-import { useState } from "react"
-import { useForm, useFieldArray, Controller } from "react-hook-form"
-import { FieldArray } from "./Components/FieldArray"
-import { InfoGeneral } from "./Components/electronics/InfoGeneral"
-import { InfoSpecific } from "./Components/electronics/InfoSpecific"
-import { FormStepper } from "./Components/FormStepper"
-import { FormPageSteps } from "./Components/FormPageSteps"
-import { FormStep } from "./Components/FormStep"
-import { Button, Box, Grid, ButtonGroup } from "@mui/material"
-import { FinalStep } from "./Components/FinalStep"
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { Button, Box, Grid, ButtonGroup } from "@mui/material";
+import { InfoSpecific } from "./Components/electrics/InfoSpecific";
+import { InfoGeneral } from "./Components/electrics/InfoGeneral";
+import { FormStepper } from "./Components/FormStepper";
+import { FormPageSteps } from "./Components/FormPageSteps";
+import { FormStep } from "./Components/FormStep";
+import { FinalStep } from "./Components/FinalStep";
 import Paper from '@mui/material/Paper'
 
-export default function Electronico() {
-  const { control, register, handleSubmit, watch, formState: { errors } } = useForm({
-    defaultValues: {
-      mant: [{ quantity: 1, component: 1 }],
-      module: 3,
-      container: 5,
-      project: 4
-    }
-  })
+export default function Balance() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const onSubmit = (data) => {
-    onError()
+    onError();
     if (activeStep === steps.length - 1) {
-      alert(JSON.stringify(data))
+      alert(JSON.stringify(data));
     }
-  }
-
-  const { fields, append, prepend, remove, swap, move, insert } = useFieldArray(
-    {
-      control,
-      name: "mant"
-    }
-  )
+  };
 
   const onError = (errors) => {
     if (!errors) {
-      nextStep()
+      nextStep();
     }
-  }
+  };
 
   const returnStepLabel = (activeStep) => {
-    let label = "Siguente"
+    let label = "Siguente";
     if (activeStep == steps.length - 1) {
-      label = "Finalizar"
+      label = "Finalizar";
     } else if (activeStep >= steps.length - 1) {
-      label = "Reestablecer"
+      label = "Reestablecer";
     }
-    return label
-  }
-  const [activeStep, SetActiveStep] = useState(0)
+    return label;
+  };
+  const [activeStep, SetActiveStep] = useState(0);
 
   const nextStep = () => {
     if (activeStep >= steps.length) {
-      window.location.reload()
+      window.location.reload();
     } else {
-      SetActiveStep((activeStep) => activeStep + 1)
+      SetActiveStep((activeStep) => activeStep + 1);
     }
-  }
+  };
 
   const backStep = () => {
-    SetActiveStep((activeStep) => activeStep - 1)
-  }
+    SetActiveStep((activeStep) => activeStep - 1);
+  };
 
-  const steps = ["Información general", "Información especifica"]
+  const steps = ["Información general", "Información especifica"];
 
   return (
     <Grid container spacing={3}>
@@ -78,7 +67,6 @@ export default function Electronico() {
           }}
         >
           <>
-
             <form onSubmit={handleSubmit(onSubmit)}>
               <Box>
                 <FormStepper steps={steps} activeStep={activeStep} />
@@ -86,13 +74,6 @@ export default function Electronico() {
               <FormPageSteps activeStep={activeStep}>
                 <FormStep>
                   <InfoGeneral register={register} errors={errors} />
-                  <FieldArray
-                    fields={fields}
-                    register={register}
-                    append={append}
-                    remove={remove}
-                    errors={errors}
-                  />
                 </FormStep>
                 <FormStep>
                   <InfoSpecific register={register} errors={errors} />
@@ -122,7 +103,7 @@ export default function Electronico() {
         </Paper>
       </Grid>
     </Grid>
-  )
+  );
 }
 
-export { Electronico }
+export { Balance };

@@ -12,11 +12,9 @@ import Dashboard from './Components/users/Dashboard'
 import Menu from './Menu'
 
 import { EHS } from './EHS'
-import { Electronico } from './Electronico'
-import { Electric } from './Electric'
+import { Balance } from './Balance'
 import { FinalStep } from './Components/FinalStep'
 import { FormStepper } from './Components/FormStepper'
-import { Zone } from './Zone'
 
 const theme = createTheme({
   spacing: 2,
@@ -56,12 +54,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/" element={<Home />} />
           <Route path="forgot" element={<Forgot />} />
           <Route path="signUp" element={<SignUp />} />
-          <Route path="electro" element={<Electronico />} />
           <Route path="login" element={<Login />} />
           <Route path="formStepper" element={<FormStepper />} />
           <Route path="finalStep" element={< FinalStep />} />
-          <Route path="electrico" element={< Electric />} />
-          <Route path="terreno" element={< Zone />} />
+          <Route path="balance" element={< Balance />} />
           <Route path="menu" element={<Menu />} />
           <Route path="ehs" element={<EHS />} />
           <Route path="dashboard" element={<Dashboard />} />

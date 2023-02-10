@@ -1,21 +1,13 @@
-import {
-  Box,
-  Button,
-  CssBaseline,
-  Grid,
-  Typography,
-  GlobalStyles
-} from '@mui/material';
-
+import {  Box,  Button,  Grid,  Typography,   IconButton,ButtonGroup} from '@mui/material';
 import * as React from 'react';
-import { ReactDOM } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import Container from '@mui/material/Container'
-import { createTheme } from '@mui/material/styles';
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles';
+import MenuIcon from '@mui/icons-material/Menu';
 
 
+
+//personalizacion de los colores
 const useStyles = makeStyles(theme => ({
   main: {
     backgroundColor: '#e2edF3',
@@ -26,71 +18,103 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-
+//Declarando la función que retorna la vista del y los datos del Home
 function FeaturesContent() {
+  {/**Se declara la variable para que contenga la informacion donde se personalizó los colores */}
   const classes = useStyles();
   return (
     <>
-      <AppBar position="static">
-          <Box className={classes.main} padding="1%">        
+      {/**Barra de navegacion */}
+      <AppBar position='static'>
+
+          {/**Box donde se usa para aplicar el color que se personalizó de fondo en la barra de navegacion*/}
+          <Box className={classes.main}>
             <Toolbar>
-              <Container>
-                <img src="../public/img/logo.png" alt="" width="100px" height="40px" />
-              </Container>
-              <Box sx={{ flexGrow: 1, display: { md: 'flex', flexDirection:'row-reverse', xs: 'none'}}}>
-                <Button variant="contained" href="Login">
-                  INICIARSESION
-                </Button>
-                <Button  variant="contained"  href="SignUp">
-                    REGISTRARSE
-                </Button>
-                <Button variant="contained" color="inherit" href="/" >
-                  INICIO
-                </Button>
-              </Box>
+
+              <IconButton sx={{m:10,display:{sm:'none'}}}>
+                <MenuIcon/>
+              </IconButton>
+
+              {/**Grid que contiene el logo de yunex traffic  */}
+              <Grid sx={{m:10}}>
+                <img src='../public/img/logo.png' alt='' width='100px' height='40px' />
+              </Grid>
+
+              {/**Grid que contiene los botones de navegacion y los posiciones al final del lado derecho de la barra de navegación */}
+              <Grid container direction='row' justifyContent='end'>
+
+              <ButtonGroup variant="contained" color="primary" aria-label="contained primary button group">
+
+                {/**Botones de navegación */}
+                <Button href="/" color="inherit">INICIO</Button>
+                <Button href="SignUp">REGISTRARSE</Button>
+                <Button href="Login">INICIAR SESION</Button>
+
+              </ButtonGroup>
+
+              </Grid>
+
             </Toolbar> 
           </Box>
-        </AppBar>
-      <br />
-      <GlobalStyles margin="0%" padding="0%"/>
-      <CssBaseline />
-      <Box margin="6%">
-        <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={4} margin="auto">
-          <Box gridColumn="span 6" margin="auto">
-            <Typography component="h1" variant="h3" align="center" color="text.ligthgreen" gutterBottom > 
-              The Yunex Traffic System 
-            </Typography>
 
-            <Typography variant="p" align="center" color="text.secondary" component="p">
-              Software desarrollado con el objetivo de optimizar y facilitar los procesos de las areas de trabajo que componen la empresa Yunex Traffic
-            </Typography>
-            <Grid
-              container
-              justifyContent="center"
-            >
+        </AppBar>
+
+      {/**Grid donde se usa para que genere un relleno de fondo detras de la imagen y el texto que se muestra en el inicio */}
+      <Grid margin='7%' >
+
+          {/**Grid donde contiene la imagen y el texto que se muestra en el inicio */}
+          <Grid container spacing={2}>
+            
+            {/**Grid que configura como se ve el texto según el tamaño de la pantalla */}
+            <Grid Item xs={12} sm={6} align="center">
+
+              {/** Typography Se define las caracteristicas del texto */}
+              <Typography component='h1' variant='h3' align='center' color='text.ligthgreen' gutterBottom > 
+                The Yunex Traffic System 
+              </Typography>
+              
+              {/** Typography Se define las caracteristicas del texto */}
+              <Typography variant='p' align='center' color='text.secondary' component='p'>
+                Software desarrollado con el objetivo de optimizar y facilitar los procesos de las areas de trabajo que componen la empresa Yunex Traffic
+              </Typography>
+
               <Grid
-                item
+                container
+                justifyContent='center'
               >
-                <Button
-                  variant="contained"
-                  size="large"
-                  sx={{ marginTop: 8}}
-                  href="Login"
+                <Grid
+                  item
                 >
-                  Iniciar ahora
-                </Button>
+                  
+                  {/**Boton en el que al hacer click lo enviara al formulario de login*/}
+                  <Button
+                    variant='contained'
+                    sx={{ marginTop: 8}}
+                    href='Login'
+                  >
+                    Iniciar ahora
+                  </Button>
+
+                </Grid>
+
               </Grid>
+
             </Grid>
-          </Box>
-          <Box gridColumn="span 6" padding="2%">
-            <img src="../public/img/yunex.jpg" alt="" width="600px" height="300"/>
-          </Box>
-        </Box> 
-      </Box >
+
+            <br />
+
+            {/**Grid que contiene la imagen que aparece en el inicio*/}
+            <Grid Item sx={12} sm={6}>
+              <img src='../public/img/yunex.jpg' alt='' width='600px' height='300'/>
+            </Grid>
+          </Grid>
+
+      </Grid >
+
     </>
   );
 }
-
+//Declarando la funcion que retorna el contenido del Home
 export default function FeaturesPage() {
   return <FeaturesContent />;
 }

@@ -1,42 +1,38 @@
-import { useState } from 'react'
-import { styled, createTheme, ThemeProvider } from '@mui/material/styles'
-import CssBaseline from '@mui/material/CssBaseline'
-import MuiDrawer from '@mui/material/Drawer'
-import Box from '@mui/material/Box'
-import MuiAppBar from '@mui/material/AppBar'
-import Toolbar from '@mui/material/Toolbar'
-import List from '@mui/material/List'
-import Typography from '@mui/material/Typography'
-import Divider from '@mui/material/Divider'
-import IconButton from '@mui/material/IconButton'
-import Container from '@mui/material/Container'
-import Grid from '@mui/material/Grid'
-import MenuIcon from '@mui/icons-material/Menu'
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
-import LogoutIcon from '@mui/icons-material/Logout'
+import { useState } from 'react';
+import { styled, ThemeProvider } from '@mui/material/styles';
+import MuiDrawer from '@mui/material/Drawer';
+import Box from '@mui/material/Box';
+import MuiAppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import List from '@mui/material/List';
+import IconButton from '@mui/material/IconButton';
+import Grid from '@mui/material/Grid';
+import MenuIcon from '@mui/icons-material/Menu';
+import { makeStyles } from '@material-ui/core/styles';
+import SecondaryListItems from './ListItems';
+import EditProfile from './EditProfile';
+import Button from '@material-ui/core/Button';
 
-
-import { MainListItems, SecondaryListItems } from './ListItems'
-import Welcome from './Welcome'
-import Electric from '../../Electric'
-import Electronic from '../../Electronico'
-import Zone from '../../Zone'
-import EditProfile from './EditProfile'
-import Ensambles from './Ensambles'
-import Garantias from './Garantias'
+import Balance from '../../Balance';
+import Zone from '../../Zone';
+import Ensambles from './Ensambles';
+import Garantias from './Garantias';
 import Datos from './Datos'
-import Preoperacionales from './Preoperacionales'
-import Preventivos from './Preventivos'
-import InventarioEhs from './InventarioEhs'
+import Preoperacionales from './Preoperacionales';
+import Preventivos from './Preventivos';
+import InventarioEhs from './InventarioEhs';
 
-const drawerWidth = 230
 
-// Lista de módulos
+
+
+// Definiendo el ancho del sideBar
+const drawerWidth = 250
+
+
+//Importando los archivos para después mostrarlos en la ventana de informacion
 const modules = [
-  <Welcome />,
   <EditProfile />,
-  <Electric />,
-  <Electronic />,
+  <Balance />,
   <Zone />,
   <Ensambles />,
   <Garantias />,
@@ -46,7 +42,9 @@ const modules = [
   <InventarioEhs />
 ]
 
+
 // Desplegable
+
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
 })(({ theme, open }) => ({
@@ -82,27 +80,32 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
           easing: theme.transitions.easing.sharp,
           duration: theme.transitions.duration.leavingScreen,
         }),
-        width: theme.spacing(7),
-        [theme.breakpoints.up('sm')]: {
-          width: theme.spacing(9),
+        width: theme.spacing(0),
+        [theme.breakpoints.up('xs')]: {
+          width: theme.spacing(0),
         },
       }),
     },
   }),
 )
 
-const mdTheme = createTheme({
-  palette: {
-    primary: {
-      main: '#00E676',
-      light: '#00E676',
-      dark: '#00ca6e',
-      contrastText: '#000',
-    },
-  }
-})
 
+
+// personalizacion de colores
+const useStyles = makeStyles(theme => ({
+  main: {
+    backgroundColor: '#e2edF3',
+
+  },
+  card:{
+    backgroundColor:'#fff',
+  },
+}));
+
+//Declarando la función que retorna la vista y los datos del dashboard
 function DashboardContent() {
+
+  {/**Hooks para que funcionen los desplegables */}
   const [open, setOpen] = useState(true)
   const toggleDrawer = () => {
     setOpen(!open)
@@ -113,99 +116,75 @@ function DashboardContent() {
     setTab(i)
   }
 
+  {/**Se declara la variable para que contenga la informacion donde se personalizó los colores */}
+  const classes = useStyles();
+
   return (
-    <ThemeProvider theme={mdTheme}>
-      <Box sx={{ display: 'flex' }}>
-        <CssBaseline />
-        <AppBar open={open}>
-          <Toolbar
-            sx={{
-              pr: '24px'
-            }}
-          >
-            <IconButton
-              edge="start"
-              color="inherit"
-              aria-label="open drawer"
-              onClick={toggleDrawer}
-              sx={{
-                marginRight: '36px',
-                ...(open && { display: 'none' }),
-              }}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography
-              component="h1"
-              variant="h6"
-              color="inherit"
-              noWrap
-              sx={{ flexGrow: 1 }}
-            >
-              TYTS
-            </Typography>
-            <IconButton color="inherit" href='/'>
-              <LogoutIcon />
-            </IconButton>
-          </Toolbar>
+      {/**Se usa ThemeProvider para que se pueda usar  */},
+    <ThemeProvider >
+        {/**La barra de navegacion */}
+        <AppBar position='static'>
+          <Box  className={classes.card}>
+            <Toolbar>
+                <IconButton
+                  edge="start"
+                  color="inherit"
+                  aria-label="open drawer"
+                  onClick={toggleDrawer}
+                  sx={{m:10, display:{sm:'none'}
+                }}>
+                  <MenuIcon />
+                </IconButton>
+              <Grid sx={{m:10}}>
+                <img src='../public/img/logo.png' alt='' width='100px' height='40px' />
+              </Grid>
+              <Grid container direction='row' justifyContent='end'>
+                <Button variant="contained" href="/" color="primary">
+                  INICIO
+                </Button>
+                <Button variant="contained" color="error">
+                  CERRAR SESION
+                </Button>
+              </Grid>
+            </Toolbar>
+          </Box>
         </AppBar>
-        <Drawer variant="permanent" open={open}>
-          <Toolbar
-            sx={{
-              display: 'flex',
-
-              alignItems: 'center',
-              justifyContent: 'flex-end',
-              px: [1],
-            }}
-          >
-            <IconButton onClick={toggleDrawer}>
-              <ChevronLeftIcon />
-            </IconButton>
-          </Toolbar>
-          <Divider />
-          <List component="nav">
-            <MainListItems
-              onClick={
-                selectTab
-              } />
-            <Divider sx={{ my: 1 }} />
-            <SecondaryListItems
-              onClick={
-                selectTab
-              }
-            />
-          </List>
+      {/**Este box contiene el sideBar y la ventana donde se muestra la infromacion */}
+      <Box sx={{ display: 'flex' }} className={classes.main}>
+        {/**El sideBar */}
+        <Drawer  variant="permanent" open={open}>
+          <Grid bgcolor="primary.main" >
+            <List>
+              <SecondaryListItems
+                onClick={
+                  selectTab
+                }
+              />
+            </List>
+          </Grid>
         </Drawer>
-        <Box
-          component="main"
-          sx={{
-            backgroundColor: (theme) =>
-              theme.palette.mode === 'light'
-                ? theme.palette.grey[100]
-                : theme.palette.grey[900],
-            flexGrow: 1,
-            overflow: 'auto',
-          }}
-        >
-          <Toolbar />
-          <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <Grid container spacing={3}>
-              <Grid item xs={12} sx={{ display: 'flex', alignItems: 'center' }}>
 
-                {modules[selectedTab-1]}
+        {/**Ventana donde se muestra la información */}
+        <Grid container sx={{ mt:27, mb: 27, ml:29, mr:29 }} className={classes.card} margin="auto" padding="1%">
+
+            <Grid container spacing={3} display="flex">
+              <Grid item xs={12}>
+              {modules[selectedTab-1]}
               </Grid>
 
             </Grid>
-          </Container>
-        </Box>
+        </Grid>
       </Box>
     </ThemeProvider>
+    
+    
   )
 }
 
+//Declarando la funcion que retorna el contenido del dashboard
 function Dashboard() {
   return <DashboardContent />
 }
 
+//exportacion de la funcion declarada anteriormente
 export default Dashboard
