@@ -36,17 +36,19 @@ function SecondaryListItems(props) {
   return (
     <>  
           <Container align="center">
-            <Typography variant="body3" color="initial" >
+            <Typography variant="body3" color="initial" onClick={()=>{props.onClick()}}>
               MENÚ
             </Typography>
           </Container>
             
 
-          <ListItemButton onClick={handleLab}>
+          <ListItemButton  onClick={handleLab}>
             <ListItemIcon>
               < ContentPasteIcon/>
             </ListItemIcon>
-            <ListItemText primary="Laboratorio" />
+            <ListItemText primary="Laboratorio" onClick={() => {
+                  props.onClick(2);
+                }}/>
             {lab ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
 
@@ -54,16 +56,13 @@ function SecondaryListItems(props) {
             <List component="div" disablePadding>
               <ListItemButton sx={{ pl: 4 }}
                 onClick={() => {
-                  props.onClick(1);
+                  props.onClick(3);
                 }}
               >
                 <ListItemText primary="Balance" align="center"/>
               </ListItemButton>
-
             </List>
           </Collapse>
-
-
 
 
           <ListItemButton onClick={handleEns}>
@@ -78,21 +77,19 @@ function SecondaryListItems(props) {
             <List component="div" disablePadding>
               <ListItemButton sx={{ pl: 4 }}
                 onClick={() => {
-                  props.onClick(2);
+                  props.onClick(4);
                 }}
               >
 
                 <ListItemText primary="Balance" align="center"/>
               </ListItemButton>
-
             </List>
           </Collapse>
 
 
-
-
-
-          <ListItemButton>
+          <ListItemButton onClick={() => {
+              props.onClick(5);
+            }}>
             <ListItemIcon>
               <WorkRoundedIcon/>
             </ListItemIcon>
@@ -102,7 +99,7 @@ function SecondaryListItems(props) {
 
           <ListItemButton
             onClick={() => {
-              props.onClick(3);
+              props.onClick(6);
             }}
           >
             <ListItemIcon>
@@ -110,6 +107,7 @@ function SecondaryListItems(props) {
             </ListItemIcon>
             <ListItemText primary="Garantias" />
           </ListItemButton>
+
 
           <ListItemButton onClick={handleEhs}>
             <ListItemIcon>
@@ -124,14 +122,14 @@ function SecondaryListItems(props) {
             <List component="div" disablePadding>
               <ListItemButton sx={{ pl: 4 }}
                 onClick={() => {
-                  props.onClick(4);
+                  props.onClick(7);
                 }}>
 
                 <ListItemText primary="Datos Personales" align="center"/>
               </ListItemButton>
               <ListItemButton sx={{ pl: 4 }}
                 onClick={() => {
-                  props.onClick(5);
+                  props.onClick(8);
                 }}
               >
 
@@ -139,17 +137,17 @@ function SecondaryListItems(props) {
               </ListItemButton>
               <ListItemButton sx={{ pl: 4 }}
                 onClick={() => {
-                  props.onClick(6);
+                  props.onClick(9);
                 }}>
 
                 <ListItemText primary="Preventivos" align="center"/>
               </ListItemButton>
               <ListItemButton sx={{ pl: 4 }}
                 onClick={() => {
-                  props.onClick();
+                  props.onClick(10);
                 }}
               >
-                <ListItemText primary="Ingreso Inventario" align="center"/>
+                <ListItemText primary="Inventario" align="center"/>
               </ListItemButton>
             </List>
           </Collapse>

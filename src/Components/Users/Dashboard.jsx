@@ -12,15 +12,19 @@ import { makeStyles } from '@material-ui/core/styles';
 import SecondaryListItems from './ListItems';
 import EditProfile from './EditProfile';
 import Button from '@material-ui/core/Button';
+import { createMuiTheme } from '@material-ui/core/styles';
+
 
 import Balance from '../../Balance';
 import Zone from '../../Zone';
-import Ensambles from './Ensambles';
 import Garantias from './Garantias';
 import Datos from './Datos'
 import Preoperacionales from './Preoperacionales';
 import Preventivos from './Preventivos';
 import InventarioEhs from './InventarioEhs';
+import Lab from './Lab'
+import BalanceEnsamble from './BalanceEnsamble';
+import Mantenimiento from './Mantenimiento';
 
 
 
@@ -31,10 +35,13 @@ const drawerWidth = 250
 
 //Importando los archivos para después mostrarlos en la ventana de informacion
 const modules = [
+  
   <EditProfile />,
+  <Lab/>,
   <Balance />,
+  <BalanceEnsamble/>,
+  <Mantenimiento/>,
   <Zone />,
-  <Ensambles />,
   <Garantias />,
   <Datos />,
   <Preoperacionales />,
@@ -100,7 +107,18 @@ const useStyles = makeStyles(theme => ({
   card:{
     backgroundColor:'#fff',
   },
+  buton:{
+    backgroundColor:'#3EEB92'
+  }
 }));
+
+const theme = createMuiTheme({
+  palette: {
+    primary:{
+      main: '#3EEB92'
+    }
+  }
+});
 
 //Declarando la función que retorna la vista y los datos del dashboard
 function DashboardContent() {
@@ -122,33 +140,33 @@ function DashboardContent() {
   return (
       {/**Se usa ThemeProvider para que se pueda usar  */},
     <ThemeProvider >
-        {/**La barra de navegacion */}
-        <AppBar position='static'>
-          <Box  className={classes.card}>
-            <Toolbar>
-                <IconButton
-                  edge="start"
-                  color="inherit"
-                  aria-label="open drawer"
-                  onClick={toggleDrawer}
-                  sx={{m:10, display:{sm:'none'}
-                }}>
-                  <MenuIcon />
-                </IconButton>
-              <Grid sx={{m:10}}>
-                <img src='../public/img/logo.png' alt='' width='100px' height='40px' />
-              </Grid>
-              <Grid container direction='row' justifyContent='end'>
-                <Button variant="contained" href="/" color="primary">
-                  INICIO
-                </Button>
-                <Button variant="contained" color="error">
-                  CERRAR SESION
-                </Button>
-              </Grid>
-            </Toolbar>
-          </Box>
-        </AppBar>
+          {/**La barra de navegacion */}
+          <AppBar position='static'>
+            <Box  className={classes.card}>
+              <Toolbar>
+                  <IconButton
+                    edge="start"
+                    color="inherit"
+                    aria-label="open drawer"
+                    onClick={toggleDrawer}
+                    sx={{m:10, display:{sm:'none'}
+                  }}>
+                    <MenuIcon />
+                  </IconButton>
+                <Grid sx={{m:10}}>
+                  <img src='../public/img/logo.png' alt='' width='100px' height='40px' />
+                </Grid>
+                <Grid container direction='row' justifyContent='end'>
+                  <Button variant="contained" className={classes.buton} onClick={modules[0]}>
+                    INICIO
+                  </Button>
+                  <Button variant="contained" className={classes.buton}>
+                    CERRAR SESION
+                  </Button>
+                </Grid>
+              </Toolbar>
+            </Box>
+          </AppBar>
       {/**Este box contiene el sideBar y la ventana donde se muestra la infromacion */}
       <Box sx={{ display: 'flex' }} className={classes.main}>
         {/**El sideBar */}
@@ -167,7 +185,7 @@ function DashboardContent() {
         {/**Ventana donde se muestra la información */}
         <Grid container sx={{ mt:27, mb: 27, ml:29, mr:29 }} className={classes.card} margin="auto" padding="1%">
 
-            <Grid container spacing={3} display="flex">
+            <Grid container spacing={3} display="flex" >
               <Grid item xs={12}>
               {modules[selectedTab-1]}
               </Grid>

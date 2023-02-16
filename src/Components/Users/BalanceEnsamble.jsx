@@ -1,7 +1,7 @@
 import { useTheme } from '@mui/material/styles'
-import { Container, Grid, Paper } from '@mui/material'
+import { Container, Grid, Paper, TextField, Typography } from '@mui/material'
 
-function Ensambles() {
+function BalanceEnsamble() {
 
   return (
     <>
@@ -17,6 +17,13 @@ function Ensambles() {
                 minHeight: 500
               }}
             >
+              <Typography variant="h1" color="initial">Ensamble Balance</Typography>
+              <TextField
+                id="wewe"
+                label="wewewew"
+
+                
+              />
             </Paper>
           </Grid>
           </Grid>
@@ -25,4 +32,5 @@ function Ensambles() {
   )
 }
 
-export default Ensambles
+export default BalanceEnsamble
+
