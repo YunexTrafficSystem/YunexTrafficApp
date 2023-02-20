@@ -166,7 +166,7 @@ function DashboardContent() {
                   <img src='../public/img/logo.png' alt='' width='100px' height='40px' />
                 </Grid>
                 <Grid container direction='row' justifyContent='end'>
-                  <Button variant="contained" className={classes.buton} href="Dashboard">
+                  <Button variant="contained" className={classes.buton} href="/">
                     INICIO
                   </Button>
                   <Button variant="contained" className={classes.buton}>
