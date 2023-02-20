@@ -36,7 +36,7 @@ function SecondaryListItems(props) {
   return (
     <>  
           <Container align="center">
-            <Typography variant="body3" color="initial" onClick={()=>{props.onClick()}}>
+            <Typography variant="body3" color="initial">
               MENÚ
             </Typography>
           </Container>
@@ -69,7 +69,7 @@ function SecondaryListItems(props) {
             <ListItemIcon>
               <HandymanIcon />
             </ListItemIcon>
-            <ListItemText primary="Ensambles" />
+            <ListItemText primary="Ensambles" onClick={()=>{props.onClick(4)}}/>
             {ens ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
 
@@ -77,7 +77,7 @@ function SecondaryListItems(props) {
             <List component="div" disablePadding>
               <ListItemButton sx={{ pl: 4 }}
                 onClick={() => {
-                  props.onClick(4);
+                  props.onClick(5);
                 }}
               >
 
@@ -88,7 +88,7 @@ function SecondaryListItems(props) {
 
 
           <ListItemButton onClick={() => {
-              props.onClick(5);
+              props.onClick(6);
             }}>
             <ListItemIcon>
               <WorkRoundedIcon/>
@@ -99,7 +99,7 @@ function SecondaryListItems(props) {
 
           <ListItemButton
             onClick={() => {
-              props.onClick(6);
+              props.onClick(7);
             }}
           >
             <ListItemIcon>
@@ -122,14 +122,14 @@ function SecondaryListItems(props) {
             <List component="div" disablePadding>
               <ListItemButton sx={{ pl: 4 }}
                 onClick={() => {
-                  props.onClick(7);
+                  props.onClick(8);
                 }}>
 
                 <ListItemText primary="Datos Personales" align="center"/>
               </ListItemButton>
               <ListItemButton sx={{ pl: 4 }}
                 onClick={() => {
-                  props.onClick(8);
+                  props.onClick(9);
                 }}
               >
 
@@ -137,14 +137,14 @@ function SecondaryListItems(props) {
               </ListItemButton>
               <ListItemButton sx={{ pl: 4 }}
                 onClick={() => {
-                  props.onClick(9);
+                  props.onClick(10);
                 }}>
 
                 <ListItemText primary="Preventivos" align="center"/>
               </ListItemButton>
               <ListItemButton sx={{ pl: 4 }}
                 onClick={() => {
-                  props.onClick(10);
+                  props.onClick(11);
                 }}
               >
                 <ListItemText primary="Inventario" align="center"/>

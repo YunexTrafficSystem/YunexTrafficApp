@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Lab() {
+export default function Ens() {
   const classes = useStyles();
 
   //Hook para que el buscador funcione
@@ -41,11 +41,10 @@ export default function Lab() {
 
 //Datos ficticios usados para que se muestren en la tabla 
   const data = [
-    { serial: 'L-1001', equipo: 'MP', date: '17/07/2021' },
-    { serial: 'L-1002', equipo: 'MP', date: '17/07/2021' },
-    { serial: 'L-1003', equipo: 'MP', date: '17/07/2021' },
-    { serial: 'L-1004', equipo: 'MP', date: '17/07/2021' },
-    { serial: 'L-1005', equipo: 'MP', date: '17/07/2021' },
+    { consecutivo: '30010', tipoDeSolicitud: 'Semaforo', date: '17/07/2021' },
+    { consecutivo: '30040', tipoDeSolicitud: 'Controlador', date: '06/09/2022' },
+    { consecutivo: '30001', tipoDeSolicitud: 'SX proteccion', date: '27/01/2022' },
+    { consecutivo: '30014', tipoDeSolicitud: 'Bandejas', date: '11/10/2022' },
 
   ];
   return (
@@ -72,7 +71,7 @@ export default function Lab() {
           />
           <Grid sx={{mt:7}}>
             {/**Boton para agregar un nuevo evento*/}
-            <Button variant="outlined"  size="small" color="black">
+            <Button variant="outlined"  sx={{size:"small"}} color="black">
               Agregar
             </Button>
           </Grid>
@@ -85,8 +84,8 @@ export default function Lab() {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell align="center">Numero de Ticket</TableCell>
-              <TableCell align="center">Equipo</TableCell>
+              <TableCell align="center">consecutivo</TableCell>
+              <TableCell align="center">Tipo de Solicitud</TableCell>
               <TableCell align="center">Fecha estimada de entrega</TableCell>
               <TableCell align="center">Estado</TableCell>
             </TableRow>
@@ -94,8 +93,8 @@ export default function Lab() {
           <TableBody>
             {data.map((row) => (
               <TableRow key={row.name}>
-                <TableCell align="center">{row.serial}</TableCell>
-                <TableCell align="center">{row.equipo}</TableCell>
+                <TableCell align="center">{row.consecutivo}</TableCell>
+                <TableCell align="center">{row.tipoDeSolicitud}</TableCell>
                 <TableCell align="center" >{row.date}</TableCell>
                 <TableCell align="center">
                 <FormControl required fullWidth margin="dense">
@@ -126,7 +125,7 @@ export default function Lab() {
               <br />
               <DialogContent>
                 <Grid container spacing={2}>
-                  <Grid item xs={8} sm={8} align="center">
+                  <Grid item xs={12} sm={6} align="center">
                     <FormControl fullWidth>
                       <InputLabel>Estado</InputLabel>
                       <Select
@@ -140,23 +139,11 @@ export default function Lab() {
 
                   <Grid item xs={12} sm={6}>
                     <TextField
-                     variant="outlined"
-                      type='time'
-                      helperText='Horas real de entrega'
-                      margin='dense'
-                      fullWidth
-                      size="normal"
-                      required
-                    />
-                  </Grid>
-
-                  <Grid item xs={12} sm={6}>
-                    <TextField
                         variant="outlined"
-                        type='text'
+                        type='date'
                         id='fullName'
                         name='nombre'
-                        label='Cumplio con las horas establecidas'
+                        helperText="Fecha de Finalizacion"
                         margin='dense'
                         fullWidth
                         size="normal"
@@ -168,7 +155,7 @@ export default function Lab() {
                     <TextField
                         variant="outlined"
                         type='date'
-                        helperText='Fecha real de entrega'
+                        helperText="Fecha real de Entrega"
                         margin='dense'
                         fullWidth
                         size="normal"
@@ -196,7 +183,7 @@ export default function Lab() {
                         type='text'
                         id='fullName'
                         name='nombre'
-                        label='Responsable Laboratorio'
+                        label='Responsable Ensabmble'
                         margin='dense'
                         fullWidth
                         size="normal"
@@ -244,6 +231,3 @@ export default function Lab() {
     </>
   );
 }
-
-
-{/* onClick={handleSearch}*/}

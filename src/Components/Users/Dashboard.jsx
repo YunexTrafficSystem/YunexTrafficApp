@@ -1,20 +1,25 @@
 import { useState } from 'react';
-import { styled, ThemeProvider } from '@mui/material/styles';
+
 import MuiDrawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
-import IconButton from '@mui/material/IconButton';
 import Grid from '@mui/material/Grid';
 import MenuIcon from '@mui/icons-material/Menu';
-import { makeStyles } from '@material-ui/core/styles';
-import SecondaryListItems from './ListItems';
-import EditProfile from './EditProfile';
 import Button from '@material-ui/core/Button';
+import Paper from '@mui/material/Paper'
+//importaciones etiquetas para personalizar
+import { styled, ThemeProvider } from '@mui/material/styles';
 import { createMuiTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
+//Importaciones de Iconos
+import PersonIcon from '@mui/icons-material/Person';
+import EditProfile from './EditProfile';
+import IconButton from '@mui/material/IconButton';
 
-
+//Importaciones de Funcioes
+import SecondaryListItems from './ListItems';
 import Balance from '../../Balance';
 import Zone from '../../Zone';
 import Garantias from './Garantias';
@@ -25,6 +30,8 @@ import InventarioEhs from './InventarioEhs';
 import Lab from './Lab'
 import BalanceEnsamble from './BalanceEnsamble';
 import Mantenimiento from './Mantenimiento';
+import Ensambles from './Ensambles';
+import Typography from '@mui/material/Typography'
 
 
 
@@ -39,6 +46,7 @@ const modules = [
   <EditProfile />,
   <Lab/>,
   <Balance />,
+  <Ensambles/>,
   <BalanceEnsamble/>,
   <Mantenimiento/>,
   <Zone />,
@@ -153,11 +161,12 @@ function DashboardContent() {
                   }}>
                     <MenuIcon />
                   </IconButton>
+                  
                 <Grid sx={{m:10}}>
                   <img src='../public/img/logo.png' alt='' width='100px' height='40px' />
                 </Grid>
                 <Grid container direction='row' justifyContent='end'>
-                  <Button variant="contained" className={classes.buton} onClick={modules[0]}>
+                  <Button variant="contained" className={classes.buton} href="Dashboard">
                     INICIO
                   </Button>
                   <Button variant="contained" className={classes.buton}>
