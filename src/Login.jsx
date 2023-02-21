@@ -7,11 +7,11 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MenuIcon from '@mui/icons-material/Menu';
 import { makeStyles } from '@material-ui/core/styles'
 import { ThemeProvider } from '@material-ui/core';
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createTheme } from '@material-ui/core/styles';
 
 
 //personalizacion de los colores
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: {
     primary:{
       main: '#e2edF3'
@@ -71,7 +71,7 @@ export default function SignIn() {
                 {/**Botones de navegación */}
                 <Button href="/">INICIO</Button>
                 <Button href="SignUp">REGISTRARSE</Button>
-                <Button href="Login" theme={theme}>INICIAR SESION</Button>
+                <Button href="Login" theme={theme}>INICIAR SESIÓN</Button>
               </ButtonGroup>
 
               </Grid>

@@ -46,8 +46,6 @@ const ResponsiveFooter = () => {
                     Impripmit
                   </Typography>
                 </Grid>
-
-
               </Grid>
           </Toolbar>
 
