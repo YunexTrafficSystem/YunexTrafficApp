@@ -14,6 +14,7 @@ import WorkRoundedIcon from '@mui/icons-material/WorkRounded';
 import UploadFileOutlinedIcon from '@mui/icons-material/UploadFileOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import PersonSharpIcon from '@mui/icons-material/PersonSharp';
 import Grid from '@mui/material/Grid';
 
 function SecondaryListItems(props) {
@@ -34,13 +35,28 @@ function SecondaryListItems(props) {
   }
 
   return (
+    
     <>  
+
+
+
+
           <Container align="center">
             <Typography variant="body3" color="initial">
               MENÚ
             </Typography>
           </Container>
-            
+
+
+          <ListItemButton onClick={() => {
+                  props.onClick(1);
+                }}>
+            <ListItemIcon>
+              <PersonSharpIcon/>
+            </ListItemIcon>
+            <ListItemText primary="Editar Perfil" />
+          </ListItemButton>
+
 
           <ListItemButton  onClick={handleLab}>
             <ListItemIcon>
