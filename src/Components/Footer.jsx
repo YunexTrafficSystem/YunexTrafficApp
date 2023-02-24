@@ -44,10 +44,6 @@ export default function ResponsiveFooter () {
                     Impripmit
                   </Typography>
                 </Grid>
-<<<<<<< HEAD
-
-=======
->>>>>>> 6acd696e2c051602fbc883af96ca76f915c6eac9
               </Grid>
 
         </Container>

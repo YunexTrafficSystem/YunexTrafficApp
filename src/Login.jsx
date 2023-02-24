@@ -111,15 +111,15 @@ export default function SignIn() {
 
               <ButtonGroup variant="contained" color="primary" aria-label="contained primary button group">
                 {/**Botones de navegación */}
-<<<<<<< HEAD
+
                 <Button href="/" sx={{display: { xs: 'none', sm: 'block', md: 'block' }}}>INICIO</Button>
                 <Button href="SignUp" sx={{display: { xs: 'none', sm: 'block', md: 'block' }}}>REGISTRARSE</Button>
                 <Button href="Login" theme={theme} sx={{display: { xs: 'none', sm: 'block', md: 'block' }}}>INICIAR SESION</Button>
-=======
+
                 <Button href="/">INICIO</Button>
                 <Button href="SignUp">REGISTRARSE</Button>
                 <Button href="Login" theme={theme}>INICIAR SESIÓN</Button>
->>>>>>> 6acd696e2c051602fbc883af96ca76f915c6eac9
+
               </ButtonGroup>
 
               </Grid>
