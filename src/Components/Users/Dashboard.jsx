@@ -8,13 +8,11 @@ import List from '@mui/material/List';
 import Grid from '@mui/material/Grid';
 import MenuIcon from '@mui/icons-material/Menu';
 import Button from '@material-ui/core/Button';
-import Paper from '@mui/material/Paper'
 //importaciones etiquetas para personalizar
 import { styled, ThemeProvider } from '@mui/material/styles';
 import { createTheme } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/core/styles';
 //Importaciones de Iconos
-import PersonIcon from '@mui/icons-material/Person';
 import EditProfile from './EditProfile';
 import IconButton from '@mui/material/IconButton';
 
