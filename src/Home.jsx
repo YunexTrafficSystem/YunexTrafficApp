@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {  Box,  Button,  Grid,  Typography,   IconButton,ButtonGroup} from '@mui/material';
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
@@ -5,7 +6,8 @@ import Toolbar from '@mui/material/Toolbar';
 import { makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@mui/icons-material/Menu';
 
-
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 
 //personalizacion de los colores
 const useStyles = makeStyles(theme => ({
@@ -18,22 +20,64 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+
 //Declarando la función que retorna la vista del y los datos del Home
 function FeaturesContent() {
   {/**Se declara la variable para que contenga la informacion donde se personalizó los colores */}
   const classes = useStyles();
+
+
+  /////////////
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   return (
     <>
       {/**Barra de navegacion */}
-      <AppBar position='static'>
+      <AppBar position = "static">
 
           {/**Box donde se usa para aplicar el color que se personalizó de fondo en la barra de navegacion*/}
           <Box className={classes.main}>
             <Toolbar>
 
-              <IconButton sx={{m:10,display:{sm:'none'}}}>
+              <IconButton 
+              sx={{m:10,display:{sm:'none'}}}
+              id="basic-button"
+              aria-controls={open ? 'basic-menu' : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? 'true' : undefined}
+              onClick={handleClick}
+              >
                 <MenuIcon/>
               </IconButton>
+              
+                <Menu
+                  id="basic-menu"
+                  anchorEl={anchorEl}
+                  open={open}
+                  onClose={handleClose}
+                  MenuListProps={{
+                    'aria-labelledby': 'basic-button',
+                  }}
+                >
+                  <MenuItem onClick={handleClose}><Button variant="text" href="/">
+                    Inicio
+                  </Button></MenuItem>
+
+                  <MenuItem onClick={handleClose}><Button variant="text" href="SignUp">
+                    Registrarse
+                  </Button></MenuItem>
+
+                  <MenuItem onClick={handleClose}><Button variant="text" href="Login">
+                    Iniciar Sesion
+                  </Button></MenuItem>
+                </Menu>
+
 
               {/**Grid que contiene el logo de yunex traffic  */}
               <Grid sx={{m:10}}>
@@ -46,9 +90,9 @@ function FeaturesContent() {
               <ButtonGroup variant="contained" color="primary" aria-label="contained primary button group">
 
                 {/**Botones de navegación */}
-                <Button href="/" color="inherit">INICIO</Button>
-                <Button href="SignUp">REGISTRARSE</Button>
-                <Button href="Login">INICIAR SESION</Button>
+                <Button href="/" color="inherit"  sx={{display: { xs: 'none', sm: 'block', md: 'block' }}}>INICIO</Button>
+                <Button href="SignUp"  sx={{display: { xs: 'none', sm: 'block', md: 'block' }}}>REGISTRARSE</Button>
+                <Button href="Login"  sx={{display: { xs: 'none', sm: 'block', md: 'block' }}}>INICIAR SESION</Button>
 
               </ButtonGroup>
 
@@ -63,10 +107,10 @@ function FeaturesContent() {
       <Grid margin='7%' >
 
           {/**Grid donde contiene la imagen y el texto que se muestra en el inicio */}
-          <Grid container spacing={2}>
+          <Grid container spacing={2} padding="1%">
             
             {/**Grid que configura como se ve el texto según el tamaño de la pantalla */}
-            <Grid Item xs={12} sm={6} align="center">
+            <Grid item xs={12} sm={6} padding="2%">
 
               {/** Typography Se define las caracteristicas del texto */}
               <Typography component='h1' variant='h3' align='center' color='text.ligthgreen' gutterBottom > 
@@ -104,8 +148,8 @@ function FeaturesContent() {
             <br />
 
             {/**Grid que contiene la imagen que aparece en el inicio*/}
-            <Grid Item sx={12} sm={6}>
-              <img src='../public/img/yunex.jpg' alt='' width='600px' height='300'/>
+            <Grid item sm={6} xs={12} sx={{mt:10, padding:0}} align="center">
+              <img src='../public/img/yunex.jpg' alt='' width='450px' height='250' />
             </Grid>
           </Grid>
 

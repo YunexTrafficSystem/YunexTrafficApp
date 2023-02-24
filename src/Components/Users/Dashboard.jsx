@@ -11,7 +11,7 @@ import Button from '@material-ui/core/Button';
 import Paper from '@mui/material/Paper'
 //importaciones etiquetas para personalizar
 import { styled, ThemeProvider } from '@mui/material/styles';
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createTheme } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/core/styles';
 //Importaciones de Iconos
 import PersonIcon from '@mui/icons-material/Person';
@@ -120,7 +120,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: {
     primary:{
       main: '#3EEB92'
@@ -153,9 +153,9 @@ function DashboardContent() {
             <Box  className={classes.card}>
               <Toolbar>
                   <IconButton
-                    edge="start"
-                    color="inherit"
-                    aria-label="open drawer"
+                    edge='start'
+                    color='inherit'
+                    aria-label='open drawer'
                     onClick={toggleDrawer}
                     sx={{m:10, display:{sm:'none'}
                   }}>
@@ -169,7 +169,7 @@ function DashboardContent() {
                   <Button variant="contained" className={classes.buton} href="/">
                     INICIO
                   </Button>
-                  <Button variant="contained" className={classes.buton}>
+                  <Button variant='contained' className={classes.buton}>
                     CERRAR SESION
                   </Button>
                 </Grid>
@@ -179,8 +179,8 @@ function DashboardContent() {
       {/**Este box contiene el sideBar y la ventana donde se muestra la infromacion */}
       <Box sx={{ display: 'flex' }} className={classes.main}>
         {/**El sideBar */}
-        <Drawer  variant="permanent" open={open}>
-          <Grid bgcolor="primary.main" >
+        <Drawer  variant='permanent' open={open}>
+          <Grid bgcolor='primary.main' >
             <List>
               <SecondaryListItems
                 onClick={
@@ -192,9 +192,9 @@ function DashboardContent() {
         </Drawer>
 
         {/**Ventana donde se muestra la información */}
-        <Grid container sx={{ mt:27, mb: 27, ml:29, mr:29 }} className={classes.card} margin="auto" padding="1%">
+        <Grid container sx={{ mt:27, mb: 27, ml:29, mr:29 }} className={classes.card} margin='auto' padding='1%'>
 
-            <Grid container spacing={3} display="flex" >
+            <Grid container spacing={3} display='flex' >
               <Grid item xs={12}>
               {modules[selectedTab-1]}
               </Grid>

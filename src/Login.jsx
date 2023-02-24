@@ -1,4 +1,4 @@
-
+import * as React from 'react';
 //IMportaciones de etiquetas
 import {  Avatar,  Button,  TextField, Link,  Grid,  Box,  Typography,  Toolbar,  AppBar,  IconButton, ButtonGroup } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom'
@@ -7,11 +7,14 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MenuIcon from '@mui/icons-material/Menu';
 import { makeStyles } from '@material-ui/core/styles'
 import { ThemeProvider } from '@material-ui/core';
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createTheme } from '@material-ui/core/styles';
 
+
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 
 //personalizacion de los colores
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: {
     primary:{
       main: '#e2edF3'
@@ -41,6 +44,16 @@ export default function SignIn() {
   {/**Se declara la variable para que contenga la informacion donde se personalizó los colores */}
   const classes = useStyles();
 
+
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   return (
     <>
 
@@ -55,9 +68,38 @@ export default function SignIn() {
 
             <Toolbar>
 
-              <IconButton sx={{m:10,display:{sm:'none'}}}>
+            <IconButton 
+              sx={{m:10,display:{sm:'none'}}}
+              id="basic-button"
+              aria-controls={open ? 'basic-menu' : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? 'true' : undefined}
+              onClick={handleClick}
+              >
                 <MenuIcon/>
               </IconButton>
+              
+                <Menu
+                  id="basic-menu"
+                  anchorEl={anchorEl}
+                  open={open}
+                  onClose={handleClose}
+                  MenuListProps={{
+                    'aria-labelledby': 'basic-button',
+                  }}
+                >
+                  <MenuItem onClick={handleClose}><Button variant="text" href="/">
+                    Inicio
+                  </Button></MenuItem>
+
+                  <MenuItem onClick={handleClose}><Button variant="text" href="SignUp">
+                    Registrarse
+                  </Button></MenuItem>
+
+                  <MenuItem onClick={handleClose}><Button variant="text" href="Login">
+                    Iniciar Sesion
+                  </Button></MenuItem>
+                </Menu>
 
               {/**Grid que contiene el logo de yunex traffic  */}
               <Grid sx={{m:10}}>
@@ -69,9 +111,9 @@ export default function SignIn() {
 
               <ButtonGroup variant="contained" color="primary" aria-label="contained primary button group">
                 {/**Botones de navegación */}
-                <Button href="/">INICIO</Button>
-                <Button href="SignUp">REGISTRARSE</Button>
-                <Button href="Login" theme={theme}>INICIAR SESION</Button>
+                <Button href="/" sx={{display: { xs: 'none', sm: 'block', md: 'block' }}}>INICIO</Button>
+                <Button href="SignUp" sx={{display: { xs: 'none', sm: 'block', md: 'block' }}}>REGISTRARSE</Button>
+                <Button href="Login" theme={theme} sx={{display: { xs: 'none', sm: 'block', md: 'block' }}}>INICIAR SESION</Button>
               </ButtonGroup>
 
               </Grid>
@@ -89,7 +131,7 @@ export default function SignIn() {
             <Box padding='2%' width='500px' margin='auto' boxShadow='0px 2px 2px black' color='inherit' className={classes.card}>
 
                 {/**Grid que configura como se ve el icono y el texto de Iniciar sesion del formulario según el tamaño de la pantalla */}
-                <Grid Item xs={12} sm={12}>
+                <Grid item xs={12} sm={12}>
 
                     <Avatar sx={{bgcolor:'primary.main', margin:'auto'}}>
                       <AccountCircleIcon  />
@@ -108,7 +150,7 @@ export default function SignIn() {
                 <Box component='form' onSubmit={handleSubmit(onSubmit)} noValidate >
                   
                   {/**Grid que configura como se ve los cuadros donde se ingresan los datos del formulario según el tamaño de la pantalla */}
-                  <Grid Item xs={12} sm={12}>
+                  <Grid item xs={12} sm={12}>
 
                     {/**Cuadro donde el Interesado ingresara su Correo Electronico */}
                     <TextField

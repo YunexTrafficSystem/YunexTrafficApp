@@ -5,11 +5,11 @@ import ReactDOM from 'react-dom/client'
 
 import Forgot from './Forgot'
 import Login from './Login'
-import Footer from './Components/Footer'
+import ResponsiveFooter from './Components/Footer'
 import SignUp from './SignUp'
 import Home from './Home'
 import Dashboard from './Components/users/Dashboard'
-import Menu from './Menu'
+// import Menu from './Menu'
 
 import { EHS } from './EHS'
 import { Balance } from './Balance'
@@ -58,12 +58,12 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="formStepper" element={<FormStepper />} />
           <Route path="finalStep" element={< FinalStep />} />
           <Route path="balance" element={< Balance />} />
-          <Route path="menu" element={<Menu />} />
+          {/* <Route path="menu" element={<Menu />} /> */}
           <Route path="ehs" element={<EHS />} />
           <Route path="dashboard" element={<Dashboard />} />
         </Routes>
       </Router>
-      <Footer />
+      <ResponsiveFooter />
     </ThemeProvider>
   </React.StrictMode>
 )
