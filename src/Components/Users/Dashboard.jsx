@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import {ButtonGroup} from '@mui/material';
 import MuiDrawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
 import MuiAppBar from '@mui/material/AppBar';
@@ -155,7 +155,7 @@ function DashboardContent() {
                     color='inherit'
                     aria-label='open drawer'
                     onClick={toggleDrawer}
-                    sx={{m:10, display:{sm:'none'}
+                    sx={{m:10, display:{md:'none'}
                   }}>
                     <MenuIcon />
                   </IconButton>
@@ -163,13 +163,13 @@ function DashboardContent() {
                 <Grid sx={{m:10}}>
                   <img src='../public/img/logo.png' alt='' width='100px' height='40px' />
                 </Grid>
-                <Grid container direction='row' justifyContent='end'>
-                  <Button variant="contained" className={classes.buton} href="/">
-                    INICIO
-                  </Button>
-                  <Button variant='contained' className={classes.buton}>
-                    CERRAR SESION
-                  </Button>
+                <Grid container direction='row' justifyContent='end' >
+                  <ButtonGroup variant="contained" color="primary" aria-label="contained primary button group">
+                    {/**Botones de navegación */}
+                    <Button href="/" color="inherit" className={classes.buton} sx={{display: { xs: 'none', sm: 'none', md: 'block' }}}>INICIO</Button>
+                    <Button href="SignUp" className={classes.buton} sx={{display: { xs: 'none', sm: 'none', md: 'block' }}}>Cerrar Sesion</Button>
+
+                  </ButtonGroup>
                 </Grid>
               </Toolbar>
             </Box>
@@ -190,10 +190,10 @@ function DashboardContent() {
         </Drawer>
 
         {/**Ventana donde se muestra la información */}
-        <Grid container sx={{ mt:27, mb: 27, ml:29, mr:29 }} className={classes.card} margin='auto' padding='1%'>
+        <Grid container sx={{ mt:27, mb: 27, ml:29, mr:29 }} className={classes.card} margin='auto' padding='1%' >
 
             <Grid container spacing={3} display='flex' >
-              <Grid item xs={12}>
+              <Grid item xs={12} sm={12}  md={12} >
               {modules[selectedTab-1]}
               </Grid>
 

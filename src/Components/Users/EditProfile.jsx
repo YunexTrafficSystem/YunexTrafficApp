@@ -8,7 +8,7 @@ export default function FormFDialog() {
 
   return (
     <>
-              <Grid container spacing={2} >
+              <Grid container spacing={2} component='form'>
                 <Grid item xs={12} sm={12}>
                   <TextField
                     autoFocus
@@ -18,6 +18,7 @@ export default function FormFDialog() {
                     type="text"
                     fullWidth
                     variant="outlined"
+                    required
                   />
                 </Grid>
                 <Grid item xs={12} sm={12}>
@@ -29,6 +30,7 @@ export default function FormFDialog() {
                     type="email"
                     fullWidth
                     variant="outlined"
+                    required
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -40,6 +42,7 @@ export default function FormFDialog() {
                     type="number"
                     fullWidth
                     variant="outlined"
+                    required
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -47,9 +50,11 @@ export default function FormFDialog() {
                     autoFocus
                     margin="dense"
                     id="fechaNacimiento"
+                    helperText="fecha de nacimiento"
                     type="date"
                     fullWidth
                     variant="outlined"
+                    required
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -61,6 +66,7 @@ export default function FormFDialog() {
                     type="number"
                     fullWidth
                     variant="outlined"
+                    required
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -68,9 +74,11 @@ export default function FormFDialog() {
                     autoFocus
                     margin="dense"
                     id="fechaExpedicion"
+                    helperText="fecha de expedicion"
                     type="date"
                     fullWidth
                     variant="outlined"
+                    required
                   />
                 </Grid>
                 <Grid

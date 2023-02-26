@@ -119,9 +119,9 @@ export default function Lab() {
 
       {/**Ventana de dialogo en donde esta el formulario de la LaboratorioFase 2 */}
       <Dialog open={open} onClose={handleClose}>
-        <Grid container padding="1%" border="1px solid black">
+        <Grid container padding="1%" border="1px solid black" component='form'>
               <DialogTitle>
-                <Typography variant="body4" color="initial" >Fase 2</Typography>
+                <Typography variant="h2" color="initial" align="center">Fase 2</Typography>
               </DialogTitle>
               <br />
               <DialogContent>
@@ -131,9 +131,10 @@ export default function Lab() {
                       <InputLabel>Estado</InputLabel>
                       <Select
                         label="Estado"
+                        required
                       >
+                        <MenuItem value={1}>Laboratorio</MenuItem>
                         <MenuItem value={2}>Laboratorio</MenuItem>
-                        <MenuItem value={3}>Laboratorio</MenuItem>
                       </Select>
                     </FormControl>
                   </Grid>
@@ -145,7 +146,6 @@ export default function Lab() {
                       helperText='Horas real de entrega'
                       margin='dense'
                       fullWidth
-                      size="normal"
                       required
                     />
                   </Grid>
@@ -159,7 +159,6 @@ export default function Lab() {
                         label='Cumplio con las horas establecidas'
                         margin='dense'
                         fullWidth
-                        size="normal"
                         required
                       />
                   </Grid>
@@ -171,7 +170,6 @@ export default function Lab() {
                         helperText='Fecha real de entrega'
                         margin='dense'
                         fullWidth
-                        size="normal"
                         required
                       />
                   </Grid>
@@ -185,7 +183,7 @@ export default function Lab() {
                         label='Cumplio con la fecha establecida'
                         margin='dense'
                         fullWidth
-                        size="normal"
+
                         required
                       />
                   </Grid>
@@ -199,7 +197,6 @@ export default function Lab() {
                         label='Responsable Laboratorio'
                         margin='dense'
                         fullWidth
-                        size="normal"
                         required
                       />
                   </Grid>
@@ -213,7 +210,7 @@ export default function Lab() {
                         label='Responsable Servicios'
                         margin='dense'
                         fullWidth
-                        size="normal"
+
                         required
                       />
                   </Grid>
@@ -228,7 +225,6 @@ export default function Lab() {
                     <Button
                       type='submit'
                       variant='contained'
-                      onClick={handleClose}
                       sx={{ mt: 3, mb: 2 }}
                       >
                         ENVIAR
@@ -236,9 +232,6 @@ export default function Lab() {
                   </Grid>
                 </Grid>
               </DialogContent>
-              <DialogActions>
-
-              </DialogActions>
         </Grid>
       </Dialog>
     </>

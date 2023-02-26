@@ -118,21 +118,22 @@ export default function Ens() {
 
       {/**Ventana de dialogo en donde esta el formulario de la LaboratorioFase 2 */}
       <Dialog open={open} onClose={handleClose}>
-        <Grid container padding="1%" border="1px solid black">
+        <Grid container padding="1%" border="1px solid black"  component='form'>
               <DialogTitle>
-                <Typography variant="body4" color="initial" >Fase 2</Typography>
+                <Typography variant="h2" color="initial" align="center">Fase 2</Typography>
               </DialogTitle>
               <br />
               <DialogContent>
                 <Grid container spacing={2}>
-                  <Grid item xs={12} sm={6} align="center">
+                  <Grid item xs={6} sm={6} align="center">
                     <FormControl fullWidth>
                       <InputLabel>Estado</InputLabel>
                       <Select
                         label="Estado"
+                        required
                       >
+                        <MenuItem value={1}>Laboratorio</MenuItem>
                         <MenuItem value={2}>Laboratorio</MenuItem>
-                        <MenuItem value={3}>Laboratorio</MenuItem>
                       </Select>
                     </FormControl>
                   </Grid>
@@ -146,7 +147,6 @@ export default function Ens() {
                         helperText="Fecha de Finalizacion"
                         margin='dense'
                         fullWidth
-                        size="normal"
                         required
                       />
                   </Grid>
@@ -158,7 +158,6 @@ export default function Ens() {
                         helperText="Fecha real de Entrega"
                         margin='dense'
                         fullWidth
-                        size="normal"
                         required
                       />
                   </Grid>
@@ -172,7 +171,6 @@ export default function Ens() {
                         label='Cumplio con la fecha establecida'
                         margin='dense'
                         fullWidth
-                        size="normal"
                         required
                       />
                   </Grid>
@@ -186,7 +184,6 @@ export default function Ens() {
                         label='Responsable Ensabmble'
                         margin='dense'
                         fullWidth
-                        size="normal"
                         required
                       />
                   </Grid>
@@ -200,7 +197,18 @@ export default function Ens() {
                         label='Responsable Servicios'
                         margin='dense'
                         fullWidth
-                        size="normal"
+                        required
+                      />
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                    <TextField
+                        variant="outlined"
+                        type='text'
+                        id='fullName'
+                        name='nombre'
+                        label='Satisfaccion '
+                        margin='dense'
+                        fullWidth
                         required
                       />
                   </Grid>
@@ -215,7 +223,6 @@ export default function Ens() {
                     <Button
                       type='submit'
                       variant='contained'
-                      onClick={handleClose}
                       sx={{ mt: 3, mb: 2 }}
                       >
                         ENVIAR
@@ -223,9 +230,6 @@ export default function Ens() {
                   </Grid>
                 </Grid>
               </DialogContent>
-              <DialogActions>
-
-              </DialogActions>
         </Grid>
       </Dialog>
     </>

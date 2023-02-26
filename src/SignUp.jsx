@@ -66,7 +66,7 @@ export default function SignUp() {
             <Toolbar>
 
               <IconButton 
-              sx={{m:10,display:{sm:'none'}}}
+              sx={{m:10,display:{md:'none'}}}
               id="basic-button"
               aria-controls={open ? 'basic-menu' : undefined}
               aria-haspopup="true"
@@ -109,9 +109,9 @@ export default function SignUp() {
               <ButtonGroup variant="contained" color="primary" aria-label="contained primary button group">
 
                 {/**Botones de navegación */}
-                <Button href="/" sx={{display: { xs: 'none', sm: 'block', md: 'block' }}}>INICIO</Button>
-                <Button href="SignUp" theme={theme} sx={{display: { xs: 'none', sm: 'block', md: 'block' }}}>REGISTRARSE</Button>
-                <Button href="Login" sx={{display: { xs: 'none', sm: 'block', md: 'block' }}}>INICIAR SESION</Button>
+                <Button href="/" sx={{display: { xs: 'none', sm: 'none', md: 'block' }}}>INICIO</Button>
+                <Button href="SignUp" theme={theme} sx={{display: { xs: 'none', sm: 'none', md: 'block' }}}>REGISTRARSE</Button>
+                <Button href="Login" sx={{display: { xs: 'none', sm: 'none', md: 'block' }}}>INICIAR SESION</Button>
 
               </ButtonGroup>
 

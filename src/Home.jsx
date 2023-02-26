@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import {  Box,  Button,  Grid,  Typography,   IconButton,ButtonGroup} from '@mui/material';
+import {  Box,  Button,  Grid,  Typography,   IconButton,ButtonGroup, Dialog} from '@mui/material';
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -46,7 +46,7 @@ function FeaturesContent() {
             <Toolbar>
 
               <IconButton 
-              sx={{m:10,display:{sm:'none'}}}
+              sx={{m:10,display:{md:'none'}}}
               id="basic-button"
               aria-controls={open ? 'basic-menu' : undefined}
               aria-haspopup="true"
@@ -90,9 +90,9 @@ function FeaturesContent() {
               <ButtonGroup variant="contained" color="primary" aria-label="contained primary button group">
 
                 {/**Botones de navegación */}
-                <Button href="/" color="inherit"  sx={{display: { xs: 'none', sm: 'block', md: 'block' }}}>INICIO</Button>
-                <Button href="SignUp"  sx={{display: { xs: 'none', sm: 'block', md: 'block' }}}>REGISTRARSE</Button>
-                <Button href="Login"  sx={{display: { xs: 'none', sm: 'block', md: 'block' }}}>INICIAR SESION</Button>
+                <Button href="/" color="inherit"  sx={{display: { xs: 'none', sm: 'none', md: 'block' }}}>INICIO</Button>
+                <Button href="SignUp"  sx={{display: { xs: 'none', sm: 'none', md: 'block' }}}>REGISTRARSE</Button>
+                <Button href="Login"  sx={{display: { xs: 'none', sm: 'none', md: 'block' }}}>INICIAR SESION</Button>
 
               </ButtonGroup>
 
@@ -110,7 +110,7 @@ function FeaturesContent() {
           <Grid container spacing={2} padding="1%">
             
             {/**Grid que configura como se ve el texto según el tamaño de la pantalla */}
-            <Grid item xs={12} sm={6} padding="2%">
+            <Grid item xs={12} sm={12} md={6} padding="2%">
 
               {/** Typography Se define las caracteristicas del texto */}
               <Typography component='h1' variant='h3' align='center' color='text.ligthgreen' gutterBottom > 
@@ -148,7 +148,7 @@ function FeaturesContent() {
             <br />
 
             {/**Grid que contiene la imagen que aparece en el inicio*/}
-            <Grid item sm={6} xs={12} sx={{mt:10, padding:0}} align="center">
+            <Grid item sm={12} xs={12} md={6} sx={{mt:10, padding:0}} align="center">
               <img src='../public/img/yunex.jpg' alt='' width='450px' height='250' />
             </Grid>
           </Grid>
