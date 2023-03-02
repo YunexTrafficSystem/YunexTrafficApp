@@ -1,4 +1,5 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles} from '@material-ui/core/styles';
+import { createTheme } from '@material-ui/core/styles';
 import { Container, Grid, Button, InputLabel, FormControl, MenuItem, Select } from '@mui/material'
 import * as React from 'react';
 import { IconButton, InputAdornment, TextField } from '@material-ui/core';
@@ -9,6 +10,7 @@ import Dialog from "@mui/material/Dialog"
 import DialogActions from "@mui/material/DialogActions"
 import DialogContent from "@mui/material/DialogContent"
 import DialogTitle from "@mui/material/DialogTitle"
+import { ThemeProvider } from '@mui/material/styles';
 
 const useStyles = makeStyles(theme => ({
   main: {
@@ -19,6 +21,13 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+
+const theme = createTheme({
+  typography: {
+    fontFamily:'cabin'
+
+  },
+});
 export default function Ens() {
   const classes = useStyles();
 
@@ -29,16 +38,28 @@ export default function Ens() {
   //   console.log('Buscando:', searchText);
 
 
+//Hooks para desplegar el cuadro de dialogo en donde esta el formulario de Laboratoriofase1
+const [open, setOpen] = useState(false);
+
+const handleClickOpen = () => {
+  setOpen(true);
+};
+const handleClose = () => {
+  setOpen(false);
+};
+
+
+
+
 //Hooks para desplegar el cuadro de dialogo en donde esta el formulario de Laboratoriofase2
-  const [open, setOpen] = useState(false);
+  const [open2, setOpen2] = useState(false);
 
-  const handleClickOpen = () => {
-    setOpen(true);
+  const handleClickOpen2 = () => {
+    setOpen2(true);
   };
-  const handleClose = () => {
-    setOpen(false);
+  const handleClose2 = () => {
+    setOpen2(false);
   };
-
 //Datos ficticios usados para que se muestren en la tabla 
   const data = [
     { consecutivo: '30010', tipoDeSolicitud: 'Semaforo', date: '17/07/2021' },
@@ -71,7 +92,7 @@ export default function Ens() {
           />
           <Grid sx={{mt:7}}>
             {/**Boton para agregar un nuevo evento*/}
-            <Button variant="outlined"  sx={{size:"small"}} color="black">
+            <Button variant="outlined" color="black" onClick={handleClickOpen}>
               Agregar
             </Button>
           </Grid>
@@ -102,7 +123,7 @@ export default function Ens() {
                     <Select
                       required
                     >
-                      <MenuItem value={1} onClick={handleClickOpen}>Completar</MenuItem>
+                      <MenuItem value={1} onClick={handleClickOpen2}>Completar</MenuItem>
                       <MenuItem value={2}>Completado</MenuItem>
                     </Select>
 
@@ -115,18 +136,178 @@ export default function Ens() {
         </Grid>
       </Container>
 
+      {/**Ventana de dialogo en donde esta el formulario de la LaboratorioFase 1 */}
+      <Dialog open={open} onClose={handleClose} maxWidth="md">
+        <Grid container padding="1%" border="1px solid black" component='form' >
+          <ThemeProvider>
+              <DialogTitle margin="auto" >
+                <Typography variant="h2" color="initial"  theme={theme} >Fase 1</Typography>
+              </DialogTitle>
+          </ThemeProvider>
+              <br />
+              <DialogContent>
+
+                <Grid container spacing={2}>
+
+                  <Grid item xs={12} sm={4} align="center" >
+
+                    <FormControl fullWidth size="small" margin='dense'>
+                      <InputLabel>Tipo de solicitud</InputLabel>
+                      <Select
+                        label="Estado"
+                        required
+                      >
+                        <MenuItem value={1}>Laboratorio</MenuItem>
+                        <MenuItem value={2}>Laboratorio</MenuItem>
+                      </Select>
+                    </FormControl>
+                  
+                  </Grid>
+
+                  <Grid item xs={12} sm={4} align="center">
+                    <TextField
+                      
+                     variant="outlined"
+                      type='number'
+                      label='Consecutivo'
+                      margin='dense'
+                      fullWidth
+                      required
+                    />
+
+
+                  </Grid>
+                  <Grid item xs={12} sm={4} align="center">
+                    <TextField
+                      
+                        variant="outlined"
+                        type='number'
+                        label='Grafo'
+                        margin='dense'
+                        fullWidth
+                        required
+                      />
+                  </Grid>
+
+                  <Grid item xs={12} sm={4}>
+
+                    <TextField
+                        variant="outlined"
+                        type='number'
+                        label='Cantidad'
+                        margin='dense'
+                        fullWidth
+                        required
+                      />
+                  </Grid>
+
+                  <Grid item xs={12} sm={4}>
+                    <TextField
+                        variant="outlined"
+                        type='text'
+                        label='Nombre del contrato'
+                        margin='dense'
+                        fullWidth
+
+                        required
+                      />
+                  </Grid>
+
+                  <Grid item xs={12} sm={4} align="center" >
+
+                    <FormControl fullWidth size="small" margin='dense'>
+                      <InputLabel>Nombre del remitente</InputLabel>
+                      <Select
+                        required
+                      >
+                        <MenuItem value={1}>Laboratorio</MenuItem>
+                        <MenuItem value={2}>Laboratorio</MenuItem>
+                      </Select>
+                    </FormControl>
+                    
+                  </Grid>
+
+                  <Grid item xs={12} sm={4} align="center" >
+
+                    <FormControl fullWidth size="small" margin='dense'>
+                      <InputLabel>Nombre destinatario</InputLabel>
+                      <Select
+                        required
+                      >
+                        <MenuItem value={1}>Laboratorio</MenuItem>
+                        <MenuItem value={2}>Laboratorio</MenuItem>
+                      </Select>
+                    </FormControl>
+                    
+                  </Grid>
+
+                  <Grid item xs={12} sm={4}>
+                    <TextField
+                      type="date"
+                      margin='dense'
+                      variant="outlined"
+                      helperText="Fecha de recibido"
+                      fullWidth
+                    />
+                  </Grid>
+
+                  <Grid item xs={12} sm={4}>
+                    <TextField
+                      type="date"
+                      margin='dense'
+                      variant="outlined"
+                      helperText="Fecha estimada de devolucion"
+                      fullWidth
+                    />
+                  </Grid>
+                </Grid>
+
+                <Grid item xs={12} sm={4} margin="auto" >
+
+                  <FormControl fullWidth size="small" margin='dense'>
+                    <InputLabel>Estado</InputLabel>
+                    <Select
+                      label="Estado"
+                      required
+                    >
+                      <MenuItem value={1}>Laboratorio</MenuItem>
+                      <MenuItem value={2}>Laboratorio</MenuItem>
+                    </Select>
+                  </FormControl>
+
+                </Grid>
+
+                <Grid
+                  container
+                  justifyContent='center'
+                >
+                  <Grid
+                    item
+                  >
+                    <Button
+                      type='submit'
+                      variant='contained'
+                      sx={{ mt: 3, mb: 2 }}
+                      >
+                        ENVIAR
+                    </Button>
+                  </Grid>
+                </Grid>
+              </DialogContent>
+        </Grid>
+      </Dialog>
 
       {/**Ventana de dialogo en donde esta el formulario de la LaboratorioFase 2 */}
-      <Dialog open={open} onClose={handleClose}>
+      <Dialog open={open2} onClose={handleClose2} maxWidth="md">
         <Grid container padding="1%" border="1px solid black"  component='form'>
-              <DialogTitle>
+              <DialogTitle margin="auto">
                 <Typography variant="h2" color="initial" align="center">Fase 2</Typography>
               </DialogTitle>
               <br />
               <DialogContent>
                 <Grid container spacing={2}>
                   <Grid item xs={6} sm={6} align="center">
-                    <FormControl fullWidth>
+                    <FormControl fullWidth margin="dense" size="small">
                       <InputLabel>Estado</InputLabel>
                       <Select
                         label="Estado"
@@ -200,7 +381,7 @@ export default function Ens() {
                         required
                       />
                   </Grid>
-                  <Grid item xs={12} sm={6}>
+                  <Grid item xs={12} sm={6} margin="auto">
                     <TextField
                         variant="outlined"
                         type='text'
