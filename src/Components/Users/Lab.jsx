@@ -244,7 +244,7 @@ const handleClose = () => {
                       size="small"
                       margin='dense'
                       variant="outlined"
-                      label="Multiline"
+                      label="observaciones"
                       fullWidth
                       multiline
                     />

@@ -190,7 +190,7 @@ function DashboardContent() {
         </Drawer>
 
         {/**Ventana donde se muestra la información */}
-        <Grid container sx={{ mt:27, mb: 27, ml:29, mr:29 }} className={classes.card} margin='auto' padding='1%' >
+        <Grid container sx={{ mt:27, mb: 27, ml:17, mr:17 }} className={classes.card} margin='auto' padding='1%' boxShadow='0px 2px 2px black' >
 
             <Grid container spacing={3} display='flex' >
               <Grid item xs={12} sm={12}  md={12} >
