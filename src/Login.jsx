@@ -1,15 +1,10 @@
-import * as React from 'react';
-//IMportaciones de etiquetas
 import {  Avatar,  Button,  TextField, Link,  Grid,  Box,  Typography,  Toolbar,  AppBar,  IconButton, ButtonGroup } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom'
 import { useForm } from "react-hook-form";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MenuIcon from '@mui/icons-material/Menu';
-import { makeStyles } from '@material-ui/core/styles'
 import { ThemeProvider } from '@material-ui/core';
-import { createTheme } from '@material-ui/core/styles';
-
-
+import { createTheme, makeStyles } from '@material-ui/core/styles';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 

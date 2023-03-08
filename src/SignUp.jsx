@@ -182,7 +182,11 @@ export default function SignUp() {
                                 {...register('rol')}    
                               >
                                 <MenuItem value={1}>Administrador</MenuItem>
-                                <MenuItem value={2}>Jefe de Area</MenuItem>
+                                <MenuItem value={2}>Jefe Laboratorio</MenuItem>
+                                <MenuItem value={2}>Jefe Ensamble</MenuItem>
+                                <MenuItem value={2}>Jefe Garantías</MenuItem>
+                                <MenuItem value={2}>Jefe Mantenimiento</MenuItem>
+                                <MenuItem value={2}>Jefe EHS</MenuItem>
                             </Select>
 
                           </FormControl >

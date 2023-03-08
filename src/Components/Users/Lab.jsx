@@ -67,7 +67,7 @@ const handleClose = () => {
           {/**Boton para buscar un evento según con la informacion establecida */}
           <TextField
             margin="dense"
-            label="Buscar"
+            label=" Buscar"
             value={searchText}
             onChange={(event) => setSearchText(event.target.value)}
             InputProps={{
@@ -113,8 +113,8 @@ const handleClose = () => {
                     <Select
                       required
                     >
+                      <MenuItem value={1} onClick={handleClickOpen2}>Completado</MenuItem>
                       <MenuItem value={1} onClick={handleClickOpen2}>Completar</MenuItem>
-                      <MenuItem value={2}>Completado</MenuItem>
                     </Select>
 
                   </FormControl >
@@ -130,7 +130,7 @@ const handleClose = () => {
       <Dialog open={open} onClose={handleClose} maxWidth="md">
         <Grid container padding="1%" border="1px solid black" component='form' >
               <DialogTitle margin="auto">
-                <Typography variant="h2" color="initial"className={classes.title} >Fase 1</Typography>
+                <Typography variant="h4" color="initial"className={classes.title} >INGRESO</Typography>
               </DialogTitle>
               <br />
               <DialogContent>
@@ -140,13 +140,26 @@ const handleClose = () => {
                   <Grid item xs={12} sm={4} align="center" >
 
                     <FormControl fullWidth size="small" margin='dense'>
-                      <InputLabel>Estado</InputLabel>
+                      <InputLabel>Equipo</InputLabel>
                       <Select
                         label="Estado"
                         required
                       >
-                        <MenuItem value={1}>Laboratorio</MenuItem>
-                        <MenuItem value={2}>Laboratorio</MenuItem>
+                        <MenuItem value={1}>Biciusuario</MenuItem>
+                        <MenuItem value={2}>C900</MenuItem>
+                        <MenuItem value={2}>Flecha</MenuItem>
+                        <MenuItem value={2}>GE</MenuItem>
+                        <MenuItem value={2}>MP</MenuItem>
+                        <MenuItem value={2}>Peatonal</MenuItem>
+                        <MenuItem value={2}>PMV</MenuItem>
+                        <MenuItem value={2}>RS900G</MenuItem>
+                        <MenuItem value={2}>ST</MenuItem>
+                        <MenuItem value={2}>ST800</MenuItem>
+                        <MenuItem value={2}>ST900</MenuItem>
+                        <MenuItem value={2}>ST950</MenuItem>
+                        <MenuItem value={2}>Teléfono SOS</MenuItem>
+                        <MenuItem value={2}>Vehicular</MenuItem>
+                        <MenuItem value={2}>Vehículo</MenuItem>
                       </Select>
                     </FormControl>
                   
@@ -206,8 +219,8 @@ const handleClose = () => {
                     <FormControl fullWidth size="small" margin='dense'>
                       <InputLabel>Actividad</InputLabel>
                       <Select required >
-                        <MenuItem value={1}>Laboratorio</MenuItem>
-                        <MenuItem value={2}>Laboratorio</MenuItem>
+                        <MenuItem value={1}>Diagnosticar</MenuItem>
+                        <MenuItem value={2}>Reparar</MenuItem>
                       </Select>
                     </FormControl>
 
@@ -220,8 +233,8 @@ const handleClose = () => {
                       <Select
                         required
                       >
-                        <MenuItem value={1}>Laboratorio</MenuItem>
-                        <MenuItem value={2}>Laboratorio</MenuItem>
+                        <MenuItem value={1}>Si</MenuItem>
+                        <MenuItem value={2}>No</MenuItem>
                       </Select>
                     </FormControl>
                     
@@ -328,8 +341,7 @@ const handleClose = () => {
                       <Select
                         required
                       >
-                        <MenuItem value={1}>Laboratorio</MenuItem>
-                        <MenuItem value={2}>Laboratorio</MenuItem>
+                        <MenuItem value={1}>Inicialización</MenuItem>
                       </Select>
                     </FormControl>
                   </Grid>
@@ -362,7 +374,7 @@ const handleClose = () => {
           border="1px solid black" 
           component='form'>
               <DialogTitle margin="auto">
-                <Typography variant="h2" color="initial" align="center">Fase 2</Typography>
+                <Typography variant="h4" color="initial" align="center">SALIDA</Typography>
               </DialogTitle>
               <br />
               <DialogContent>
@@ -376,8 +388,7 @@ const handleClose = () => {
                         label="Estado"
                         required
                       >
-                        <MenuItem value={1}>Laboratorio</MenuItem>
-                        <MenuItem value={2}>Laboratorio</MenuItem>
+                        <MenuItem value={2}>Finalización</MenuItem>
                       </Select>
                     </FormControl>
                   </Grid>

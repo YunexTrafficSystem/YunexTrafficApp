@@ -141,7 +141,7 @@ const handleClose = () => {
         <Grid container padding="1%" border="1px solid black" component='form' >
           <ThemeProvider>
               <DialogTitle margin="auto" >
-                <Typography variant="h2" color="initial"  theme={theme} >Fase 1</Typography>
+                <Typography variant="h4" color="initial"  theme={theme} >INGRESO</Typography>
               </DialogTitle>
           </ThemeProvider>
               <br />
@@ -157,8 +157,10 @@ const handleClose = () => {
                         label="Estado"
                         required
                       >
-                        <MenuItem value={1}>Laboratorio</MenuItem>
-                        <MenuItem value={2}>Laboratorio</MenuItem>
+                        <MenuItem value={1}>Semáforos</MenuItem>
+                        <MenuItem value={2}>Bandejas</MenuItem>
+                        <MenuItem value={2}>Controlador</MenuItem>
+                        <MenuItem value={2}>SX protección</MenuItem>
                       </Select>
                     </FormControl>
                   
@@ -220,8 +222,10 @@ const handleClose = () => {
                       <Select
                         required
                       >
-                        <MenuItem value={1}>Laboratorio</MenuItem>
-                        <MenuItem value={2}>Laboratorio</MenuItem>
+                        <MenuItem value={1}>Carolina Ardila</MenuItem>
+                        <MenuItem value={2}>Diego Paez</MenuItem>
+                        <MenuItem value={2}>Jimmy Santana</MenuItem>
+                        <MenuItem value={2}>Tatiana Salinas</MenuItem>
                       </Select>
                     </FormControl>
                     
@@ -234,8 +238,10 @@ const handleClose = () => {
                       <Select
                         required
                       >
-                        <MenuItem value={1}>Laboratorio</MenuItem>
-                        <MenuItem value={2}>Laboratorio</MenuItem>
+                        <MenuItem value={1}>Carolina Ardila</MenuItem>
+                        <MenuItem value={2}>Diego Paez</MenuItem>
+                        <MenuItem value={2}>Jimmy Santana</MenuItem>
+                        <MenuItem value={2}>Tatiana Salinas</MenuItem>
                       </Select>
                     </FormControl>
                     
@@ -246,7 +252,7 @@ const handleClose = () => {
                       type="date"
                       margin='dense'
                       variant="outlined"
-                      helperText="Fecha de recibido"
+                      // helperText="Fecha de recibido"
                       fullWidth
                     />
                   </Grid>
@@ -270,8 +276,7 @@ const handleClose = () => {
                       label="Estado"
                       required
                     >
-                      <MenuItem value={1}>Laboratorio</MenuItem>
-                      <MenuItem value={2}>Laboratorio</MenuItem>
+                      <MenuItem value={1}>Iniciación</MenuItem>
                     </Select>
                   </FormControl>
 
@@ -301,7 +306,7 @@ const handleClose = () => {
       <Dialog open={open2} onClose={handleClose2} maxWidth="md">
         <Grid container padding="1%" border="1px solid black"  component='form'>
               <DialogTitle margin="auto">
-                <Typography variant="h2" color="initial" align="center">Fase 2</Typography>
+                <Typography variant="h4" color="initial" align="center">SALIDA</Typography>
               </DialogTitle>
               <br />
               <DialogContent>
@@ -313,8 +318,7 @@ const handleClose = () => {
                         label="Estado"
                         required
                       >
-                        <MenuItem value={1}>Laboratorio</MenuItem>
-                        <MenuItem value={2}>Laboratorio</MenuItem>
+                        <MenuItem value={1}>Finalización</MenuItem>
                       </Select>
                     </FormControl>
                   </Grid>
