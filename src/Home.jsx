@@ -9,7 +9,14 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 
-
+const useStyles = makeStyles(theme => ({
+  main: {
+    backgroundColor: "#E2EDF3"
+  },
+  card:{
+    backgroundColor: '#fff'
+  }
+}))
 
 //Declarando la función que retorna la vista del y los datos del Home
 function FeaturesContent() {
